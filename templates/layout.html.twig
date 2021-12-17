@@ -5,33 +5,25 @@
 
 {% block navbar_start %}
     {% if app.session.get('theme') == 'dark' %}
-    <a href="{{ path('light-mode') }}" class="nav-link px-0 hide-theme-dark" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable light mode">
+    <a href="{{ path('light-mode') }}" class="nav-link px-0 me-2" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable light mode">
         {{ tabler_icon('sun') }}
     </a>
     {% else %}
-    <a href="{{ path('dark-mode') }}" class="nav-link px-0 hide-theme-dark" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable dark mode">
+    <a href="{{ path('dark-mode') }}" class="nav-link px-0 me-2" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable dark mode">
         {{ tabler_icon('moon') }}
     </a>
     {% endif %}
-    <li class="dropdown messages-menu">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fas fa-globe"></i>
-            <span class="label label-primary">{{ app_locales|length }}</span>
+    <div class="nav-item dropdown d-none d-md-flex me-2">
+        <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Choose a language" aria-expanded="false">
+			{{ tabler_icon('fas fa-globe') }}
         </a>
-        <ul class="dropdown-menu">
-            <li class="header">Change language (scroll for more)</li>
-            <li>
-                <ul class="menu">
-                    {% for locale in app_locales %}
-                    <li>
-                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': locale})) }}">
-                            {{ locale|language(app.request.get('_locale')) }}
-                            <span class="pull-right">{{ locale }}</span>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </li>
-        </ul>
-    </li>
+        <div class="dropdown-menu dropdown-menu-end dropdown-menu-card" data-bs-popper="none">
+            <div class="card-header text-nowrap">{{ 'Choose a language'|trans }}</div>
+            {% for locale in app_locales %}
+                <a class="dropdown-item" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': locale})) }}">
+                    {{ locale|language(app.request.get('_locale')) }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
