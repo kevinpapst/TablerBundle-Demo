@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
-{% block page_title %}Twig Context Helper{% endblock %}
-{% block page_subtitle %}available Tabler configurations{% endblock %}
+{% block page_title %}Table bundler helper{% endblock %}
+{% block page_subtitle %}Available Tabler configurations{% endblock %}
 
 {% block page_content %}
     {% import '@Tabler/components/flash.html.twig' as flash_macro %}
@@ -23,10 +23,10 @@
         <div class="col-md-12">
             <h3>Some code examples</h3>
 
-            <p>Dump the Tabler context:</p>
+            <p>Dump the Tabler helper:</p>
             <pre>
                 {%- verbatim -%}
-{{ dump(tabler_context) }}
+{{ dump(tabler_bundle) }}
                 {%- endverbatim -%}
             </pre>
 
@@ -41,7 +41,7 @@
             <p>Check for a config setting:</p>
             <pre>
                 {%- verbatim -%}
-{% if tabler_context.darkMode %}
+{% if tabler_bundle.darkMode %}
     Display dark mode
 {% endif %}
                 {%- endverbatim -%}
