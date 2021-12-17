@@ -53,7 +53,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/forms2", defaults={}, name="forms2")
+     * @Route("/forms/horizontal", defaults={}, name="forms-horizontal")
      */
     public function forms2(Request $request): Response
     {
@@ -61,19 +61,6 @@ class DefaultController extends AbstractController
         $form = $this->handleForm($request, $form);
 
         return $this->render('default/form-horizontal.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/forms3", defaults={}, name="forms3")
-     */
-    public function forms3(Request $request): Response
-    {
-        $form = $this->createForm(FormDemoModelType::class);
-        $form = $this->handleForm($request, $form);
-
-        return $this->render('default/form-sidebar.html.twig', [
             'form' => $form->createView(),
         ]);
     }

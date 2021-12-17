@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
-{% block page_title %}{{ 'forms.title'|trans }}{% endblock %}
-{% block page_subtitle %}{% endblock %}
+{% block page_title %} Horizontal Form {% endblock %}
+{% block page_subtitle %} Fullscreen width form {% endblock %}
 
 {% block page_content %}
     <div class="row">
@@ -12,11 +12,8 @@
                 {% block box_title %}{{ 'A horizontal form demo'|trans }}{% endblock %}
                 {% block box_body %}
                     <p>
-                    Using the additional horizontal form theme:
+                    Using the horizontal form theme:
                     <pre>{% verbatim %}{% form_theme form '@Tabler/layout/form-theme-horizontal.html.twig' %}{% endverbatim %}</pre>
-                    </p>
-                    <p>
-                        Submit the form to see validation errors...
                     </p>
                     <hr>
                     {{ form_widget(form) }}

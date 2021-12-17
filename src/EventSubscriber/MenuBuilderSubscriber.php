@@ -35,39 +35,40 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
     public function onSetupNavbar(MenuEvent $event): void
     {
         $event->addItem(
-            new MenuItemModel('homepage', 'menu.homepage', 'homepage', [], 'fas fa-tachometer-alt')
+            new MenuItemModel('homepage', 'homepage', 'homepage', [], 'fas fa-tachometer-alt')
         );
 
-        $forms = new MenuItemModel('forms', 'menu.form', 'forms', [], 'fab fa-wpforms');
+        $forms = new MenuItemModel('forms', 'Forms', null, [], 'fab fa-wpforms');
         $forms->setBadge('1');
         $forms->setBadgeColor('red');
+
+        $forms->addChild(
+            new MenuItemModel('forms', 'Regular', 'forms', [], 'fab fa-wpforms')
+        );
+        $forms->addChild(
+            new MenuItemModel('sub-demo', 'Horizontal', 'forms-horizontal', [], 'far fa-arrow-alt-circle-down')
+        );
+
         $event->addItem($forms);
 
         $event->addItem(
             new MenuItemModel('context', 'Tabler context', 'context', [], 'fas fa-code')
         );
 
-        $demo = new MenuItemModel('components', 'Components', null, []);
-        $demo->setBadge('2');
-
-        $demo->addChild(
-            new MenuItemModel('sub-demo', 'Form - Horizontal', 'forms2', [], 'far fa-arrow-alt-circle-down')
-        );
-        $demo->addChild(
-            new MenuItemModel('sub-demo2', 'Form - Sidebar', 'forms3', [], 'far fa-arrow-alt-circle-up')
-        );
-        $demo->addChild(
+        $components = new MenuItemModel('components', 'Components', null, []);
+        $components->setBadge('2');
+        $components->addChild(
             new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-button')
         );
-        $event->addItem($demo);
+        $event->addItem($components);
 
         if ($this->security->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $event->addItem(
-                new MenuItemModel('logout', 'menu.logout', 'app_logout', [], 'fas fa-sign-out-alt')
+                new MenuItemModel('logout', 'logout', 'app_logout', [], 'fas fa-sign-out-alt')
             );
         } else {
             $event->addItem(
-                new MenuItemModel('login', 'menu.login', 'app_login', [], 'fas fa-sign-in-alt')
+                new MenuItemModel('login', 'login', 'app_login', [], 'fas fa-sign-in-alt')
             );
         }
 
