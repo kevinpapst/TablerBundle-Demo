@@ -2,13 +2,12 @@
     "name": "kevinpapst/tabler-bundle-demo",
     "license": "MIT",
     "type": "project",
-    "description": "Demo application for showcasing the Tabler Bundle",
+    "description": "Demo application to showcase the Tabler Bundle",
     "require": {
         "php": "^7.4|^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "composer/package-versions-deprecated": "1.11.99.1",
-        "doctrine/annotations": "^1.13",
         "doctrine/common": "^2",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2",
@@ -62,7 +61,9 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "doctrine:database:create": "symfony-cmd",
+            "doctrine:schema:update --force": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

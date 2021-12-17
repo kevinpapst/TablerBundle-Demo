@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a3eeba9f4397908fbf398132252c785",
+    "content-hash": "866c4190dfc06e4bc5487a45c80ec6e9",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1356,27 +1356,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevinpapst/TablerBundle.git",
-                "reference": "45f852a4af6eb094829844cd1f9ae19b29450b77"
+                "reference": "3248744a2b5130d3c3be96b254106aacebafae53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/45f852a4af6eb094829844cd1f9ae19b29450b77",
-                "reference": "45f852a4af6eb094829844cd1f9ae19b29450b77",
+                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/3248744a2b5130d3c3be96b254106aacebafae53",
+                "reference": "3248744a2b5130d3c3be96b254106aacebafae53",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.3",
-                "symfony/asset": ">4.3",
-                "symfony/config": ">4.3",
-                "symfony/dependency-injection": ">4.3",
-                "symfony/event-dispatcher": ">4.3",
-                "symfony/http-foundation": ">4.3",
-                "symfony/http-kernel": ">4.3",
-                "symfony/options-resolver": ">4.3",
-                "symfony/security-core": ">4.3",
-                "symfony/translation": ">4.3",
-                "symfony/twig-bridge": ">4.3",
-                "twig/twig": ">2.0"
+                "php": "^7.4|^8.0",
+                "symfony/asset": "^4.4|^5.0",
+                "symfony/config": "^4.4|^5.0",
+                "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/event-dispatcher": "^4.4|^5.0",
+                "symfony/http-foundation": "^4.4|^5.0",
+                "symfony/http-kernel": "^4.4|^5.0",
+                "symfony/options-resolver": "^4.4|^5.0",
+                "symfony/security-core": "^4.4|^5.0",
+                "symfony/translation": "^4.4|^5.0",
+                "symfony/twig-bridge": "^4.4|^5.0",
+                "twig/twig": "^3.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.0",
@@ -1386,7 +1386,7 @@
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpstan/phpstan-symfony": "^1.0",
                 "phpunit/phpunit": "^8.0",
-                "symfony/framework-bundle": ">4.3"
+                "symfony/framework-bundle": "^4.4|^5.0"
             },
             "suggest": {
                 "knplabs/knp-menu-bundle": "Allows easy menu integration"
@@ -1423,7 +1423,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-17T09:34:56+00:00"
+            "time": "2021-12-17T16:26:44+00:00"
         },
         {
             "name": "knplabs/knp-menu",
