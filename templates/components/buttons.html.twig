@@ -5,117 +5,156 @@
 
 {% block page_content %}
     {% embed '@Tabler/embeds/card.html.twig' %}
-        {% block box_title %}{{ 'Some buttons in a card'|trans }}{% endblock %}
+        {% block box_title %}The single "action button" macro{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
         {% block box_body %}
-            <p>
-                Importing the button macro with:
+            <p class="p-2 pt-3">
+                Use it like this:
                 <strong>
-                {% verbatim %}
-                {% from '@Tabler/components/button.html.twig' import button %}
-                {% endverbatim %}
+                    {% verbatim %}
+                    {% from '@Tabler/components/button.html.twig' import button %}
+                    {% endverbatim %}
                 </strong>
             </p>
-            {% from '@Tabler/components/button.html.twig' import button %}
-            <table class="table table-striped" style="width: 100%">
+            {% set importTpl = "{% from '@Tabler/components/button.html.twig' import button %}" %}
+            {% set buttonTemplates = [
+                importTpl ~ "{{ button('save', {title : 'action.save'|trans}) }}",
+                importTpl ~ "{{ button('save', {title : 'action.save'|trans}, false) }}",
+                importTpl ~ "{{ button('save', {title : 'action.save'|trans, label: 'test'}) }}",
+                importTpl ~ "{{ button('save', {title : 'action.save'|trans}, 'success') }}",
+                importTpl ~ "{{ button(false , {title : 'action.save'|trans}) }}",
+                importTpl ~ "{{ button(false , {title : 'action.save'|trans}, 'link') }}",
+                importTpl ~ "{{ button(false , {title : 'action.save'|trans}, 'success') }}",
+                importTpl ~ "{{ button('save', {title : 'action.save'|trans, combined: true}, 'success') }}",
+                importTpl ~ "{{ button('save', {title : 'action.save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}",
+            ] %}
+            <table class="table" style="width: 100%">
                 <thead>
-                    <tr>
-                        <th>Rendered button</th>
-                        <th>Used code</th>
-                    </tr>
+                <tr>
+                    <th>Rendered button</th>
+                    <th>Used code</th>
+                </tr>
                 </thead>
                 <tbody>
+                {% for btnTpl in buttonTemplates %}
                     <tr>
                         <td style="width: 30%">
-                        {{ button('save', { title : 'action.save'|trans}) }}
+                            {{ include(template_from_string(btnTpl)) }}
                         </td>
                         <td>
-                            {% verbatim %}
-                            {{ button('save', { title : 'action.save'|trans}) }}
-                            {% endverbatim %}
+                            {{ btnTpl|replace({(importTpl): ''}) }}
                         </td>
                     </tr>
-                    <tr>
-                        <td style="width: 30%">
-                        {{ button('save', { title : 'action.save'|trans}, false) }}
-                        </td>
-                        <td>
-                            {% verbatim %}
-                            {{ button('save', { title : 'action.save'|trans}, false) }}
-                            {% endverbatim %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 30%">
-                        {{ button('save', { title : 'action.save'|trans, label: 'test'}) }}
-                        </td>
-                        <td>
-                            {% verbatim %}
-                            {{ button('save', { title : 'action.save'|trans, label: 'test'}) }}
-                            {% endverbatim %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 30%">
-                        {{ button('save', { title : 'action.save'|trans}, 'success') }}
-                        </td>
-                        <td>
-                            {% verbatim %}
-                            {{ button('save', { title : 'action.save'|trans}, 'success') }}
-                            {% endverbatim %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 30%">
-                        {{ button(false , { title : 'action.save'|trans}) }}
-                        </td>
-                        <td>
-                            {% verbatim %}
-                            {{ button(false , { title : 'action.save'|trans}) }}
-                            {% endverbatim %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 30%">
-                        {{ button(false , { title : 'action.save'|trans}, 'link') }}
-                        </td>
-                        <td>
-                            {% verbatim %}
-                            {{ button(false , { title : 'action.save'|trans}, 'link') }}
-                            {% endverbatim %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 30%">
-                        {{ button(false , { title : 'action.save'|trans}, 'success') }}
-                        </td>
-                        <td>
-                            {% verbatim %}
-                            {{ button(false , { title : 'action.save'|trans}, 'success') }}
-                            {% endverbatim %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        {{ button('save', { title : 'action.save'|trans, combined: true}, 'success') }}
-                        </td>
-                        <td>
-                            {% verbatim %}
-                            {{ button('save', { title : 'action.save'|trans, combined: true}, 'success') }}
-                            {% endverbatim %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 30%">
-                        {{ button('save', { title : 'action.save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}
-                        </td>
-                        <td>
-                            {% verbatim %}
-                            {{ button('save', { title : 'action.save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}
-                            {% endverbatim %}
-                        </td>
-                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
         {% endblock %}
     {% endembed %}
+
+    {% embed '@Tabler/embeds/card.html.twig' %}
+        {% block box_title %}The "action_button" implementations renders &lt;button&gt; tags{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
+        {% block box_body %}
+            <p class="p-2 pt-3">
+                Use it like this:
+                <strong>
+                    {% verbatim %}
+                    {% import "@Tabler/components/buttons.html.twig" as buttons %}
+                    {% endverbatim %}
+                </strong>
+            </p>
+
+            {% set importTpl = "{% from '@Tabler/components/buttons.html.twig' import action_button %}" %}
+            {% set buttonTemplates = [
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'primary') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'primary', 'lg') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'primary', 'sm') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'default') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'default', 'lg') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'default', 'sm') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'primary') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'secondary') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'success') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'warning') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'danger') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'info') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'light') }}",
+                importTpl ~ "{{ action_button('Test', 'toggle', 'fas fa-home', 'dark') }}",
+            ] %}
+            <table class="table" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>Rendered button</th>
+                    <th>Used code</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for btnTpl in buttonTemplates %}
+                    <tr>
+                        <td style="width: 30%">
+                            {{ include(template_from_string(btnTpl)) }}
+                        </td>
+                        <td>
+                           {{ btnTpl|replace({(importTpl): ''}) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endblock %}
+    {% endembed %}
+
+    {% embed '@Tabler/embeds/card.html.twig' %}
+        {% block box_title %}The "link_button" implementations renders &lt;a&gt; tags{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
+        {% block box_body %}
+            <p class="p-2 pt-3">
+                Use it like this:
+                <strong>
+                    {% verbatim %}
+                    {% import "@Tabler/components/buttons.html.twig" as buttons %}
+                    {% endverbatim %}
+                </strong>
+            </p>
+
+            {% set importTpl = "{% from '@Tabler/components/buttons.html.twig' import link_button %}" %}
+            {% set buttonTemplates = [
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'primary') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'primary', 'lg') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'primary', 'sm') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'default') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'default', 'lg') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'default', 'sm') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'primary') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'secondary') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'outline-success') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'outline-success') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'outline-danger') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'pill') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'square') }}",
+                importTpl ~ "{{ link_button('Test', '#', 'fas fa-home', 'purple') }}",
+            ] %}
+            <table class="table" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>Rendered button</th>
+                    <th>Used code</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for btnTpl in buttonTemplates %}
+                    <tr>
+                        <td style="width: 30%">
+                            {{ include(template_from_string(btnTpl)) }}
+                        </td>
+                        <td>
+                           {{ btnTpl|replace({(importTpl): ''}) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endblock %}
+    {% endembed %}
+
 {% endblock %}

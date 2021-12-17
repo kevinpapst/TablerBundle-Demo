@@ -33,3 +33,6 @@ services:
 
     App\Twig\TwigExtensions:
         arguments: ['%app_locales%']
+
+    Twig\Extension\StringLoaderExtension:
+        tags: ['twig.extension']
