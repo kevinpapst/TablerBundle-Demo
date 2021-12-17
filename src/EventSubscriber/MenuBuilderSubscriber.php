@@ -58,7 +58,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components = new MenuItemModel('components', 'Components', null, []);
         $components->setBadge('2');
         $components->addChild(
-            new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-button')
+            new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-save')
         );
         $event->addItem($components);
 
