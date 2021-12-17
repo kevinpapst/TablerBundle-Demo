@@ -16,97 +16,105 @@
                 </strong>
             </p>
             {% from '@Tabler/components/button.html.twig' import button %}
-            <table style="width: 100%">
-                <tr>
-                    <td style="width: 30%">
-                    {{ button('save', { title : 'action.save'|trans}) }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+            <table class="table table-striped" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Rendered button</th>
+                        <th>Used code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 30%">
                         {{ button('save', { title : 'action.save'|trans}) }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 30%">
-                    {{ button('save', { title : 'action.save'|trans}, false) }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button('save', { title : 'action.save'|trans}) }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
                         {{ button('save', { title : 'action.save'|trans}, false) }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 30%">
-                    {{ button('save', { title : 'action.save'|trans, label: 'test'}) }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button('save', { title : 'action.save'|trans}, false) }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
                         {{ button('save', { title : 'action.save'|trans, label: 'test'}) }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 30%">
-                    {{ button('save', { title : 'action.save'|trans}, 'success') }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button('save', { title : 'action.save'|trans, label: 'test'}) }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
                         {{ button('save', { title : 'action.save'|trans}, 'success') }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 30%">
-                    {{ button(false , { title : 'action.save'|trans}) }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button('save', { title : 'action.save'|trans}, 'success') }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
                         {{ button(false , { title : 'action.save'|trans}) }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 30%">
-                    {{ button(false , { title : 'action.save'|trans}, 'link') }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button(false , { title : 'action.save'|trans}) }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
                         {{ button(false , { title : 'action.save'|trans}, 'link') }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 30%">
-                    {{ button(false , { title : 'action.save'|trans}, 'success') }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button(false , { title : 'action.save'|trans}, 'link') }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
                         {{ button(false , { title : 'action.save'|trans}, 'success') }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    {{ button('save', { title : 'action.save'|trans, combined: true}, 'success') }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button(false , { title : 'action.save'|trans}, 'success') }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                         {{ button('save', { title : 'action.save'|trans, combined: true}, 'success') }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 30%">
-                    {{ button('save', { title : 'action.save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}
-                    </td>
-                    <td>
-                        {% verbatim %}
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button('save', { title : 'action.save'|trans, combined: true}, 'success') }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
                         {{ button('save', { title : 'action.save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}
-                        {% endverbatim %}
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            {% verbatim %}
+                            {{ button('save', { title : 'action.save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}
+                            {% endverbatim %}
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         {% endblock %}
     {% endembed %}

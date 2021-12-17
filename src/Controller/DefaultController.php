@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -107,5 +108,25 @@ class DefaultController extends AbstractController
     public function context(): Response
     {
         return $this->render('default/context.html.twig', []);
+    }
+
+    /**
+     * @Route("/dark-mode", defaults={}, name="dark-mode")
+     */
+    public function themeDark(SessionInterface $session): Response
+    {
+        $session->set('theme', 'dark');
+
+        return $this->redirectToRoute('homepage');
+    }
+
+    /**
+     * @Route("/light-mode", defaults={}, name="light-mode")
+     */
+    public function themeLight(SessionInterface $session): Response
+    {
+        $session->remove('theme');
+
+        return $this->redirectToRoute('homepage');
     }
 }

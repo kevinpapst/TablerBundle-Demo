@@ -4,6 +4,15 @@
 {% block page_stats %}{% endblock %}
 
 {% block navbar_start %}
+    {% if app.session.get('theme') == 'dark' %}
+    <a href="{{ path('light-mode') }}" class="nav-link px-0 hide-theme-dark" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable light mode">
+        {{ tabler_icon('sun') }}
+    </a>
+    {% else %}
+    <a href="{{ path('dark-mode') }}" class="nav-link px-0 hide-theme-dark" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable dark mode">
+        {{ tabler_icon('moon') }}
+    </a>
+    {% endif %}
     <li class="dropdown messages-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fas fa-globe"></i>

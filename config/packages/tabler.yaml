@@ -7,7 +7,7 @@
 tabler:
     options:
         # true = dark mode (light colors on dark background), false = normal mode (dark colors on light background)
-        dark_mode: true
+        dark_mode: false
         # condensed = one nav-bar, false = two nav-bars
         navbar_condensed: true
         # true = boxed layout, false = full-screen
@@ -59,6 +59,9 @@ tabler:
         search: fas fa-search
         settings: fas fa-cog
         start: fas fa-play
+        save: fas fa-save
         stop: fas fa-stop
         upload: fas fa-upload
         user: fas fa-user
+        moon: far fa-moon
+        sun: far fa-sun
