@@ -4,7 +4,7 @@ This repository contains an example Symfony 4 application for the [Tabler-Bundle
 
 It serves as a living documentation for first time users and easier testing of theme features.
 
-Please read the [theme documentation](https://github.com/kevinpapst/TablerBundle/blob/master/Resources/docs/) for more information on how to use this theme.
+Please read the [theme documentation](https://github.com/kevinpapst/TablerBundle/blob/main/docs/) for more information on how to use this theme.
 
 
 # Installation
