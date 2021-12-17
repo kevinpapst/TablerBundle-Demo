@@ -1,10 +1,10 @@
-# AdminLTE-Bundle Demo
+# Tabler-Bundle Demo
 
-This repository contains an example Symfony 4 application for the [AdminLTE-Bundle](https://github.com/kevinpapst/AdminLTEBundle).
+This repository contains an example Symfony 4 application for the [Tabler-Bundle](https://github.com/kevinpapst/TablerBundle).
 
 It serves as a living documentation for first time users and easier testing of theme features.
 
-Please read the [theme documentation](https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/) for more information on how to use this theme.
+Please read the [theme documentation](https://github.com/kevinpapst/TablerBundle/blob/master/Resources/docs/) for more information on how to use this theme.
 
 
 # Installation
@@ -12,13 +12,13 @@ Please read the [theme documentation](https://github.com/kevinpapst/AdminLTEBund
 Simple as that:
 
 ```bash
-composer create-project kevinpapst/adminlte-bundle-demo
+composer create-project kevinpapst/tabler-bundle-demo
 ```
 
 Use the [Symfony binary](https://symfony.com/download) to quickly start up a development server:
 
 ```bash
-cd adminlte-bundle-demo
+cd tabler-bundle-demo
 SHELL_VERBOSITY=2 symfony serve
 ```
 
@@ -40,4 +40,6 @@ yarn run build
 
 ## Real world examples
 
-If you want to see the theme in action (in a real world application), checkout my [time-tracking application Kimai](https://github.com/kevinpapst/kimai2).
+If you want to see the theme in action (in a real world application), 
+checkout my [time-tracking application Kimai](https://github.com/kevinpapst/kimai2) 
+(currently in preparation for the next major release in only in branch `v2`).

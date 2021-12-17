@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Twig Context Helper{% endblock %}
+{% block page_subtitle %}available Tabler configurations{% endblock %}
+
+{% block page_content %}
+    {% import '@Tabler/components/flash.html.twig' as flash_macro %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                You have access to the following configurations within your twig template.
+            </p>
+            {% if app.environment == 'dev' %}
+                {% include 'default/context_dev.html.twig' %}
+            {% else %}
+                {{ flash_macro.flash('warning', 'You are not running in "dev" environment, so dump() is not available.') }}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Some code examples</h3>
+
+            <p>Dump the Tabler context:</p>
+            <pre>
+                {%- verbatim -%}
+{{ dump(tabler_context) }}
+                {%- endverbatim -%}
+            </pre>
+
+            <p>Display a user avatar:</p>
+            <pre>
+                {%- verbatim -%}
+{% import "@Tabler/components/avatar.html.twig" as avatar_macro %}
+{{ avatar_macro.avatar(user, 'md')  }}
+                {%- endverbatim -%}
+            </pre>
+
+            <p>Check for a config setting:</p>
+            <pre>
+                {%- verbatim -%}
+{% if tabler_context.darkMode %}
+    Display dark mode
+{% endif %}
+                {%- endverbatim -%}
+            </pre>
+        </div>
+    </div>
+
+{% endblock %}
