@@ -11,7 +11,7 @@ tabler:
         # condensed = one nav-bar, false = two nav-bars
         navbar_condensed: true
         # true = boxed layout, false = full-screen
-        boxed_layout: false
+        boxed_layout: true
         # false = left to right, true = right to left
         rtl_mode: false
         # true = only avatar, false = show username and title as well
@@ -26,9 +26,9 @@ tabler:
 
     routes:
         tabler_welcome: homepage
-        tabler_login: app_login
-        tabler_logout: app_logout
-        tabler_login_check: app_login
+        tabler_login: security_login
+        tabler_logout: security_logout
+        tabler_login_check: security_login
         tabler_registration: registration
         tabler_registration_register: registration_register
         tabler_password_reset: resetting_request

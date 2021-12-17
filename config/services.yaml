@@ -30,3 +30,6 @@ services:
 
     App\EventSubscriber\RedirectToLocaleSubscriber:
         arguments: ['@router', '%app_locales%', '%locale%']
+
+    App\Twig\TwigExtensions:
+        arguments: ['%app_locales%']

@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai time-tracking app.
+ * This file is part of the Tabler-Bundle demo.
+ * Copyright 2021 Kevin Papst - www.kevinpapst.de
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -9,14 +10,11 @@
 
 namespace App\EventSubscriber;
 
-use App\Entity\User;
 use KevinPapst\TablerBundle\Helper\ContextHelper;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final class TablerContextSubscriber implements EventSubscriberInterface
 {
