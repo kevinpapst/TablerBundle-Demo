@@ -15,26 +15,26 @@
         "kevinpapst/tabler-bundle": "dev-main",
         "knplabs/knp-menu-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^6",
-        "symfony/asset": "^5.0",
-        "symfony/console": "^5.0",
-        "symfony/dotenv": "^5.0",
+        "symfony/asset": ">= 5.4",
+        "symfony/console": ">= 5.4",
+        "symfony/dotenv": ">= 5.4",
         "symfony/flex": "^1.0",
-        "symfony/form": "^5.0",
-        "symfony/framework-bundle": "^5.0",
-        "symfony/intl": "^5.0",
-        "symfony/security-bundle": "^5.0",
-        "symfony/stopwatch": "^5.0",
-        "symfony/translation": "^5.0",
-        "symfony/twig-bundle": "^5.0",
+        "symfony/form": ">= 5.4",
+        "symfony/framework-bundle": ">= 5.4",
+        "symfony/intl": ">= 5.4",
+        "symfony/security-bundle": ">= 5.4",
+        "symfony/stopwatch": ">= 5.4",
+        "symfony/translation": ">= 5.4",
+        "symfony/twig-bundle": ">= 5.4",
         "symfony/validator": "5.*",
         "symfony/webpack-encore-bundle": "^1.9",
-        "symfony/yaml": "^5.0"
+        "symfony/yaml": ">= 5.4"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^v3.4.0",
         "phpstan/phpstan": "^1.2",
-        "symfony/debug-bundle": "^5.0",
-        "symfony/web-profiler-bundle": "^5.0"
+        "symfony/debug-bundle": ">= 5.4",
+        "symfony/web-profiler-bundle": ">= 5.4"
     },
     "config": {
         "preferred-install": {
@@ -90,7 +90,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.*"
+            "require": "^5.4"
         }
     }
 }
