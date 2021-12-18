@@ -18,15 +18,15 @@
             </p>
             {% set importTpl = "{% from '@Tabler/components/button.html.twig' import button %}" %}
             {% set buttonTemplates = [
-                importTpl ~ "{{ button('save', {title : 'action.save'|trans}) }}",
-                importTpl ~ "{{ button('save', {title : 'action.save'|trans}, false) }}",
-                importTpl ~ "{{ button('save', {title : 'action.save'|trans, label: 'test'}) }}",
-                importTpl ~ "{{ button('save', {title : 'action.save'|trans}, 'success') }}",
-                importTpl ~ "{{ button(false , {title : 'action.save'|trans}) }}",
-                importTpl ~ "{{ button(false , {title : 'action.save'|trans}, 'link') }}",
-                importTpl ~ "{{ button(false , {title : 'action.save'|trans}, 'success') }}",
-                importTpl ~ "{{ button('save', {title : 'action.save'|trans, combined: true}, 'success') }}",
-                importTpl ~ "{{ button('save', {title : 'action.save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}",
+                importTpl ~ "{{ button('save', {title : 'Save'|trans}) }}",
+                importTpl ~ "{{ button('save', {title : 'Save'|trans}, false) }}",
+                importTpl ~ "{{ button('save', {title : 'Save'|trans, label: 'test'}) }}",
+                importTpl ~ "{{ button('save', {title : 'Save'|trans}, 'success') }}",
+                importTpl ~ "{{ button(false , {title : 'Save'|trans}) }}",
+                importTpl ~ "{{ button(false , {title : 'Save'|trans}, 'link') }}",
+                importTpl ~ "{{ button(false , {title : 'Save'|trans}, 'success') }}",
+                importTpl ~ "{{ button('save', {title : 'Save'|trans, combined: true}, 'success') }}",
+                importTpl ~ "{{ button('save', {title : 'Save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}",
             ] %}
             <table class="table" style="width: 100%">
                 <thead>
