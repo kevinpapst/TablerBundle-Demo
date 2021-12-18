@@ -51,12 +51,11 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
 
         $event->addItem($forms);
 
-        $event->addItem(
-            new MenuItemModel('context', 'Tabler context', 'context', [], 'fas fa-code')
-        );
+        $context = new MenuItemModel('context', 'Tabler context', 'context', [], 'fas fa-code');
+        $context->setBadge('2');
+        $event->addItem($context);
 
         $components = new MenuItemModel('components', 'Components', null, []);
-        $components->setBadge('2');
         $components->addChild(
             new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-save')
         );
