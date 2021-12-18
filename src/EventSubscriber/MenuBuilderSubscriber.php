@@ -39,7 +39,6 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         );
 
         $forms = new MenuItemModel('forms', 'Forms', null, [], 'fab fa-wpforms');
-        $forms->setBadge('1');
         $forms->setBadgeColor('red');
 
         $forms->addChild(
@@ -52,7 +51,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $event->addItem($forms);
 
         $context = new MenuItemModel('context', 'Tabler context', 'context', [], 'fas fa-code');
-        $context->setBadge('2');
+        $context->setBadgeColor('blue');
         $event->addItem($context);
 
         $components = new MenuItemModel('components', 'Components', null, []);
