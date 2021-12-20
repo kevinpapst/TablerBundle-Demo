@@ -5,35 +5,6 @@
 {% block page_subtitle %}You are using the language: {{ app.request.locale|language(app.request.get('_locale')) }}{% endblock %}
 
 {% block page_content %}
-    {#
-    <div class="row">
-        <div class="col-md-6">
-            { # ... infobox widget, solid background ... # }
-            {% embed '@AdminLTE/Widgets/infobox-widget.html.twig'  with {
-            'solid' : 'red',
-            'icon'  : 'far fa-star',
-            'progress' : 40
-            } %}
-
-                {% block box_text %}Vestibulum ante ipsum primis{% endblock %}
-                {% block progress_description %}The progress description{% endblock %}
-            {% endembed %}
-
-        </div>
-        <div class="col-md-6">
-
-            { # ... infobox widget, colored icon ... # }
-            {% embed '@AdminLTE/Widgets/infobox-widget.html.twig'  with {
-            'color' : 'aqua',
-            'icon'  : 'fas fa-comments',
-            } %}
-                {% block box_text %}Vestibulum ante ipsum primis{% endblock %}
-                {% block box_number %}999.9{% endblock %}
-                {% block progress_description %}Works as well without progress bar{% endblock %}
-            {% endembed %}
-        </div>
-    </div>
-    #}
 
     <div class="row">
         <div class="col-md-6">
@@ -72,10 +43,15 @@
             {% embed '@Tabler/embeds/card.html.twig' with {
             'boxtype' : 'success',
             'solid' : 0,
-            'collapsible' : 'widget-box.collapse'|trans ~ '... ',
+            'id': 'myCollapsibleCard'
             } %}
 
                 {% import '@Tabler/components/buttons.html.twig' as button %}
+                {% block box_body_class %}show{% endblock %}
+                {% block box_tools %}
+                    {{ button.action_cardtoolbutton('fas fa-edit', {}) }}
+                    {{ button.action_collapsebutton('Collapse', '#myCollapsibleCard .card-body') }}
+                {% endblock %}
                 {% block box_title %}Widget box title{% endblock %}
                 {% block box_body %}
                     <div class="callout callout-info">
@@ -107,6 +83,10 @@
 
                 {% import '@Tabler/components/buttons.html.twig' as button %}
                 {% block box_title %}Widget box title{% endblock %}
+                {% block box_tools %}
+                    {{ button.action_cardtoolbutton('fas fa-edit', {}) }}
+                    {{ button.action_collapsebutton('Collapse', '#myCollapsibleCard .card-body') }}
+                {% endblock %}
                 {% block box_body %}
                     <div class="callout callout-info">
                         Sed libero ipsum, auctor ac volutpat ac, adipiscing a enim. Nulla convallis quam eget tortor
