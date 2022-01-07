@@ -58,6 +58,10 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components->addChild(
             new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-save')
         );
+        $components->addChild(
+            new MenuItemModel('full-page', 'Full page layout', 'full-page', [], 'fas fa-desktop')
+        );
+
         $event->addItem($components);
 
         if ($this->security->isGranted('IS_AUTHENTICATED_REMEMBERED')) {

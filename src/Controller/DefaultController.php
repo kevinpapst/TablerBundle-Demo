@@ -53,6 +53,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/full-page", defaults={}, name="full-page")
+     */
+    public function fullpage(): Response
+    {
+        return $this->render('default/fullpage.html.twig');
+    }
+
+    /**
      * @Route("/forms/horizontal", defaults={}, name="forms-horizontal")
      */
     public function forms2(Request $request): Response

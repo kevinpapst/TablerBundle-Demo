@@ -1,0 +1,21 @@
+{% extends '@Tabler/fullpage.html.twig' %}
+
+{% block page_content %}
+    <div class="container-tight py-4">
+        <div class="empty">
+            <div class="empty-header">WOW</div>
+            <p class="empty-title">
+                What a large page!
+            </p>
+            <p class="empty-subtitle text-muted">
+                You will find a purpose for this template, don't you?
+            </p>
+            <div class="empty-action">
+                <a href="{{ path('homepage') }}" class="btn btn-primary">
+                    {{ tabler_icon('back') }}
+                    {{ 'Take me home'|trans({}, 'TablerBundle') }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
