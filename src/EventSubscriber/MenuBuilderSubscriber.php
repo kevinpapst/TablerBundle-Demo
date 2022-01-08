@@ -58,17 +58,27 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components->addChild(
             new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-save')
         );
-        $components->addChild(
-            new MenuItemModel('full-page', 'Full page layout', 'full-page', [], 'fas fa-desktop')
-        );
 
         $event->addItem($components);
 
-        if ($this->security->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            $event->addItem(
-                new MenuItemModel('logout', 'logout', 'security_logout', [], 'fas fa-sign-out-alt')
-            );
-        } else {
+        $layouts = new MenuItemModel('layout', 'Layout', null, []);
+        $layouts->addChild(
+            new MenuItemModel('full-page', 'Full page layout', 'full-page', [], 'fas fa-desktop')
+        );
+        $layouts->setDivider(true);
+        $layouts->addChild(
+            new MenuItemModel('Error 403', 'Error 403', 'error403', [], 'far fa-exclamation')
+        );
+        $layouts->addChild(
+            new MenuItemModel('Error 404', 'Error 404', 'error404', [], 'far fa-bug'),
+        );
+        $layouts->addChild(
+            new MenuItemModel('Error 500', 'Error 500', 'error500', [], 'far fa-bomb')
+        );
+
+        $event->addItem($layouts);
+
+        if ($this->security->isGranted('IS_ANONYMOUS')) {
             $event->addItem(
                 new MenuItemModel('login', 'login', 'security_login', [], 'fas fa-sign-in-alt')
             );

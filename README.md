@@ -1,6 +1,6 @@
 # Tabler-Bundle Demo
 
-This repository contains an example Symfony 4 application for the [Tabler-Bundle](https://github.com/kevinpapst/TablerBundle).
+This repository contains an example Symfony application for the [Tabler-Bundle](https://github.com/kevinpapst/TablerBundle).
 
 It serves as a living documentation for first time users and easier testing of theme features.
 
@@ -19,7 +19,7 @@ Use the [Symfony binary](https://symfony.com/download) to quickly start up a dev
 
 ```bash
 cd tabler-bundle-demo
-SHELL_VERBOSITY=2 symfony serve
+symfony serve
 ```
 
 ## Frontend assets

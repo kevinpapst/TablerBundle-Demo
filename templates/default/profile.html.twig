@@ -7,29 +7,24 @@
     <div class="row">
         <div class="col-md-12">
             {% embed '@Tabler/embeds/card.html.twig' %}
-                {% import "@Tabler/components/avatar.html.twig" as macros %}
+                {% from "@Tabler/components/avatar.html.twig" import avatar %}
+                {% from "@Tabler/components/badge.html.twig" import badge %}
+                {% from "@Tabler/components/button.html.twig" import button %}
+                {% block box_body_class %}text-center{% endblock %}
                 {% block box_body %}
-                    <div class="box-body box-profile">
-                        {{ macros.avatar(app.user)  }}
+                    {{ avatar(app.user)  }}
 
-                        <h3 class="profile-username text-center">{{ user.username }}</h3>
+                    <h3 class="profile-username">{{ user.username }}</h3>
 
-                        <p class="text-muted text-center">A demo user</p>
+                    <p class="text-muted">
+                        A demo user with the roles
+                        <br>
+                        {% for role in user.roles %}
+                            {{ badge(role) }}
+                        {% endfor %}
+                    </p>
 
-                        <ul class="list-group list-group-unbordered">
-                            <li class="list-group-item">
-                                <b>Roles</b> <a class="pull-right">
-                                    <span class="label label-success">
-                                    {{ user.roles|join('</span> <span class="label label-success">')|raw }}
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Last login</b> <a class="pull-right">{{ user.lastLogin|date }}</a>
-                            </li>
-                        </ul>
-                        <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-                    </div>
+                    {{ button(false , {title : 'Follow'|trans}, 'primary') }}
                 {% endblock %}
             {% endembed %}
         </div>

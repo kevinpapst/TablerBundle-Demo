@@ -15,8 +15,10 @@ security:
         # In this example, users are stored via Doctrine in the database
         # To see the users at src/App/DataFixtures/ORM/LoadFixtures.php
         # To load users from somewhere else: https://symfony.com/doc/current/security/user_provider.html#creating-a-custom-user-provider
-        database_users:
-            entity: { class: App\Entity\User, property: username }
+        test_users:
+            memory:
+                users:
+                    admin: { password: '$2y$13$rDZOBh4chkyaalbEaeTHhONcD6101eOVsWT4ZJniE78WiYQs5xknu', roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'] }
 
     # https://symfony.com/doc/current/security.html#a-authentication-firewalls
     firewalls:
@@ -27,7 +29,7 @@ security:
         main:
             # this firewall does not have a 'pattern' option because it applies to all URLs
             lazy: true
-            provider: database_users
+            provider: test_users
 
             # This allows the user to login by submitting a username and password
             # Reference: https://symfony.com/doc/current/security/form_login_setup.html

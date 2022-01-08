@@ -32,7 +32,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/forms", defaults={}, name="forms")
+     * @Route("/forms", name="forms")
      */
     public function forms(Request $request): Response
     {
@@ -45,7 +45,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/buttons", defaults={}, name="buttons")
+     * @Route("/buttons", name="buttons")
      */
     public function buttons(): Response
     {
@@ -53,7 +53,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/full-page", defaults={}, name="full-page")
+     * @Route("/full-page", name="full-page")
      */
     public function fullpage(): Response
     {
@@ -61,7 +61,31 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/forms/horizontal", defaults={}, name="forms-horizontal")
+     * @Route("/error-403", name="error403")
+     */
+    public function error403(): Response
+    {
+        throw $this->createAccessDeniedException();
+    }
+
+    /**
+     * @Route("/error-404", name="error404")
+     */
+    public function error404(): Response
+    {
+        throw $this->createNotFoundException();
+    }
+
+    /**
+     * @Route("/error-500", name="error500")
+     */
+    public function error500(): Response
+    {
+        throw new \RuntimeException('Oops');
+    }
+
+    /**
+     * @Route("/forms/horizontal", name="forms-horizontal")
      */
     public function forms2(Request $request): Response
     {
@@ -74,7 +98,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/profile", defaults={}, name="profile")
+     * @Route("/profile", name="profile")
      */
     public function profile(Request $request): Response
     {
@@ -98,7 +122,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/context", defaults={}, name="context")
+     * @Route("/context", name="context")
      */
     public function context(): Response
     {
@@ -106,7 +130,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/dark-mode", defaults={}, name="dark-mode")
+     * @Route("/dark-mode", name="dark-mode")
      */
     public function themeDark(SessionInterface $session): Response
     {
@@ -116,7 +140,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/light-mode", defaults={}, name="light-mode")
+     * @Route("/light-mode", name="light-mode")
      */
     public function themeLight(SessionInterface $session): Response
     {
