@@ -12,7 +12,6 @@ namespace App\Twig;
 
 use Symfony\Component\Intl\Locales;
 use Twig\Extension\AbstractExtension;
-use Twig\Extra\Markdown\ErusevMarkdown;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
