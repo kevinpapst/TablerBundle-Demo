@@ -61,6 +61,34 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/documentation/{chapter}", name="documentation")
+     */
+    public function documentation(?string $chapter = null): Response
+    {
+        if ($chapter === null) {
+            $chapter = 'index';
+        }
+
+        $docsDir = realpath(__DIR__ . '/../../vendor/kevinpapst/tabler-bundle/docs/') . '/';
+        $fullUrl = $docsDir . $chapter . '.md';
+
+        if (!file_exists($fullUrl)) {
+            throw $this->createNotFoundException();
+        }
+
+        $markdown = file_get_contents($fullUrl);
+        preg_match_all('/\((.*)\.md\)/', $markdown, $results, PREG_SET_ORDER);
+        foreach ($results as $result) {
+            $markdown = str_replace($result[0], '(' . $this->generateUrl('documentation', ['chapter' => $result[1]]) . ')', $markdown);
+        }
+
+        return $this->render('default/documentation.html.twig', [
+            'chapter' => $chapter,
+            'docs' => $markdown,
+        ]);
+    }
+
+    /**
      * @Route("/error-403", name="error403")
      */
     public function error403(): Response

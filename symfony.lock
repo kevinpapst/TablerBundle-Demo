@@ -20,6 +20,9 @@
     "doctrine/lexer": {
         "version": "v1.0.1"
     },
+    "erusev/parsedown": {
+        "version": "1.7.4"
+    },
     "friendsofphp/php-cs-fixer": {
         "version": "2.2",
         "recipe": {

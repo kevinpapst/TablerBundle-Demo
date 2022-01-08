@@ -22,15 +22,6 @@ cd tabler-bundle-demo
 symfony serve
 ```
 
-## Frontend assets
-
-If you want to re-compile the frontend assets execute:
-
-```
-yarn install
-yarn run build
-```
-
 ## Testing different languages
 
 **Be aware that ONLY the theme translations will change (like login screen and toolbar dropdowns), the demo itself is not translated!** 

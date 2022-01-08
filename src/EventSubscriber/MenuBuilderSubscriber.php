@@ -78,6 +78,8 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
 
         $event->addItem($layouts);
 
+        $event->addItem(new MenuItemModel('documentation', 'Documentation', 'documentation', [], 'far fa-file-alt'));
+
         if ($this->security->isGranted('IS_ANONYMOUS')) {
             $event->addItem(
                 new MenuItemModel('login', 'login', 'security_login', [], 'fas fa-sign-in-alt')

@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Documentation{% endblock %}
+{% block page_subtitle %}Chapter: {{ chapter }}{% endblock %}
+
+{% block page_content %}
+    {% embed '@Tabler/embeds/card.html.twig' %}
+        {% block box_body %}
+            {{ docs|markdown }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
