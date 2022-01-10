@@ -10,11 +10,12 @@
 
 namespace App\EventSubscriber;
 
-use App\Entity\User;
 use KevinPapst\TablerBundle\Event\UserDetailsEvent;
+use KevinPapst\TablerBundle\Model\MenuItemModel;
 use KevinPapst\TablerBundle\Model\UserModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Core\User\InMemoryUser;
 
 class UserDetailsSubscriber implements EventSubscriberInterface
 {
@@ -38,14 +39,17 @@ class UserDetailsSubscriber implements EventSubscriberInterface
             return;
         }
 
-        /* @var $myUser User */
+        /* @var $myUser InMemoryUser */
         $myUser = $this->security->getUser();
 
-        $user = new UserModel($myUser->getId(), $myUser->getUserIdentifier());
-        $user->setName($myUser->getEmail());
+        $user = new UserModel('1', $myUser->getUserIdentifier());
+        $user->setName('admin@example.com');
         $user->setTitle('demo user');
-        $user->setAvatar('bundles/tabler/images/default_avatar.png');
+        //$user->setAvatar('bundles/tabler/images/default_avatar.png');
 
         $event->setUser($user);
+
+        $profileLink = new MenuItemModel('profile', 'My profile', 'profile');
+        $event->addLink($profileLink);
     }
 }

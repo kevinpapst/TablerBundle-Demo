@@ -32,7 +32,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/forms", defaults={}, name="forms")
+     * @Route("/forms", name="forms")
      */
     public function forms(Request $request): Response
     {
@@ -45,7 +45,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/buttons", defaults={}, name="buttons")
+     * @Route("/buttons", name="buttons")
      */
     public function buttons(): Response
     {
@@ -53,7 +53,67 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/forms/horizontal", defaults={}, name="forms-horizontal")
+     * @Route("/full-page", name="full-page")
+     */
+    public function fullpage(): Response
+    {
+        return $this->render('default/fullpage.html.twig');
+    }
+
+    /**
+     * @Route("/documentation/{chapter}", name="documentation")
+     */
+    public function documentation(?string $chapter = null): Response
+    {
+        if ($chapter === null) {
+            $chapter = 'index';
+        }
+
+        $docsDir = realpath(__DIR__ . '/../../vendor/kevinpapst/tabler-bundle/docs/') . '/';
+        $fullUrl = $docsDir . $chapter . '.md';
+
+        if (!file_exists($fullUrl)) {
+            throw $this->createNotFoundException();
+        }
+
+        $markdown = file_get_contents($fullUrl);
+        preg_match_all('/\((.*)\.md\)/', $markdown, $results, PREG_SET_ORDER);
+        foreach ($results as $result) {
+            $markdown = str_replace($result[0], '(' . $this->generateUrl('documentation', ['chapter' => $result[1]]) . ')', $markdown);
+        }
+
+        return $this->render('default/documentation.html.twig', [
+            'chapter' => $chapter,
+            'docs' => $markdown,
+        ]);
+    }
+
+    /**
+     * @Route("/error-403", name="error403")
+     */
+    public function error403(): Response
+    {
+        throw $this->createAccessDeniedException();
+    }
+
+    /**
+     * @Route("/error-404", name="error404")
+     */
+    public function error404(): Response
+    {
+        throw $this->createNotFoundException();
+    }
+
+    /**
+     * @Route("/error-500", name="error500")
+     */
+    public function error500(): Response
+    {
+        throw new \RuntimeException('Oops');
+    }
+
+    /**
+     * @Route("/forms/horizontal", name="forms-horizontal")
      */
     public function forms2(Request $request): Response
     {
@@ -66,7 +126,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/profile", defaults={}, name="profile")
+     * @Route("/profile", name="profile")
      */
     public function profile(Request $request): Response
     {
@@ -90,7 +150,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/context", defaults={}, name="context")
+     * @Route("/context", name="context")
      */
     public function context(): Response
     {
@@ -98,7 +158,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/dark-mode", defaults={}, name="dark-mode")
+     * @Route("/dark-mode", name="dark-mode")
      */
     public function themeDark(SessionInterface $session): Response
     {
@@ -108,7 +168,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/light-mode", defaults={}, name="light-mode")
+     * @Route("/light-mode", name="light-mode")
      */
     public function themeLight(SessionInterface $session): Response
     {

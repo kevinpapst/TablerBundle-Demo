@@ -31,6 +31,7 @@ class TwigExtensions extends AbstractExtension
     {
         return [
             new TwigFilter('language', [$this, 'getLanguageName']),
+            new TwigFilter('markdown', [$this, 'markdown'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -47,6 +48,13 @@ class TwigExtensions extends AbstractExtension
     public function getLocales(): array
     {
         return $this->locales;
+    }
+
+    public function markdown(string $markdown): string
+    {
+        $parser = new \Parsedown();
+
+        return $parser->parse($markdown);
     }
 
     public function getLanguageName(string $language): string

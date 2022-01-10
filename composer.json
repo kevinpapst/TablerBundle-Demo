@@ -5,11 +5,8 @@
     "description": "Demo application to showcase the Tabler Bundle",
     "require": {
         "php": "^7.4|^8.0",
-        "ext-sqlite3": "*",
         "composer/package-versions-deprecated": "^1.11.99",
-        "doctrine/common": "^3.0",
-        "doctrine/doctrine-bundle": "^2.0",
-        "doctrine/orm": "^2.0",
+        "erusev/parsedown": "^1.7",
         "kevinpapst/tabler-bundle": "dev-main",
         "knplabs/knp-menu-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^6.0",
@@ -38,7 +35,11 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "symfony/flex": true
+        }
     },
     "autoload": {
         "psr-4": {
@@ -53,9 +54,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "doctrine:database:create": "symfony-cmd",
-            "doctrine:schema:update --force": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -66,8 +65,7 @@
         "linting": [
             "bin/console lint:yaml config --parse-tags",
             "bin/console lint:twig templates --show-deprecations",
-            "bin/console lint:xliff translations",
-            "bin/console doctrine:schema:validate --skip-sync -v --no-interaction"
+            "bin/console lint:xliff translations"
         ],
         "phpstan": [
             "vendor/bin/phpstan analyse src/ --level=5"
