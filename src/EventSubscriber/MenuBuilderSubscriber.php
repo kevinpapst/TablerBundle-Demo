@@ -50,10 +50,6 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
 
         $event->addItem($forms);
 
-        $context = new MenuItemModel('context', 'Tabler context', 'context', [], 'fas fa-code');
-        $context->setBadgeColor('blue');
-        $event->addItem($context);
-
         $components = new MenuItemModel('components', 'Components', null, []);
         $components->addChild(
             new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-save')
@@ -78,7 +74,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
 
         $event->addItem($layouts);
 
-        $event->addItem(new MenuItemModel('documentation', 'Documentation', 'documentation', [], 'far fa-file-alt'));
+        $docu = new MenuItemModel('documentation', 'Documentation', 'documentation', [], 'far fa-file-alt');
+        $docu->setBadgeColor('blue');
+        $event->addItem($docu);
 
         if ($this->security->isGranted('IS_ANONYMOUS')) {
             $event->addItem(
