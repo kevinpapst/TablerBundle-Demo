@@ -38,7 +38,15 @@
                 {%- endverbatim -%}
             </pre>
 
-            <p>All functions not mentioned above ( eg. `options`, `hasOption`, `seOption`) are not not covered by our BC promise!</p>
+{% set md %}
+You can use it to retrieve theme related settings, but you can also use it as parameter bag
+to carry values from your backend to any place in your template with the method:
+
+- `setOption(string $name, $value): void`
+- `hasOption(string $name): bool`
+- `getOption(string $name, $default = null): mixed`
+{% endset %}
+                {{ md|markdown }}
         </div>
     </div>
 
