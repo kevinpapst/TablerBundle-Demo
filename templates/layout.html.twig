@@ -1,7 +1,8 @@
 {% extends '@Tabler/layout.html.twig' %}
 
 {% block page_title %}Demo application{% endblock %}
-{% block page_stats %}{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_pretitle %}{% endblock %}
 
 {% block navbar_start %}
     {% if app.session.get('theme') == 'dark' %}
