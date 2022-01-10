@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block page_title %}Tabler bundler context{% endblock %}
-{% block page_subtitle %}Available Tabler configurations{% endblock %}
+{% block page_pretitle %}Available Tabler configurations{% endblock %}
 
 {% block page_content %}
     {% import '@Tabler/components/flash.html.twig' as flash_macro %}
@@ -9,43 +9,36 @@
     <div class="row">
         <div class="col-md-12">
             <p>
-                You have access to the following configurations within your twig template.
+                There is a global twig object available, that you can use to fetch some global configurations
+                about the Table theme settings.
             </p>
-            {% if app.environment == 'dev' %}
-                {% include 'default/context_dev.html.twig' %}
-            {% else %}
-                {{ flash_macro.flash('warning', 'You are not running in "dev" environment, so dump() is not available.') }}
-            {% endif %}
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <h3>Some code examples</h3>
-
-            <p>Dump the Tabler helper:</p>
+            <p>You have access to the following configurations within your twig template:</p>
             <pre>
                 {%- verbatim -%}
-{{ dump(tabler_bundle) }}
+{% set isDarkMode = tabler_bundle.darkMode %}
+{% set isBoxedLayout = tabler_bundle.boxedLayout %}
+{% set isRightToLeft = tabler_bundle.rightToLeft %}
+{% set isRightToLeft = tabler_bundle.condensedUserMenu %}
+{% set isCondensedNavbar = tabler_bundle.condensedNavbar %}
+{% set logoUrl = tabler_bundle.logoUrl %}
                 {%- endverbatim -%}
             </pre>
 
-            <p>Display a user avatar:</p>
-            <pre>
-                {%- verbatim -%}
-{% import "@Tabler/components/avatar.html.twig" as avatar_macro %}
-{{ avatar_macro.avatar(user, 'md')  }}
-                {%- endverbatim -%}
-            </pre>
-
-            <p>Check for a config setting:</p>
+            <p>With these functions, you can simply adapt your templates if a configured setting is active:</p>
             <pre>
                 {%- verbatim -%}
 {% if tabler_bundle.darkMode %}
-    Display dark mode
+    Display dark mode content only
 {% endif %}
                 {%- endverbatim -%}
             </pre>
+
+            <p>All functions not mentioned above ( eg. `options`, `hasOption`, `seOption`) are not not covered by our BC promise!</p>
         </div>
     </div>
 
