@@ -12,6 +12,7 @@
                 'boxtype' : 'danger',
                 'solid' : true,
                 'collapsible' : 'widget-box.collapse'|trans ~ '... ',
+                'margin_bottom': 'mb-3'
             } %}
 
                 {% block box_title %}Widget box title{% endblock %}
@@ -42,7 +43,8 @@
             {% embed '@Tabler/embeds/card.html.twig' with {
             'boxtype' : 'success',
             'solid' : 0,
-            'id': 'myCollapsibleCard'
+            'id': 'myCollapsibleCard',
+            'margin_bottom': ''
             } %}
 
                 {% import '@Tabler/components/buttons.html.twig' as button %}
