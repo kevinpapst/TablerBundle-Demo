@@ -53,6 +53,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/timeline", name="timeline")
+     */
+    public function timeline(): Response
+    {
+        return $this->render('components/timeline.html.twig');
+    }
+
+    /**
      * @Route("/full-page", name="full-page")
      */
     public function fullpage(): Response
@@ -147,14 +155,6 @@ class DefaultController extends AbstractController
         }
 
         return $form;
-    }
-
-    /**
-     * @Route("/context", name="context")
-     */
-    public function context(): Response
-    {
-        return $this->render('default/context.html.twig', []);
     }
 
     /**
