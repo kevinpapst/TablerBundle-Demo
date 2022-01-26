@@ -54,6 +54,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components->addChild(
             new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-save')
         );
+        $components->addChild(
+            new MenuItemModel('timeline', 'Timeline', 'timeline', [], 'fas fa-stream')
+        );
 
         $event->addItem($components);
 

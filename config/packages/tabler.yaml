@@ -51,6 +51,7 @@ tabler:
         export: fas fa-file-export
         filter: fas fa-filter
         help: far fa-question-circle
+        plus: fas fa-plus
         print: fas fa-print
         search: fas fa-search
         settings: fas fa-cog

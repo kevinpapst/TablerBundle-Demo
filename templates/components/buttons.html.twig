@@ -10,11 +10,11 @@
         {% block box_body %}
             <p class="p-2 pt-3">
                 Use it like this:
-                <strong>
+                <code>
                     {% verbatim %}
                     {% from '@Tabler/components/button.html.twig' import button %}
                     {% endverbatim %}
-                </strong>
+                </code>
             </p>
             {% set importTpl = "{% from '@Tabler/components/button.html.twig' import button %}" %}
             {% set buttonTemplates = [
@@ -42,7 +42,7 @@
                             {{ include(template_from_string(btnTpl)) }}
                         </td>
                         <td>
-                            {{ btnTpl|replace({(importTpl): ''}) }}
+                            <code>{{ btnTpl|replace({(importTpl): ''}) }}</code>
                         </td>
                     </tr>
                 {% endfor %}
@@ -57,11 +57,11 @@
         {% block box_body %}
             <p class="p-2 pt-3">
                 Use it like this:
-                <strong>
+                <code>
                     {% verbatim %}
                     {% import "@Tabler/components/buttons.html.twig" as buttons %}
                     {% endverbatim %}
-                </strong>
+                </code>
             </p>
 
             {% set importTpl = "{% from '@Tabler/components/buttons.html.twig' import action_button %}" %}
@@ -95,7 +95,7 @@
                             {{ include(template_from_string(btnTpl)) }}
                         </td>
                         <td>
-                           {{ btnTpl|replace({(importTpl): ''}) }}
+                            <code>{{ btnTpl|replace({(importTpl): ''}) }}</code>
                         </td>
                     </tr>
                 {% endfor %}
@@ -110,11 +110,11 @@
         {% block box_body %}
             <p class="p-2 pt-3">
                 Use it like this:
-                <strong>
+                <code>
                     {% verbatim %}
                     {% import "@Tabler/components/buttons.html.twig" as buttons %}
                     {% endverbatim %}
-                </strong>
+                </code>
             </p>
 
             {% set importTpl = "{% from '@Tabler/components/buttons.html.twig' import link_button %}" %}
@@ -148,7 +148,7 @@
                             {{ include(template_from_string(btnTpl)) }}
                         </td>
                         <td>
-                           {{ btnTpl|replace({(importTpl): ''}) }}
+                           <code>{{ btnTpl|replace({(importTpl): ''}) }}</code>
                         </td>
                     </tr>
                 {% endfor %}
