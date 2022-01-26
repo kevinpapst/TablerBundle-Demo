@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block page_title %} Form demo {% endblock %}
-{% block page_subtitle %} Fullscreen width form {% endblock %}
+{% block page_pretitle %} Fullscreen width form {% endblock %}
 
 {% block page_content %}
     <div class="row">
@@ -11,10 +11,10 @@
                 {% block box_before %}{{ form_start(form) }}{% endblock %}
                 {% block box_title %}{{ 'A simple form demo'|trans }}{% endblock %}
                 {% block box_body %}
-                    <p>
+                    <div>
                         Using the form theme:
-                    <pre>{% verbatim %}{% form_theme form '@Tabler/layout/form-theme.html.twig' %}{% endverbatim %}</pre>
-                    </p>
+                        <pre>{% verbatim %}{% form_theme form '@Tabler/layout/form-theme.html.twig' %}{% endverbatim %}</pre>
+                    </div>
                     <hr>
                     {{ form_widget(form) }}
                 {% endblock %}

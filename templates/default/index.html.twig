@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block page_title %}Dashboard{% endblock %}
-{% block page_subtitle %}You are using the language: {{ app.request.locale|language(app.request.get('_locale')) }}{% endblock %}
+{% block page_pretitle %}You are using the language: {{ app.request.locale|language(app.request.get('_locale')) }}{% endblock %}
 
 {% block page_content %}
 

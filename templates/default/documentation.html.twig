@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block page_title %}Documentation{% endblock %}
-{% block breadcrumb %}
+{% block page_actions %}
 <ol class="breadcrumb breadcrumb-alternate" aria-label="breadcrumbs">
     <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Home</a></li>
     {% if chapter != 'index' %}
