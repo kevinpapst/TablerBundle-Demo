@@ -11,6 +11,7 @@
 namespace App\Controller;
 
 use App\Form\FormDemoModelType;
+use KevinPapst\TablerBundle\Helper\ContextHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -176,4 +177,15 @@ class DefaultController extends AbstractController
 
         return $this->redirectToRoute('homepage');
     }
+
+    /**
+     * @Route("/navbar-overlapping", defaults={}, name="navbar-overlapping")
+     */
+    public function navbarOverlapping(ContextHelper $contextHelper): Response
+    {
+        $contextHelper->setIsNavbarOverlapping(true);
+
+        return $this->render('default/index.html.twig', []);
+    }
+
 }
