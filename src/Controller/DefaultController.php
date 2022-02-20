@@ -54,6 +54,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/dropdown", name="dropdown")
+     */
+    public function dropdown(): Response
+    {
+        return $this->render('components/dropdown.html.twig');
+    }
+
+    /**
      * @Route("/timeline", name="timeline")
      */
     public function timeline(): Response
