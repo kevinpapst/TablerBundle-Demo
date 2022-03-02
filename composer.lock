@@ -283,12 +283,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevinpapst/TablerBundle.git",
-                "reference": "22b4660a653fb01f480372efe886bff5e2badd41"
+                "reference": "2d410f8c443588264fbd204c3bcdde1b8c6b461a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/22b4660a653fb01f480372efe886bff5e2badd41",
-                "reference": "22b4660a653fb01f480372efe886bff5e2badd41",
+                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/2d410f8c443588264fbd204c3bcdde1b8c6b461a",
+                "reference": "2d410f8c443588264fbd204c3bcdde1b8c6b461a",
                 "shasum": ""
             },
             "require": {
@@ -338,7 +338,7 @@
             "description": "Admin/Backend theme bundle for Symfony based on Tabler.io",
             "support": {
                 "issues": "https://github.com/kevinpapst/TablerBundle/issues",
-                "source": "https://github.com/kevinpapst/TablerBundle/tree/0.2"
+                "source": "https://github.com/kevinpapst/TablerBundle/tree/main"
             },
             "funding": [
                 {
@@ -350,7 +350,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-02T14:11:17+00:00"
+            "time": "2022-03-02T17:13:57+00:00"
         },
         {
             "name": "knplabs/knp-menu",

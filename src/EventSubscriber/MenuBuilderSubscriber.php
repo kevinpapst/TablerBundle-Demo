@@ -60,6 +60,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components->addChild(
             new MenuItemModel('dropdown', 'Dropdown', 'dropdown', [], 'far fa-save')
         );
+        $components->addChild(
+            new MenuItemModel('alert', 'Alert', 'alert', [], 'fas fa-exclamation')
+        );
 
         $event->addItem($components);
 

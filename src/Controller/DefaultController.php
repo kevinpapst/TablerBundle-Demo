@@ -62,6 +62,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/alert", name="alert")
+     */
+    public function alert(): Response
+    {
+        return $this->render('components/alert.html.twig');
+    }
+
+    /**
      * @Route("/timeline", name="timeline")
      */
     public function timeline(): Response
