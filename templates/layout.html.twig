@@ -6,16 +6,16 @@
 {% block navbar_start %}
     {% if app.session.get('theme') == 'dark' %}
     <a href="{{ path('light-mode') }}" class="nav-link px-0 me-2" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable light mode">
-        {{ tabler_icon('sun') }}
+        {{ tabler_icon('sun', true) }}
     </a>
     {% else %}
     <a href="{{ path('dark-mode') }}" class="nav-link px-0 me-2" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable dark mode">
-        {{ tabler_icon('moon') }}
+        {{ tabler_icon('moon', true) }}
     </a>
     {% endif %}
     <div class="nav-item dropdown d-none d-md-flex me-2">
         <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Choose a language" aria-expanded="false">
-			{{ tabler_icon('fas fa-globe') }}
+			{{ tabler_icon('fas fa-globe', true) }}
         </a>
         <div class="dropdown-menu dropdown-menu-end dropdown-menu-card" data-bs-popper="none">
             <div class="card-header text-nowrap">{{ 'Choose a language'|trans }}</div>
