@@ -7,7 +7,7 @@
         "php": "^7.4|^8.0",
         "composer/package-versions-deprecated": "^1.11.99",
         "erusev/parsedown": "^1.7",
-        "kevinpapst/tabler-bundle": "dev-main",
+        "kevinpapst/tabler-bundle": "dev-layout-vertical",
         "knplabs/knp-menu-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^6.0",
         "symfony/asset": "^5.0",
@@ -31,6 +31,13 @@
         "symfony/debug-bundle": "^5.0",
         "symfony/web-profiler-bundle": "^5.0"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/cavasinf/TablerBundle"
+        }
+    ],
+
     "config": {
         "preferred-install": {
             "*": "dist"

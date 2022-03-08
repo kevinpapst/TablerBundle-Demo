@@ -1,0 +1,19 @@
+{% extends '@Tabler/layout-vertical.html.twig' %}
+
+{% block page_content %}
+    <div class="container-tight py-4">
+        <div class="empty">
+            <div class="empty-header">Vertical</div>
+            <p class="empty-title">
+                See the navigation on the left side?
+            </p>
+            <p class="empty-subtitle text-muted">
+                This is especially useful on wide screen monitors.
+            </p>
+            <div class="empty-action">
+                {% from '@Tabler/components/buttons.html.twig' import link_button %}
+                {{ link_button(('Take me home'|trans({}, 'TablerBundle')), (path('tabler_welcome'|tabler_route)), 'back') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
