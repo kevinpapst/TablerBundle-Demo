@@ -207,10 +207,8 @@ class DefaultController extends AbstractController
     /**
      * @Route("/navbar-vertical", defaults={}, name="navbar-vertical")
      */
-    public function navbarVertical(ContextHelper $contextHelper): Response
+    public function navbarVertical(): Response
     {
-        $contextHelper->setIsNavbarDark(true);
-
         return $this->render('default/vertical-navbar.html.twig', []);
     }
 }
