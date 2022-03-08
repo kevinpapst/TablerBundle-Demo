@@ -90,7 +90,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $docu->setBadgeColor('blue');
         $event->addItem($docu);
 
-        if ($this->security->isGranted('IS_ANONYMOUS')) {
+        if (!$this->security->isGranted('IS_AUTHENTICATED')) {
             $event->addItem(
                 new MenuItemModel('login', 'login', 'security_login', [], 'fas fa-sign-in-alt')
             );
