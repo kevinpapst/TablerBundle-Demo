@@ -213,5 +213,4 @@ class DefaultController extends AbstractController
 
         return $this->render('default/vertical-navbar.html.twig', []);
     }
-
 }

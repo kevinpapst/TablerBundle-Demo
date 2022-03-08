@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "989ea70c921dbc91e0ada69373debe0d",
+    "content-hash": "ad459b99d1256bd5883694e454e486fb",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -279,16 +279,16 @@
         },
         {
             "name": "kevinpapst/tabler-bundle",
-            "version": "dev-layout-vertical",
+            "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cavasinf/TablerBundle.git",
-                "reference": "bcc1ab5afaf2db3fa577815049adaa483ec87da5"
+                "url": "https://github.com/kevinpapst/TablerBundle.git",
+                "reference": "2d410f8c443588264fbd204c3bcdde1b8c6b461a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cavasinf/TablerBundle/zipball/bcc1ab5afaf2db3fa577815049adaa483ec87da5",
-                "reference": "bcc1ab5afaf2db3fa577815049adaa483ec87da5",
+                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/2d410f8c443588264fbd204c3bcdde1b8c6b461a",
+                "reference": "2d410f8c443588264fbd204c3bcdde1b8c6b461a",
                 "shasum": ""
             },
             "require": {
@@ -318,32 +318,14 @@
             "suggest": {
                 "knplabs/knp-menu-bundle": "Allows easy menu integration"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
                     "KevinPapst\\TablerBundle\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "KevinPapst\\TablerBundle\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "tests": [
-                    "vendor/bin/phpunit tests/"
-                ],
-                "phpstan": [
-                    "vendor/bin/phpstan analyse src/ --level=5",
-                    "vendor/bin/phpstan analyse -c tests/phpstan.neon tests/ --level=5"
-                ],
-                "codestyle": [
-                    "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none"
-                ],
-                "codestyle-fix": [
-                    "vendor/bin/php-cs-fixer fix"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -355,19 +337,20 @@
             ],
             "description": "Admin/Backend theme bundle for Symfony based on Tabler.io",
             "support": {
-                "source": "https://github.com/cavasinf/TablerBundle/tree/layout-vertical"
+                "issues": "https://github.com/kevinpapst/TablerBundle/issues",
+                "source": "https://github.com/kevinpapst/TablerBundle/tree/main"
             },
             "funding": [
                 {
-                    "type": "github",
-                    "url": "https://github.com/kevinpapst"
+                    "url": "https://paypal.me/kevinpapst",
+                    "type": "custom"
                 },
                 {
-                    "type": "custom",
-                    "url": "https://paypal.me/kevinpapst"
+                    "url": "https://github.com/kevinpapst",
+                    "type": "github"
                 }
             ],
-            "time": "2022-03-08T16:30:52+00:00"
+            "time": "2022-03-02T17:13:57+00:00"
         },
         {
             "name": "knplabs/knp-menu",
@@ -5638,7 +5621,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4|^8.0"
+        "php": "^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
