@@ -6,7 +6,4 @@ services:
             - "./:/var/www/html"
             - "/var/www/html/var"
         ports:
-            - "2080:80"
-        environment:
-            - xdebugRemoteMachine
-            - userPrefixPort
+            - "80:80"
