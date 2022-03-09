@@ -4,7 +4,7 @@
     "type": "project",
     "description": "Demo application to showcase the Tabler Bundle",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "composer/package-versions-deprecated": "^1.11.99",
         "erusev/parsedown": "^1.7",
         "kevinpapst/tabler-bundle": "dev-main",
@@ -17,6 +17,7 @@
         "symfony/form": "^5.0",
         "symfony/framework-bundle": "^5.0",
         "symfony/intl": "^5.0",
+        "symfony/runtime": "5.*",
         "symfony/security-bundle": "^5.0",
         "symfony/stopwatch": "^5.0",
         "symfony/translation": "^5.0",
@@ -32,14 +33,16 @@
         "symfony/web-profiler-bundle": "^5.0"
     },
     "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "symfony/flex": true,
+            "symfony/runtime": true
+        },
+        "optimize-autoloader": true,
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true,
-        "allow-plugins": {
-            "composer/package-versions-deprecated": true,
-            "symfony/flex": true
-        }
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": {
@@ -50,6 +53,11 @@
         "psr-4": {
             "App\\Tests\\": "tests/"
         }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*"
     },
     "scripts": {
         "auto-scripts": {
@@ -79,7 +87,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.*"
+            "require": "5.4.*"
         }
     }
 }
