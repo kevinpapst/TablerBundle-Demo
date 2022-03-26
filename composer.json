@@ -94,7 +94,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "^5.4"
+            "require": "^6.0"
         }
     },
     "repositories": {
