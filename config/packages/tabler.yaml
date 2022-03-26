@@ -11,7 +11,7 @@ tabler:
         # condensed = one nav-bar, false = two nav-bars
         navbar_condensed: false
         # true = boxed layout, false = full-screen
-        boxed_layout: false
+        boxed_layout: true
         # false = left to right, true = right to left
         rtl_mode: false
         # true = only avatar, false = show username and title as well
@@ -26,13 +26,9 @@ tabler:
 
     routes:
         tabler_welcome: homepage
-        tabler_login: app_login
-        tabler_logout: app_logout
-        tabler_login_check: app_login
-        tabler_registration: registration
-        tabler_registration_register: registration_register
-        tabler_password_reset: resetting_request
-        tabler_password_reset_sent: resetting_send_email
+        tabler_login: security_login
+        tabler_logout: security_logout
+        tabler_login_check: security_login
 
     icons:
         # used for the action_collapsebutton components
@@ -55,6 +51,7 @@ tabler:
         export: fas fa-file-export
         filter: fas fa-filter
         help: far fa-question-circle
+        plus: fas fa-plus
         print: fas fa-print
         search: fas fa-search
         settings: fas fa-cog

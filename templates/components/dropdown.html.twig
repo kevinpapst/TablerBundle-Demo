@@ -1,0 +1,92 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Dropdown demo{% endblock %}
+{% block page_pretitle %}Using dropdown_button macro{% endblock %}
+
+{% block page_content %}
+
+    {% embed '@Tabler/embeds/card.html.twig' %}
+        {% block box_title %}The "dropdown_button" implementations renders a button with a dropdown menu{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
+        {% block box_body %}
+            <p class="p-2 pt-3">
+                Use it like this:
+                <code>
+                    {% verbatim %}
+                    {% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+                    {% endverbatim %}
+                </code>
+            </p>
+
+            <table class="table" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>Rendered button</th>
+                    <th>Used code</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 30%">
+                            {% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+                            {{ dropdown_button(
+                                {icon: 'plus', title : 'Actions'},
+                                [
+                                    {icon: 'plus',      title : 'Add more',     url : '/add'},
+                                    {                   title : 'Help needed',  url : '/help'},
+                                    {icon: 'delete',    title : 'Delete',       url : '/delete'}
+                                ]
+                            ) }}
+
+                        </td>
+                        <td><pre>{% verbatim -%}{{ dropdown_button(
+   {icon: 'plus', title : 'Actions'},
+   [
+       {icon: 'plus',      title : 'Add more',     url : '/add'},
+       {                   title : 'Help needed',  url : '/help'},
+       {icon: 'delete',    title : 'Delete',       url : '/delete'}
+   ]
+) }}{%- endverbatim %}</pre></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                            {% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+                            {{ dropdown_button({title : 'Actions', class: 'btn-primary'}, [
+                                {title : 'Add more',     url : '#'},
+                                {title : 'Help needed',  url : '#'},
+                                {icon: 'delete',       url : '#'}
+                            ]) }}
+                        </td>
+                        <td><pre>{% verbatim -%}{{ dropdown_button(
+   {title : 'Actions', class: 'btn-primary'},
+   [
+       {title : 'Add more',     url : '#'},
+       {title : 'Help needed',  url : '#'},
+       {icon : 'delete',       url : '#'}
+   ]
+) }}{%- endverbatim %}</pre></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                            {% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+                            {{ dropdown_button({icon: 'plus', class: 'btn-danger'}, [
+                                {title : 'Add more'},
+                                {title : 'Help needed'},
+                                {title : 'Delete'}
+                            ]) }}
+                        </td>
+                        <td><pre>{% verbatim -%}{{ dropdown_button(
+   {icon: 'plus', class: 'btn-danger'},
+   [
+       {title : 'Add more'},
+       {title : 'Help needed'},
+       {title : 'Delete'}
+   ]
+) }}{%- endverbatim %}</pre></td>
+                    </tr>
+                </tbody>
+            </table>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

@@ -2,9 +2,13 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file source-language="en" target-language="en" datatype="plaintext" original="none">
     <body>
-      <trans-unit id="FQn1YfJ" resname="action.save">
+      <trans-unit id="FQn1YfJ" resname="Save">
         <source>Save</source>
         <target>Save</target>
+      </trans-unit>
+      <trans-unit id="GXZu1sy" resname="Cancel">
+        <source>Cancel</source>
+        <target>Cancel</target>
       </trans-unit>
       <trans-unit id="njOR6b8" resname="homepage">
         <source>Homepage</source>

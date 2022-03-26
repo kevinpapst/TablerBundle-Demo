@@ -1,0 +1,19 @@
+{% extends '@Tabler/fullpage.html.twig' %}
+
+{% block page_content %}
+    <div class="container-tight py-4">
+        <div class="empty">
+            <div class="empty-header">WOW</div>
+            <p class="empty-title">
+                What a large page!
+            </p>
+            <p class="empty-subtitle text-muted">
+                You will find a purpose for this template, don't you?
+            </p>
+            <div class="empty-action">
+                {% from '@Tabler/components/buttons.html.twig' import link_button %}
+                {{ link_button(('Take me home'|trans({}, 'TablerBundle')), (path('tabler_welcome'|tabler_route)), 'back') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+version: '2'
+services:
+    apache:
+        image: allsoftware/symfony:5-php-8.0-v5
+        volumes:
+            - "./:/var/www/html"
+            - "/var/www/html/var"
+        ports:
+            - "80:80"

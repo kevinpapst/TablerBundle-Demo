@@ -1,16 +1,26 @@
 security:
+    # a new authentication system is available since Symfony 5.1 to make
+    # Symfony security more extensible and easier to understand
+    # https://symfony.com/doc/current/security.html
     enable_authenticator_manager: true
 
     password_hashers:
-        App\Entity\User:
-            algorithm: auto
+        # Our user class and the algorithm we'll use to encode passwords
+        # 'auto' means to let Symfony choose the best possible password hasher (Argon2 or Bcrypt)
+        # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
 
     providers:
         # used to reload user from session & other features (e.g. switch_user)
-        app_user_provider:
-            entity:
-                class: App\Entity\User
-                property: email
+#        app_user_provider:
+#            entity:
+#                class: App\Entity\User
+#                property: email
+        test_users:
+          memory:
+            users:
+              admin: { password: '$2y$13$rDZOBh4chkyaalbEaeTHhONcD6101eOVsWT4ZJniE78WiYQs5xknu', roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'] }
+
 #        backend_users:
 #            memory:
 #                users:
@@ -21,6 +31,8 @@ security:
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
 
+
+    # https://symfony.com/doc/current/security.html#a-authentication-firewalls
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -33,34 +45,47 @@ security:
             # but the firewall does not require login on every page
             # denying access is done in access_control or in your controllers
 #            anonymous: ~
+        main:
+            # this firewall does not have a 'pattern' option because it applies to all URLs
+            lazy: true
+            provider: test_users
 
             # This allows the user to login by submitting a username and password
-            # Reference: http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            # Reference: https://symfony.com/doc/current/security/form_login_setup.html
             form_login:
                 # The route name that the login form submits to
-                check_path: app_login
+                check_path: security_login
                 # The name of the route where the login form lives
                 # When the user tries to access a protected page, they are redirected here
-                login_path: app_login
+                login_path: security_login
                 # Secure the login form against CSRF
-                # Reference: http://symfony.com/doc/current/cookbook/security/csrf_in_login_form.html
-#                csrf_token_generator: security.csrf.token_manager
+                # Reference: https://symfony.com/doc/current/security/csrf.html
                 enable_csrf: true
+                # The page users are redirect to when there is no previous page stored in the
+                # session (for example when the users access directly to the login page).
                 default_target_path: homepage
 
             logout:
                 # The route name the user can go to in order to logout
-                path: app_logout
+                path: security_logout
                 # The name of the route to redirect to after logging out
                 target: homepage
-#            guard:
-#                authenticators:
-#                    - App\Security\DemoAuthenticator
+            entry_point: 'form_login'
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin/login, roles: PUBLIC_ACCESS }
         - { path: ^/, roles: PUBLIC_ACCESS }
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        # this is a catch-all for the admin area
+        # additional security lives in the controllers
+        - { path: '^/(%app_locales%)/admin', roles: ROLE_ADMIN }
+
+
+when@test:
+    # this configuration simplifies testing URLs protected by the security mechanism
+    # See https://symfony.com/doc/current/testing/http_authentication.html
+    security:
+        firewalls:
+            main:
+                http_basic: ~

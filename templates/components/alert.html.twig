@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Alert demo{% endblock %}
+{% block page_pretitle %}Using alert macro{% endblock %}
+
+{% block page_content %}
+    {% embed '@Tabler/embeds/card.html.twig' %}
+        {% block box_title %}The "alert" macro{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
+        {% block box_body %}
+            <p class="p-2 pt-3">
+                Use it like this:
+                <code>
+                    {% verbatim %}
+                    {% from '@Tabler/components/alert.html.twig' import alert %}
+                    {% endverbatim %}
+                </code>
+            </p>
+            {% set importTpl = "{% from '@Tabler/components/alert.html.twig' import alert %}" %}
+            {% set codeTemplates = [
+                importTpl ~ "{{ alert('danger', 'description', 'title', 'about') }}",
+                importTpl ~ "{{ alert('warning', 'description', 'title', 'fas fa-exclamation', true) }}",
+                importTpl ~ "{{ alert('info', 'description', 'What a great bundle') }}",
+                importTpl ~ "{{ alert('warning', null, 'title', 'fas fa-exclamation') }}",
+                importTpl ~ "{{ alert('warning', null, 'title', 'fas fa-exclamation', true) }}",
+                importTpl ~ "{{ alert('danger', null, 'title', 'fas fa-exclamation', true) }}",
+                importTpl ~ "{{ alert('warning', 'description', null, 'fas fa-exclamation') }}",
+                importTpl ~ "{{ alert('warning', 'description', null, 'fas fa-exclamation', true) }}",
+                importTpl ~ "{{ alert('danger', 'description', null, 'fas fa-exclamation') }}",
+                importTpl ~ "{{ alert('warning', 'description') }}",
+                importTpl ~ "{{ alert('primary', 'description') }}",
+                importTpl ~ "{{ alert('success', 'description', null, null, true) }}",
+                importTpl ~ "{{ alert('info', null, 'title', null, true) }}",
+            ] %}
+            <table class="table" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>Rendered alert</th>
+                    <th>Used code</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for tpl in codeTemplates %}
+                    <tr>
+                        <td style="width: 50%">
+                            {{ include(template_from_string(tpl)) }}
+                        </td>
+                        <td>
+                            <code>{{ tpl|replace({(importTpl): ''}) }}</code>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

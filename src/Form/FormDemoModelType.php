@@ -64,8 +64,8 @@ class FormDemoModelType extends AbstractType
                 'constraints' => new Length(['min' => 3]),
             ])
             ->add('job', ChoiceType::class, [
-                'choices' => ['Pilot' => 'p', 'Doctor' => 'doc', 'Manager' => 'm', 'Developer' => 'd', 'Other' => 'o'],
-                'constraints' => new EqualTo(['value' => 'd', 'message' => 'Nope! The best job in the world is Developer ... at least for me ;-)']),
+                'choices' => ['Pilot' => 'p', 'Nurse' => 'n', 'Manager' => 'm', 'Developer' => 'd', 'Other' => 'o'],
+                'constraints' => new EqualTo(['value' => 'd', 'message' => 'Nope! The best job in the world is software developer ;-)']),
                 'help' => 'Choose the best job in the world',
             ])
             ->add('bootstrapSelect', ChoiceType::class, [
@@ -99,7 +99,10 @@ class FormDemoModelType extends AbstractType
             ])
             ->add('termsAccepted', CheckboxType::class, [
                 'required' => false,
-                'label' => false,
+            ])
+            ->add('checkboxSwitch', CheckboxType::class, [
+                'required' => false,
+                'label_attr' => ['class' => 'checkbox-switch']
             ])
             ->add('termsAccepted', CheckboxType::class, [
                 'required' => false,
@@ -145,7 +148,6 @@ class FormDemoModelType extends AbstractType
                 'required' => false,
             ])
             ->add('price', MoneyType::class, [
-                'label' => false,
                 'required' => false,
             ])
             ->add('password', PasswordType::class, [

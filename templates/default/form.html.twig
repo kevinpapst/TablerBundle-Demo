@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block page_title %} Form demo {% endblock %}
-{% block page_subtitle %} Fullscreen width form {% endblock %}
+{% block page_pretitle %} Fullscreen width form {% endblock %}
 
 {% block page_content %}
     <div class="row">
@@ -11,17 +11,17 @@
                 {% block box_before %}{{ form_start(form) }}{% endblock %}
                 {% block box_title %}{{ 'A simple form demo'|trans }}{% endblock %}
                 {% block box_body %}
-                    <p>
+                    <div>
                         Using the form theme:
-                    <pre>{% verbatim %}{% form_theme form '@Tabler/layout/form-theme.html.twig' %}{% endverbatim %}</pre>
-                    </p>
+                        <pre>{% verbatim %}{% form_theme form '@Tabler/layout/form-theme.html.twig' %}{% endverbatim %}</pre>
+                    </div>
                     <hr>
                     {{ form_widget(form) }}
                 {% endblock %}
                 {% block box_footer %}
                     <div class="pull-right">
-                        <button type="reset" class="btn btn-icon btn-warning "><i class="icon fa fa-times"></i> {{ 'Cancel'|trans }}</button>
-                        <button type="submit" class="btn btn-icon btn-primary "><i class="icon fa fa-check-square"></i> {{ 'Submit'|trans }}</button>
+                        <button type="reset" class="btn btn-warning"><i class="icon fas fa-times"></i> {{ 'Cancel'|trans }}</button>
+                        <button type="submit" class="btn btn-primary"><i class="icon fas fa-check-square"></i> {{ 'Submit'|trans }}</button>
                     </div>
                 {% endblock %}
 

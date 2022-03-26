@@ -39,7 +39,6 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         );
 
         $forms = new MenuItemModel('forms', 'Forms', null, [], 'fab fa-wpforms');
-        $forms->setBadge('1');
         $forms->setBadgeColor('red');
 
         $forms->addChild(
@@ -51,24 +50,49 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
 
         $event->addItem($forms);
 
-        $event->addItem(
-            new MenuItemModel('context', 'Tabler context', 'context', [], 'fas fa-code')
-        );
-
         $components = new MenuItemModel('components', 'Components', null, []);
-        $components->setBadge('2');
         $components->addChild(
             new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-save')
         );
+        $components->addChild(
+            new MenuItemModel('timeline', 'Timeline', 'timeline', [], 'fas fa-stream')
+        );
+        $components->addChild(
+            new MenuItemModel('dropdown', 'Dropdown', 'dropdown', [], 'far fa-save')
+        );
+        $components->addChild(
+            new MenuItemModel('alert', 'Alert', 'alert', [], 'fas fa-exclamation')
+        );
+
         $event->addItem($components);
 
-        if ($this->security->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+        $layouts = new MenuItemModel('layout', 'Layout', null, []);
+        $layouts->addChild(
+            new MenuItemModel('full-page', 'Full page layout', 'full-page', [], 'fas fa-desktop')
+        );
+        $layouts->addChild(
+            new MenuItemModel('navbar-overlapping', 'Overlapping Navbar', 'navbar-overlapping', [])
+        );
+        $layouts->setDivider(true);
+        $layouts->addChild(
+            new MenuItemModel('Error 403', 'Error 403', 'error403', [], 'far fa-exclamation')
+        );
+        $layouts->addChild(
+            new MenuItemModel('Error 404', 'Error 404', 'error404', [], 'far fa-bug'),
+        );
+        $layouts->addChild(
+            new MenuItemModel('Error 500', 'Error 500', 'error500', [], 'far fa-bomb')
+        );
+
+        $event->addItem($layouts);
+
+        $docu = new MenuItemModel('documentation', 'Documentation', 'documentation', [], 'far fa-file-alt');
+        $docu->setBadgeColor('blue');
+        $event->addItem($docu);
+
+        if (!$this->security->isGranted('IS_AUTHENTICATED')) {
             $event->addItem(
-                new MenuItemModel('logout', 'logout', 'app_logout', [], 'fas fa-sign-out-alt')
-            );
-        } else {
-            $event->addItem(
-                new MenuItemModel('login', 'login', 'app_login', [], 'fas fa-sign-in-alt')
+                new MenuItemModel('login', 'login', 'security_login', [], 'fas fa-sign-in-alt')
             );
         }
 
