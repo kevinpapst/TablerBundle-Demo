@@ -71,6 +71,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
             new MenuItemModel('full-page', 'Full page layout', 'full-page', [], 'fas fa-desktop')
         );
         $layouts->addChild(
+            new MenuItemModel('vertical-layout', 'Vertical layout', 'vertical', [], 'fas fa-ellipsis-vertical')
+        );
+        $layouts->addChild(
             new MenuItemModel('navbar-overlapping', 'Overlapping Navbar', 'navbar-overlapping', [])
         );
         $layouts->setDivider(true);

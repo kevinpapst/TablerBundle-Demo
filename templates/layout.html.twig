@@ -1,4 +1,4 @@
-{% extends '@Tabler/layout-vertical.html.twig' %}
+{% extends '@Tabler/layout%s.html.twig'|format(verticalLayout|default(false) ? '-vertical') %}
 
 {% block page_title %}Demo application{% endblock %}
 {% block page_pretitle %}{% endblock %}

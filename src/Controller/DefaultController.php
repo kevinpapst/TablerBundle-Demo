@@ -33,6 +33,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/vertical", defaults={}, name="vertical")
+     */
+    public function vertical(): Response
+    {
+        return $this->render('default/index.html.twig', ['verticalLayout' => true]);
+    }
+
+    /**
      * @Route("/forms", name="forms")
      */
     public function forms(Request $request): Response
@@ -81,6 +89,14 @@ class DefaultController extends AbstractController
      * @Route("/full-page", name="full-page")
      */
     public function fullpage(): Response
+    {
+        return $this->render('default/fullpage.html.twig');
+    }
+
+    /**
+     * @Route("/vertical-page", name="vertical-page")
+     */
+    public function verticalpage(): Response
     {
         return $this->render('default/fullpage.html.twig');
     }
