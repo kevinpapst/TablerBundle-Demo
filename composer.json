@@ -12,7 +12,7 @@
         "doctrine/common": "^3.2.0",
         "doctrine/doctrine-bundle": "^2.5.2",
         "doctrine/orm": "^2.10",
-        "kevinpapst/tabler-bundle": "dev-main",
+        "kevinpapst/tabler-bundle": "dev-tac",
         "knplabs/knp-menu-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^6",
         "symfony/asset": ">= 5.4",
@@ -22,6 +22,7 @@
         "symfony/form": ">= 5.4",
         "symfony/framework-bundle": ">= 5.4",
         "symfony/intl": ">= 5.4",
+        "symfony/password-hasher": "^5.4",
         "symfony/security-bundle": ">= 5.4",
         "symfony/stopwatch": ">= 5.4",
         "symfony/translation": ">= 5.4",
@@ -91,6 +92,12 @@
         "symfony": {
             "allow-contrib": false,
             "require": "^5.4"
+        }
+    },
+    "repositories": {
+        "tabler": {
+            "type": "vcs",
+            "url": "git@github.com:survos/TablerBundle.git"
         }
     }
 }
