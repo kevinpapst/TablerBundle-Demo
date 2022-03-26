@@ -12,7 +12,7 @@
         "doctrine/common": "^3.2.0",
         "doctrine/doctrine-bundle": "^2.5.2",
         "doctrine/orm": "^2.10",
-        "kevinpapst/tabler-bundle": "dev-tac",
+        "kevinpapst/tabler-bundle": "dev-layout-vertical",
         "knplabs/knp-menu-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^6",
         "symfony/asset": ">= 5.4",
@@ -94,13 +94,13 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "^6.0"
+            "require": "^5.4"
         }
     },
     "repositories": {
         "tabler": {
             "type": "vcs",
-            "url": "git@github.com:survos/TablerBundle.git"
+            "url": "git@github.com:cavasinf/TablerBundle.git"
         }
     }
 }
