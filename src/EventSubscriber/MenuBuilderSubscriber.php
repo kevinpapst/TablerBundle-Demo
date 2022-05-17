@@ -73,6 +73,10 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $layouts->addChild(
             new MenuItemModel('navbar-overlapping', 'Overlapping Navbar', 'navbar-overlapping', [])
         );
+        $vertical = new MenuItemModel('navbar-vertical', 'Vertical Navbar', 'navbar-vertical', []);
+        $vertical->setBadge('New');
+        $vertical->setBadgeColor('green');
+        $layouts->addChild($vertical);
         $layouts->setDivider(true);
         $layouts->addChild(
             new MenuItemModel('Error 403', 'Error 403', 'error403', [], 'far fa-exclamation')
