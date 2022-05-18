@@ -79,6 +79,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $layouts->addChild($vertical);
         $layouts->setDivider(true);
         $layouts->addChild(
+            new MenuItemModel('RTL', 'Right to left', 'layout-rtl', [])
+        );
+        $layouts->addChild(
             new MenuItemModel('Error 403', 'Error 403', 'error403', [], 'far fa-exclamation')
         );
         $layouts->addChild(

@@ -283,12 +283,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevinpapst/TablerBundle.git",
-                "reference": "2584dc1e58085067071c57d53bc4934f6f5c016a"
+                "reference": "ea98cb05ce72cc3314ecc1572126e4bc5bdd7af1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/2584dc1e58085067071c57d53bc4934f6f5c016a",
-                "reference": "2584dc1e58085067071c57d53bc4934f6f5c016a",
+                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/ea98cb05ce72cc3314ecc1572126e4bc5bdd7af1",
+                "reference": "ea98cb05ce72cc3314ecc1572126e4bc5bdd7af1",
                 "shasum": ""
             },
             "require": {
@@ -350,7 +350,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-17T12:16:24+00:00"
+            "time": "2022-05-18T22:55:28+00:00"
         },
         {
             "name": "knplabs/knp-menu",
