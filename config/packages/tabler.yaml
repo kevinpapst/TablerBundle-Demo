@@ -66,3 +66,4 @@ tabler:
         user: fas fa-user
         moon: far fa-moon
         sun: far fa-sun
+        warning: fas fa-exclamation-triangle
