@@ -18,8 +18,8 @@
             </p>
             {% set importTpl = "{% from '@Tabler/components/alert.html.twig' import alert %}" %}
             {% set codeTemplates = [
-                importTpl ~ "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning', dismissible : true}) }}",
                 importTpl ~ "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning'}) }}",
+                importTpl ~ "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning', dismissible : true}) }}",
                 importTpl ~ "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning', important: true}) }}",
                 importTpl ~ "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning', important: true, dismissible : true}) }}",
                 importTpl ~ "{{ alert({title : 'Title V2', description: 'Description V2', type : 'warning'}) }}",
