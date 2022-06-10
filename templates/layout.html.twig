@@ -1,4 +1,4 @@
-{% extends '@Tabler/layout.html.twig' %}
+{% extends '@Tabler/layout-horizontal.html.twig' %}
 
 {% block page_title %}Demo application{% endblock %}
 {% block page_pretitle %}{% endblock %}
@@ -15,7 +15,7 @@
     {% endif %}
     <div class="nav-item dropdown d-none d-md-flex me-2">
         <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Choose a language" aria-expanded="false">
-			{{ tabler_icon('fas fa-globe', true) }}
+            {{ tabler_icon('fas fa-globe', true) }}
         </a>
         <div class="dropdown-menu dropdown-menu-end dropdown-menu-card" data-bs-popper="none">
             <div class="card-header text-nowrap">{{ 'Choose a language'|trans }}</div>
