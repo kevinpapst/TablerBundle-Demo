@@ -78,6 +78,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/modal", name="modal")
+     */
+    public function modal(): Response
+    {
+        return $this->render('components/modal.html.twig');
+    }
+
+    /**
      * @Route("/offcanvas", name="offcanvas")
      */
     public function offcanvas(): Response
