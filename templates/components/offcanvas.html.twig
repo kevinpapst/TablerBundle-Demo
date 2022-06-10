@@ -1,0 +1,84 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Offcanvas demo{% endblock %}
+{% block page_pretitle %}Using "offcanvas" embed{% endblock %}
+
+{% block page_actions %}
+    <div class="btn-list">
+        <a href="https://getbootstrap.com/docs/5.0/components/offcanvas/" target="_blank" class="btn btn-white">
+            Bootstrap Docs
+        </a>
+        <a href="https://preview.tabler.io/offcanvas.html" target="_blank" class="btn btn-primary d-none d-sm-inline-block">
+            Tabler Demo
+        </a>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+    {% embed '@Tabler/embeds/card.html.twig' %}
+        {% block box_title %}The "offcanvas" embed{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
+        {% block box_body %}
+            <p class="p-2 pt-3">
+                If you want to show an `Offcanvas`, you can set the {hidden : false} option, see the example "off-oc".
+            </p>
+            {% set codeTemplates = {
+'top-oc':
+"{% embed '@Tabler/embeds/offcanvas.html.twig' with {position : 'top'} %}
+    {% block offcanvas_title 'Top offcanvas' %}
+    {% block offcanvas_body %}
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda ea est, eum exercitationem
+            illum itaque laboriosam magni necessitatibus, nemo nisi numquam quae reiciendis repellat sit soluta.
+            Aut!
+        </div>
+    {% endblock %}
+{% endembed %}",
+
+'end-oc':
+"{% embed '@Tabler/embeds/offcanvas.html.twig' with {position : 'end', hidden : false} %}
+    {% block offcanvas_title 'End offcanvas' %}
+{% endembed %}",
+
+'bottom-oc':
+"{% embed '@Tabler/embeds/offcanvas.html.twig' with {id: 'bottom-oc', position : 'bottom'} %}
+    {% block offcanvas_title 'Bottom offcanvas' %}
+{% endembed %}",
+
+'start-oc':
+"{% embed '@Tabler/embeds/offcanvas.html.twig' with {position : 'start'} %}
+    {% block offcanvas_title 'Start offcanvas' %}
+{% endembed %}",
+
+'noheader-oc':
+"{% embed '@Tabler/embeds/offcanvas.html.twig' %}
+    {% block header %}{% endblock %} {# No Header => Remove X close button #}
+{% endembed %}"
+            } %}
+            <table class="table" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>Click to show</th>
+                    <th>Used code</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for id, tpl in codeTemplates %}
+                    <tr>
+                        <td style="width: 30%">
+                            {{ include(template_from_string(tpl)) }}
+                            <a class="btn" data-bs-toggle="offcanvas" href="#{{ id }}" role="button" aria-controls="offcanvasStart">
+                                Toggle offcanvas: {{ id }}
+                            </a>
+                        </td>
+                        <td>
+                            <pre><code>{{ tpl }}</code></pre>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

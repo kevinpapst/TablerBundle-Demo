@@ -78,6 +78,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/offcanvas", name="offcanvas")
+     */
+    public function offcanvas(): Response
+    {
+        return $this->render('components/offcanvas.html.twig');
+    }
+
+    /**
      * @Route("/timeline", name="timeline")
      */
     public function timeline(): Response
