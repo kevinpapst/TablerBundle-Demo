@@ -63,6 +63,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components->addChild(
             new MenuItemModel('alert', 'Alert', 'alert', [], 'fas fa-exclamation')
         );
+        $components->addChild(
+            new MenuItemModel('callout', 'Callout', 'callout', [], 'fas fa-exclamation')
+        );
 
         $event->addItem($components);
 

@@ -1,0 +1,67 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Callout demo{% endblock %}
+{% block page_pretitle %}Using callout macro{% endblock %}
+
+{% block page_content %}
+    {% embed '@Tabler/embeds/card.html.twig' %}
+        {% block box_title %}The "callout" macro{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
+        {% block box_body %}
+            <p class="p-2 pt-3">
+                The `callout` component is a simplified version of the <a href="{{ path('alert') }}">alert</a>.
+                <br><br>
+                Use it like this:
+                <code>
+                    {% verbatim %}
+                    {% from '@Tabler/components/callout.html.twig' import callout %}
+                    {% endverbatim %}
+                </code>
+            </p>
+            {% set importTpl = "{% from '@Tabler/components/callout.html.twig' import callout %}" %}
+            {% set codeTemplates = [
+                importTpl ~ "{{ callout({type: 'success', description: 'Your account has been saved!', icon: 'fas fa-check'}) }}",
+                importTpl ~ "{{ callout({type: 'primary', description: 'Here is something that you might like to know.', icon: 'fas fa-info'}) }}",
+                importTpl ~ "{{ callout({type: 'warning', description: 'Sorry! There was a problem with your request.', icon: 'fas fa-exclamation-triangle'}) }}",
+                importTpl ~ "{{ callout({type: 'danger', description: 'Your account has been deleted and cannot be restored.', icon: 'fas fa-skull'}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', description: 'Description V2', icon : 'warning'}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', description: 'Description V2', icon : 'warning'}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', description: 'Description V2', icon : 'warning', important: true}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', description: 'Description V2', icon : 'warning', important: true}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', description: 'Description V2', type : 'warning'}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', description: 'Description V2', type : 'warning'}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', type : 'warning'}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', type : 'warning'}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', icon : 'warning', type : 'warning'}) }}",
+                importTpl ~ "{{ callout({title : 'Title V2', icon : 'warning', type : 'warning'}) }}",
+                importTpl ~ "{{ callout({description : 'Description V2', type : 'success'}) }}",
+                importTpl ~ "{{ callout({description : 'Description V2', type : 'success'}) }}",
+                importTpl ~ "{{ callout({description : 'Description V2', type : 'success', icon : 'warning'}) }}",
+                importTpl ~ "{{ callout({description : 'Description V2', type : 'success', icon : 'warning'}) }}",
+                importTpl ~ "{{ callout({type : 'primary'}) }}",
+                importTpl ~ "{{ callout({type : 'primary'}) }}",
+            ] %}
+            <table class="table" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>Rendered alert</th>
+                    <th>Used code</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for tpl in codeTemplates %}
+                    <tr>
+                        <td style="width: 50%">
+                            {{ include(template_from_string(tpl)) }}
+                        </td>
+                        <td>
+                            <code>{{ tpl|replace({(importTpl): ''}) }}</code>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}
