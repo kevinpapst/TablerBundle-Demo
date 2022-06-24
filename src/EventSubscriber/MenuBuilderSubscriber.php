@@ -47,6 +47,10 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $forms->addChild(
             new MenuItemModel('sub-demo', 'Horizontal', 'forms-horizontal', [], 'far fa-arrow-alt-circle-down')
         );
+        $formSub = new MenuItemModel('form-second-level', 'Deeper menus', null, [], 'far fa-arrow-alt-circle-right');
+        $formSub->addChild(new MenuItemModel('form-second-level2', 'Third level is possible', 'third_level'));
+        $formSub->addChild(new MenuItemModel('form-second-level2', 'Third level is possible 2', 'third_level2'));
+        $forms->addChild($formSub);
 
         $event->addItem($forms);
 

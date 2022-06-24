@@ -26,6 +26,8 @@ class DefaultController extends AbstractController
 {
     /**
      * @Route("/", defaults={}, name="homepage")
+     * @Route("/third-level", defaults={}, name="third_level")
+     * @Route("/third-level2", defaults={}, name="third_level2")
      */
     public function index(): Response
     {
