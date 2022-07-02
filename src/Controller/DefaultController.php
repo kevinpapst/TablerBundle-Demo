@@ -48,6 +48,15 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/status", name="status")
+     */
+    public function status(): Response
+    {
+        return $this->render('components/status.html.twig');
+    }
+
+
+    /**
      * @Route("/buttons", name="buttons")
      */
     public function buttons(): Response

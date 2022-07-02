@@ -60,8 +60,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components->addChild(new MenuItemModel('dropdown', 'Dropdown', 'dropdown', [], 'far fa-save'));
         $components->addChild(new MenuItemModel('alert', 'Alert', 'alert', [], 'fas fa-exclamation'));
         $components->addChild(new MenuItemModel('callout', 'Callout', 'callout', [], 'fas fa-exclamation'));
-        $components->addChild(new MenuItemModel('offcanvas', 'Offcanvas', 'offcanvas', []));
-        $components->addChild(new MenuItemModel('modal', 'Modals', 'modal', []));
+        $components->addChild(new MenuItemModel('offcanvas', 'Offcanvas', 'offcanvas'));
+        $components->addChild(new MenuItemModel('modal', 'Modals', 'modal'));
+        $components->addChild(new MenuItemModel('status', 'Statuses', 'status'));
 
         $event->addItem($components);
 
