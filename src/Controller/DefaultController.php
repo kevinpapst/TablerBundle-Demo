@@ -55,6 +55,13 @@ class DefaultController extends AbstractController
         return $this->render('components/status.html.twig');
     }
 
+    /**
+     * @Route("/carousel", name="carousel")
+     */
+    public function carousel(): Response
+    {
+        return $this->render('components/carousel.html.twig');
+    }
 
     /**
      * @Route("/buttons", name="buttons")

@@ -63,6 +63,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components->addChild(new MenuItemModel('offcanvas', 'Offcanvas', 'offcanvas'));
         $components->addChild(new MenuItemModel('modal', 'Modals', 'modal'));
         $components->addChild(new MenuItemModel('status', 'Statuses', 'status'));
+        $components->addChild(new MenuItemModel('carousel', 'Carousel', 'carousel'));
 
         $event->addItem($components);
 
