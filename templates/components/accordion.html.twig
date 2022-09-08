@@ -8,14 +8,7 @@
         {% block box_title %}The single "accordion" macro{% endblock %}
         {% block box_body_class %}p-0{% endblock %}
         {% block box_body %}
-            <p class="p-2 pt-3">
-                Use it like this:
-                <code>
-                    {% verbatim %}
-                    {% from '@Tabler/components/accordion.html.twig' import accordion %}
-                    {% endverbatim %}
-                </code>
-            </p>
+
             {% set importTpl = "{% from '@Tabler/components/accordion.html.twig' import accordion %}" %}
             {% set codeTemplates = ["
 {% set items = [
@@ -35,10 +28,14 @@
 {{ accordion(items, options) }}
 "] %}
 
+            <p class="p-2 pt-3">
+                Use it like this: {{ show_source_code(importTpl, false) }}
+            </p>
+
             <table class="table" style="width: 100%">
                 <thead>
                 <tr>
-                    <th>Rendered button</th>
+                    <th>Rendered Accordion</th>
                     <th>Used code</th>
                 </tr>
                 </thead>
@@ -49,13 +46,14 @@
                             {{ include(template_from_string(importTpl ~ tpl)) }}
                         </td>
                         <td>
-                            <pre>{{ tpl }}</pre>
+                            {{ show_source_code(tpl) }}
+                            {#{{ show_template_code(_self) }}#}
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+
         {% endblock %}
     {% endembed %}
-
 {% endblock %}
