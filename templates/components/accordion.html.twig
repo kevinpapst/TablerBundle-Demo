@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Accordion demo{% endblock %}
+{% block page_pretitle %}Using accordion macro{% endblock %}
+
+{% block page_content %}
+    {% embed '@Tabler/embeds/card.html.twig' %}
+        {% block box_title %}The single "accordion" macro{% endblock %}
+        {% block box_body_class %}p-0{% endblock %}
+        {% block box_body %}
+            <p class="p-2 pt-3">
+                Use it like this:
+                <code>
+                    {% verbatim %}
+                    {% from '@Tabler/components/accordion.html.twig' import accordion %}
+                    {% endverbatim %}
+                </code>
+            </p>
+            {% set importTpl = "{% from '@Tabler/components/accordion.html.twig' import accordion %}" %}
+            {% set codeTemplates = ["
+{% set items = [
+    {'title': 'Title 1', 'body': 'Body 1'},
+    {'title': 'Title 1', 'body': 'Body 2', 'options': {'titleExtraClass': 'bg-success text-white', 'bodyExtraClass': 'bg-danger pt-3'}},
+    {'title': 'Title 3', 'body': 'Body 3', 'options': {'extraClass': 'bg-danger-lt'}},
+    {'title': '<div>Title 4 <strong>with HTML</strong></div>', 'body': '<div>Body 4 <strong>with HTML</strong></div'},
+] %}
+
+{% set options = {
+    'id': 'example-accordion',
+    'raw': null,
+    'alwaysOpen': false,
+    'extraClass': 'mb-0',
+} %}
+
+{{ accordion(items, options) }}
+"] %}
+
+            <table class="table" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>Rendered button</th>
+                    <th>Used code</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for tpl in codeTemplates %}
+                    <tr>
+                        <td style="width: 30%">
+                            {{ include(template_from_string(importTpl ~ tpl)) }}
+                        </td>
+                        <td>
+                            <pre>{{ tpl }}</pre>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

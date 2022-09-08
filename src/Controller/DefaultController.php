@@ -64,6 +64,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/accordion", name="accordion")
+     */
+    public function accordion(): Response
+    {
+        return $this->render('components/accordion.html.twig');
+    }
+
+    /**
      * @Route("/buttons", name="buttons")
      */
     public function buttons(): Response
