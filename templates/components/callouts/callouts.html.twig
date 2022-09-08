@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Callout demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/callout.html.twig' import callout %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "{{ callout({type: 'success', description: 'Your account has been saved!', icon: 'fas fa-check'}) }}",
+            "{{ callout({type: 'primary', description: 'Here is something that you might like to know.', icon: 'fas fa-info'}) }}",
+            "{{ callout({type: 'warning', description: 'Sorry! There was a problem with your request.', icon: 'fas fa-exclamation-triangle'}) }}",
+            "{{ callout({type: 'danger', description: 'Your account has been deleted and cannot be restored.', icon: 'fas fa-skull'}) }}",
+            "{{ callout({title : 'Title V2', description: 'Description V2', icon : 'warning'}) }}",
+            "{{ callout({title : 'Title V2', description: 'Description V2', icon : 'warning'}) }}",
+            "{{ callout({title : 'Title V2', description: 'Description V2', icon : 'warning', important: true}) }}",
+            "{{ callout({title : 'Title V2', description: 'Description V2', icon : 'warning', important: true}) }}",
+            "{{ callout({title : 'Title V2', description: 'Description V2', type : 'warning'}) }}",
+            "{{ callout({title : 'Title V2', description: 'Description V2', type : 'warning'}) }}",
+            "{{ callout({title : 'Title V2', type : 'warning'}) }}",
+            "{{ callout({title : 'Title V2', type : 'warning'}) }}",
+            "{{ callout({title : 'Title V2', icon : 'warning', type : 'warning'}) }}",
+            "{{ callout({title : 'Title V2', icon : 'warning', type : 'warning'}) }}",
+            "{{ callout({description : 'Description V2', type : 'success'}) }}",
+            "{{ callout({description : 'Description V2', type : 'success'}) }}",
+            "{{ callout({description : 'Description V2', type : 'success', icon : 'warning'}) }}",
+            "{{ callout({description : 'Description V2', type : 'success', icon : 'warning'}) }}",
+            "{{ callout({type : 'primary'}) }}",
+            "{{ callout({type : 'primary'}) }}",
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "callout" macro{% endblock %}
+        {% block box_body %}
+            {{ parent() }}
+            <p>
+                The `callout` component is a simplified version of the <a href="{{ path('alert') }}">alert</a>.
+            </p>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

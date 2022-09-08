@@ -1,0 +1,70 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Alert demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/alert.html.twig' import alert %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning'}) }}",
+            "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning', dismissible : true}) }}",
+            "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning', important: true}) }}",
+            "{{ alert({title : 'Title V2', description: 'Description V2', icon : 'warning', important: true, dismissible : true}) }}",
+            "{{ alert({title : 'Title V2', description: 'Description V2', type : 'warning'}) }}",
+            "{{ alert({title : 'Title V2', description: 'Description V2', type : 'warning', dismissible : true}) }}",
+            "{{ alert({title : 'Title V2', type : 'warning'}) }}",
+            "{{ alert({title : 'Title V2', type : 'warning', dismissible : true}) }}",
+            "{{ alert({title : 'Title V2', icon : 'warning', type : 'warning'}) }}",
+            "{{ alert({title : 'Title V2', icon : 'warning', type : 'warning', dismissible : true}) }}",
+            "{{ alert({description : 'Description V2', type : 'success'}) }}",
+            "{{ alert({description : 'Description V2', type : 'success', dismissible : true}) }}",
+            "{{ alert({description : 'Description V2', type : 'success', icon : 'warning'}) }}",
+            "{{ alert({description : 'Description V2', type : 'success', icon : 'warning', dismissible : true}) }}",
+            "{{ alert({type : 'primary'}) }}",
+            "{{ alert({type : 'primary', dismissible : true}) }}",
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "alert" macro{% endblock %}
+    {% endembed %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/alert.html.twig' import alert %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "{{ alert('danger', 'Description' ,'Title', 'fas fa-exclamation-triangle', true) }}",
+            "{{ alert('danger', 'Description' ,'Title', 'fas fa-exclamation-triangle') }}",
+            "{{ alert('danger', 'Description' ,'Title', 'fas fa-exclamation-triangle') }}",
+            "{{ alert('warning', 'Description' ,'Title') }}",
+            "{{ alert('warning', null ,'Title') }}",
+            "{{ alert('warning', null ,'Title', 'fas fa-exclamation-triangle') }}",
+            "{{ alert('success', 'Description') }}",
+            "{{ alert('success', 'Description', null, 'fas fa-exclamation-triangle') }}",
+            "{{ alert('primary') }}",
+            "{{ alert('danger', 'description', 'title', 'about') }}",
+            "{{ alert('warning', 'description', 'title', 'fas fa-exclamation', true) }}",
+            "{{ alert('info', 'description', 'What a great bundle') }}",
+            "{{ alert('warning', null, 'title', 'fas fa-exclamation') }}",
+            "{{ alert('warning', null, 'title', 'fas fa-exclamation', true) }}",
+            "{{ alert('danger', null, 'title', 'fas fa-exclamation', true) }}",
+            "{{ alert('warning', 'description', null, 'fas fa-exclamation') }}",
+            "{{ alert('warning', 'description', null, 'fas fa-exclamation', true) }}",
+            "{{ alert('danger', 'description', null, 'fas fa-exclamation') }}",
+            "{{ alert('warning', 'description') }}",
+            "{{ alert('primary', 'description') }}",
+            "{{ alert('success', 'description', null, null, true) }}",
+            "{{ alert('info', null, 'title', null, true) }}",
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "alert" macro{% endblock %}
+        {% block box_body %}
+            {{ parent() }}
+            <strong>This deprecated way of using it supported passing direct arguments. <br>
+                Will be removed from the API soon: do NOT use it any longer!</strong>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

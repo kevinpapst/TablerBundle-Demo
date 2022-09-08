@@ -1,0 +1,21 @@
+<a class="btn" data-bs-toggle="modal" href="#question" role="button">
+    Toggle modal: question
+</a>
+
+{% embed '@Tabler/embeds/modal.html.twig' with {id: 'question', status: 'info', header: false} %}
+    {% block modal_size 'modal_sm' %}
+    {% block modal_body %}
+        <div class="text-center">
+            <i class="fas fa-heart fa-3x mb-3 text-info"></i>
+            <h2>Happy to see you here!</h2>
+        </div>
+    {% endblock %}
+    {% block modal_footer %}
+        <div class="w-100">
+            <div class="row">
+                <div class="col"><a href="#" class="question-confirm btn btn-info w-100" data-bs-dismiss="modal">Love you too</a></div>
+                <div class="col"><a href="#" class="question-cancel btn w-100" data-bs-dismiss="modal">Thanks</a></div>
+            </div>
+        </div>
+    {% endblock %}
+{% endembed %}

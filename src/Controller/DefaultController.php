@@ -52,7 +52,8 @@ class DefaultController extends AbstractController
      */
     public function status(): Response
     {
-        return $this->render('components/status.html.twig');
+//        return $this->render('components/status.html.twig');
+        return $this->render('components/status/status.html.twig');
     }
 
     /**
@@ -60,7 +61,8 @@ class DefaultController extends AbstractController
      */
     public function carousel(): Response
     {
-        return $this->render('components/carousel.html.twig');
+//        return $this->render('components/carousel.html.twig');
+        return $this->render('components/carousels/carousels.html.twig');
     }
 
     /**
@@ -68,7 +70,8 @@ class DefaultController extends AbstractController
      */
     public function accordion(): Response
     {
-        return $this->render('components/accordion.html.twig');
+//        return $this->render('components/accordion.html.twig');
+        return $this->render('components/accordion/accordion.html.twig');
     }
 
     /**
@@ -76,7 +79,8 @@ class DefaultController extends AbstractController
      */
     public function buttons(): Response
     {
-        return $this->render('components/buttons.html.twig');
+//        return $this->render('components/buttons.html.twig');
+        return $this->render('components/buttons/buttons.html.twig');
     }
 
     /**
@@ -84,7 +88,8 @@ class DefaultController extends AbstractController
      */
     public function dropdown(): Response
     {
-        return $this->render('components/dropdown.html.twig');
+//        return $this->render('components/dropdown.html.twig');
+        return $this->render('components/dropdowns/dropdowns.html.twig');
     }
 
     /**
@@ -92,7 +97,7 @@ class DefaultController extends AbstractController
      */
     public function alert(): Response
     {
-        return $this->render('components/alert.html.twig');
+        return $this->render('components/alerts/alerts.html.twig');
     }
 
     /**
@@ -100,7 +105,8 @@ class DefaultController extends AbstractController
      */
     public function callout(): Response
     {
-        return $this->render('components/callout.html.twig');
+//        return $this->render('components/callout.html.twig');
+        return $this->render('components/callouts/callouts.html.twig');
     }
 
     /**
@@ -108,7 +114,8 @@ class DefaultController extends AbstractController
      */
     public function modal(): Response
     {
-        return $this->render('components/modal.html.twig');
+//        return $this->render('components/modal.html.twig');
+        return $this->render('components/modals/modals.html.twig');
     }
 
     /**
@@ -116,7 +123,8 @@ class DefaultController extends AbstractController
      */
     public function offcanvas(): Response
     {
-        return $this->render('components/offcanvas.html.twig');
+//        return $this->render('components/offcanvas.html.twig');
+        return $this->render('components/offcanvas/offcanvas.html.twig');
     }
 
     /**
@@ -124,7 +132,8 @@ class DefaultController extends AbstractController
      */
     public function timeline(): Response
     {
-        return $this->render('components/timeline.html.twig');
+//        return $this->render('components/timeline.html.twig');
+        return $this->render('components/timelines/timelines.html.twig');
     }
 
     /**

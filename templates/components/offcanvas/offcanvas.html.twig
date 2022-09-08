@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Offcanvas demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}
+    <div class="btn-list">
+        <a href="https://getbootstrap.com/docs/5.0/components/offcanvas/" target="_blank" class="btn btn-white">
+            Bootstrap Docs
+        </a>
+        <a href="https://preview.tabler.io/offcanvas.html" target="_blank" class="btn btn-primary d-none d-sm-inline-block">
+            Tabler Demo
+        </a>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/accordion.html.twig' import accordion %}",
+        fromPathUrl : true,
+        codeTemplates : [
+            'components/offcanvas/_offcanvas_top_oc.html.twig',
+            'components/offcanvas/_offcanvas_end_oc.html.twig',
+            'components/offcanvas/_offcanvas_bottom_oc.html.twig',
+            'components/offcanvas/_offcanvas_start_oc.html.twig',
+            'components/offcanvas/_offcanvas_no_header.html.twig',
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "Offcanvas" embed{% endblock %}
+        {% block box_body %}
+            <p>
+                If you want to show an `Offcanvas` by default, you can set the {hidden : false} option, see the example "end-oc".
+            </p>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

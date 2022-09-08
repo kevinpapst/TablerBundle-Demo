@@ -1,0 +1,9 @@
+{% set off_id = "end-oc" %}
+
+<a class="btn" data-bs-toggle="offcanvas" href="#{{ off_id }}" role="button" aria-controls="offcanvasStart">
+    Toggle offcanvas: {{ off_id }}
+</a>
+
+{% embed '@Tabler/embeds/offcanvas.html.twig' with {id: off_id, position : 'end', hidden : false} %}
+    {% block offcanvas_title 'End offcanvas' %}
+{% endembed %}

@@ -1,0 +1,15 @@
+{% set items = [
+    {'title': 'Title 1', 'body': 'Body 1'},
+    {'title': 'Title 1', 'body': 'Body 2', 'options': {'titleExtraClass': 'bg-success text-white', 'bodyExtraClass': 'bg-danger pt-3'}},
+    {'title': 'Title 3', 'body': 'Body 3', 'options': {'extraClass': 'bg-danger-lt'}},
+    {'title': '<div>Title 4 <strong>with HTML</strong></div>', 'body': '<div>Body 4 <strong>with HTML</strong></div'},
+] %}
+
+{% set options = {
+    'id': 'example-accordion',
+    'raw': null,
+    'alwaysOpen': false,
+    'extraClass': 'mb-0',
+} %}
+
+{{ accordion(items, options) }}

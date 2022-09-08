@@ -1,0 +1,30 @@
+{% set items = [
+    {
+        'image': 'https://via.placeholder.com/640x360/1485bc/ffffff?text=Image+0',
+    },
+    {
+        'customContent': '
+        <div class="d-block w-100 bg-warning" style="height: 305px">
+            <h1>Hello World</h1>
+        </div>
+        ',
+    },
+    {
+        'title': 'SOME Fancy Title',
+        'description': 'Lorem Ipsum NO HTML',
+        'image': 'https://via.placeholder.com/640x360/9dbf00/ffffff?text=Image+1',
+    },
+    {
+        'image': 'https://via.placeholder.com/640x360/bc147a/ffffff?text=Image+2',
+    },
+    {
+        'image': 'https://via.placeholder.com/640x360/1454bc/ffffff?text=Image+3',
+    }
+] %}
+
+{% set options = {
+    'interval': 1500,
+    'indicators': true,
+} %}
+
+{{ carousel(items, options) }}

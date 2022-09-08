@@ -1,0 +1,15 @@
+{{ timeline([
+    { icon: 'user', iconColor: 'warning', time: '10 hours ago', title: 'Users', text: 'User was created' },
+    { icon: 'delete', iconColor: 'danger', time: '12 hours ago', title: 'Item deleted', text: 'An item has been deleted.' },
+    { icon: 'users', time: '13 hours ago', title: '+3 Friend Requests', textHtml:
+        '<div class="avatar-list mt-3">
+          <span class="avatar">
+            <span class="badge bg-success"></span>FC</span>
+          <span class="avatar">
+            <span class="badge bg-success"></span>JL</span>
+          <span class="avatar">
+            <span class="badge bg-success"></span>LL</span>
+        </div>'
+    },
+    { icon: 'plus', iconColor: 'success', time: '1 day ago', title: 'Item created', text:'Element has been created.' },
+]) }}

@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Timeline demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/timeline.html.twig' import timeline %}",
+        fromPathUrl : true,
+        codeTemplates : [
+            'components/timelines/_timeline.html.twig',
+            'components/timelines/_timeline_simple.html.twig',
+            'components/timelines/_timeline_html.html.twig',
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "Timeline" macro{% endblock %}
+    {% endembed %}
+
+{% endblock %}

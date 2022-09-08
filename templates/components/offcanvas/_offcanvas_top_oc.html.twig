@@ -1,0 +1,16 @@
+{% set off_id = "top-oc" %}
+
+<a class="btn" data-bs-toggle="offcanvas" href="#{{ off_id }}" role="button" aria-controls="offcanvasStart">
+    Toggle offcanvas: {{ off_id }}
+</a>
+
+{% embed '@Tabler/embeds/offcanvas.html.twig' with {id: off_id, position : 'top'} %}
+    {% block offcanvas_title 'Top offcanvas' %}
+    {% block offcanvas_body %}
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda ea est, eum exercitationem
+            illum itaque laboriosam magni necessitatibus, nemo nisi numquam quae reiciendis repellat sit soluta.
+            Aut!
+        </div>
+    {% endblock %}
+{% endembed %}

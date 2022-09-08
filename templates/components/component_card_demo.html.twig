@@ -1,0 +1,47 @@
+{% extends '@Tabler/embeds/card.html.twig' %}
+
+{% set _fromPathUrl = fromPathUrl ?? false %}
+{% set _importTpl = importTpl ?? null %}
+{% set _codeTemplates = codeTemplates ?? [] %}
+{% set _renderWidth = renderWidth ?? '30%' %}
+
+
+{% block box_header_before %}
+    {% if _importTpl is not null %}
+        {{ include(template_from_string(importTpl)) }}
+    {% endif %}
+{% endblock %}
+
+{% block box_body %}
+    {% if _importTpl is not null %}
+        <p>
+            Use it like this: {{ show_source_code(_importTpl, false) }}
+        </p>
+    {% endif %}
+{% endblock %}
+
+{% block box_footer_before %}
+    <div class="table-responsive">
+        <table class="table table-vcenter card-table">
+            <thead>
+            <tr>
+                <th>Rendered</th>
+                <th>Used code</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tpl in codeTemplates %}
+                {% set code = _fromPathUrl ? source(tpl) : tpl %}
+                <tr>
+                    <td style="width: {{ _renderWidth }}">
+                        {{ include(template_from_string(_importTpl|default('') ~ code)) }}
+                    </td>
+                    <td>
+                        {{ show_source_code(code) }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
