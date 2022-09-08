@@ -1,16 +1,14 @@
 {% extends 'layout.html.twig' %}
 
 {% block page_title %}Accordion demo{% endblock %}
-{% block page_pretitle %}Using accordion macro{% endblock %}
+{% block page_pretitle %}Using Accordion macro{% endblock %}
 
 {% block page_content %}
     {% embed '@Tabler/embeds/card.html.twig' %}
-        {% block box_title %}The single "accordion" macro{% endblock %}
-        {% block box_body_class %}p-0{% endblock %}
-        {% block box_body %}
+        {% block box_title %}The single "Accordion" macro{% endblock %}
 
-            {% set importTpl = "{% from '@Tabler/components/accordion.html.twig' import accordion %}" %}
-            {% set codeTemplates = ["
+        {% set importTpl = "{% from '@Tabler/components/accordion.html.twig' import accordion %}" %}
+        {% set codeTemplates = ["
 {% set items = [
     {'title': 'Title 1', 'body': 'Body 1'},
     {'title': 'Title 1', 'body': 'Body 2', 'options': {'titleExtraClass': 'bg-success text-white', 'bodyExtraClass': 'bg-danger pt-3'}},
@@ -28,32 +26,36 @@
 {{ accordion(items, options) }}
 "] %}
 
-            <p class="p-2 pt-3">
+        {% block box_body %}
+            <p>
                 Use it like this: {{ show_source_code(importTpl, false) }}
             </p>
+        {% endblock %}
 
-            <table class="table" style="width: 100%">
-                <thead>
-                <tr>
-                    <th>Rendered Accordion</th>
-                    <th>Used code</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for tpl in codeTemplates %}
+        {% block box_footer_before %}
+            <div class="table-responsive">
+                <table class="table card-table">
+                    <thead>
                     <tr>
-                        <td style="width: 30%">
-                            {{ include(template_from_string(importTpl ~ tpl)) }}
-                        </td>
-                        <td>
-                            {{ show_source_code(tpl) }}
-                            {#{{ show_template_code(_self) }}#}
-                        </td>
+                        <th>Rendered</th>
+                        <th>Used code</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-
+                    </thead>
+                    <tbody>
+                    {% for tpl in codeTemplates %}
+                        <tr>
+                            <td style="width: 30%">
+                                {{ include(template_from_string(importTpl ~ tpl)) }}
+                            </td>
+                            <td>
+                                {{ show_source_code(tpl) }}
+                                {# {{ show_template_code(_self) }} #}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         {% endblock %}
     {% endembed %}
 {% endblock %}
