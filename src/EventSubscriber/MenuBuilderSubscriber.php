@@ -96,6 +96,8 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
             $layouts->addChild(new MenuItemModel('Error 500', 'Error 500', 'error500', [], 'far fa-bomb'));
         }
 
+        $layouts->addChild(new MenuItemModel('Without URL', 'Without URL'));
+
         $event->addItem($layouts);
 
         $docu = new MenuItemModel('documentation', 'Documentation', 'documentation', [], 'far fa-file-alt');
@@ -107,6 +109,8 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
                 new MenuItemModel('login', 'login', 'security_login', [], 'fas fa-sign-in-alt')
             );
         }
+
+        $event->addItem(new MenuItemModel('Empty URL', 'Empty URL'));
 
         $this->activateByRoute(
             $event->getRequest()->get('_route'),

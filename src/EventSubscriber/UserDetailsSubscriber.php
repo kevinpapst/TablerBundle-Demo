@@ -49,7 +49,7 @@ class UserDetailsSubscriber implements EventSubscriberInterface
 
         $event->setUser($user);
 
-        $profileLink = new MenuItemModel('profile', 'My profile', 'profile');
-        $event->addLink($profileLink);
+        $event->addLink(new MenuItemModel('profile', 'My profile', 'profile'));
+        $event->addLink(new MenuItemModel('empty_profile', 'Details (no link)'));
     }
 }
