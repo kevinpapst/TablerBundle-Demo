@@ -21,7 +21,7 @@ tabler:
         # true = only avatar, false = show username and title as well
         user_menu_condensed: true
         # url to your company logo (if not with a protocol, the asset() helper will be used to create the url
-        logo_url: ~
+        logo_url: "https://preview.tabler.io/static/logo.svg"
 
     knp_menu:
         enable: false
