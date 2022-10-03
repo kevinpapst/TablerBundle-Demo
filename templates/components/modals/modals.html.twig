@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Modal demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}
+    <div class="btn-list">
+        <a href="https://getbootstrap.com/docs/5.0/components/modal/" target="_blank" class="btn btn-white">
+            Bootstrap Docs
+        </a>
+        <a href="https://preview.tabler.io/modals.html" target="_blank" class="btn btn-primary d-none d-sm-inline-block">
+            Tabler Demo
+        </a>
+    </div>
+{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/accordion.html.twig' import accordion %}",
+        fromPathUrl : true,
+        codeTemplates : [
+            'components/modals/_modal_full.html.twig',
+            'components/modals/_modal_no_header.html.twig',
+            'components/modals/_modal_no_close.html.twig',
+            'components/modals/_modal_question.html.twig',
+            'components/modals/_modal_status.html.twig',
+            'components/modals/_modal_form.html.twig',
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "modal" embed{% endblock %}
+    {% endembed %}
+
+{% endblock %}

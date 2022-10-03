@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Accordion demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        fromPathUrl : true,
+        codeTemplates : [
+            'components/accordion/_accordion.html.twig'
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The single "Accordion" macro{% endblock %}
+    {% endembed %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+<a class="btn" data-bs-toggle="modal" href="#no-header" role="button">
+    Toggle modal: no-header
+</a>
+
+{% embed '@Tabler/embeds/modal.html.twig' with {id: 'no-header', header: false} %}
+    {% block modal_size 'modal_sm' %}
+    {% block modal_body %}
+        <div class="text-center">
+            <i class="fas fa-question fa-3x mb-3 text-danger"></i>
+            <h2>Do you really want to delete that?</h2>
+        </div>
+    {% endblock %}
+    {% block modal_footer %}
+        <div class="col text-center"><a href="#" class="btn btn-primary" data-bs-dismiss="modal">Close</a></div>
+    {% endblock %}
+{% endembed %}

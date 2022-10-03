@@ -33,6 +33,9 @@
         "symfony/web-profiler-bundle": "^5.0"
     },
     "config": {
+        "platform": {
+            "php": "8.0"
+        },
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,

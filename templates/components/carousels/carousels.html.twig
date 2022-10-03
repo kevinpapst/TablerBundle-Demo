@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Carousel demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        fromPathUrl : true,
+        renderWidth : '45%',
+        codeTemplates : [
+            'components/carousels/_carousel.html.twig',
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "Carousel" macro{% endblock %}
+    {% endembed %}
+
+{% endblock %}

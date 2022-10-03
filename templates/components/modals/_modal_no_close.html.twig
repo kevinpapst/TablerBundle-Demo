@@ -1,0 +1,9 @@
+<a class="btn" data-bs-toggle="modal" href="#no-close" role="button">
+    Toggle modal: no-close
+</a>
+
+{% embed '@Tabler/embeds/modal.html.twig' with {id: 'no-close', close: false} %}
+    {% block modal_title 'A modal example' %}
+    {% block modal_size 'modal_sm' %}
+    {% block modal_body %}Foo Bar{% endblock %}
+{% endembed %}

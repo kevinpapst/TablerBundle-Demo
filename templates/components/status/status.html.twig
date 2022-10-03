@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Statuses demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+
+    {% set colors = ['blue', 'azure', 'indigo', 'purple', 'pink', 'red', 'orange', 'yellow', 'lime', 'green', 'teal', 'cyan'] %}
+
+    {# =================================================== #}
+
+    {% set codeTemplates = [] %}
+    {% for color in colors %}
+        {% set codeTemplates = codeTemplates|merge([
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "'}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', with_dot: true}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', with_dot: true, animated: false}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', lite: true}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', with_dot: true, lite: true}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', with_dot: true, animated: false, lite: true}) }}",
+        ]) %}
+    {% endfor %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/status.html.twig' import status %}",
+        fromPathUrl : false,
+        codeTemplates : codeTemplates
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "status" macro{% endblock %}
+    {% endembed %}
+
+    {# =================================================== #}
+
+    {% set codeTemplates = [
+        "{{ status_dot() }}",
+        "{{ status_dot({animated: false}) }}",
+    ] %}
+    {% for color in colors %}
+        {% set codeTemplates = codeTemplates|merge([
+            "{{ status_dot({color: '" ~ color ~ "', animated: true}) }}",
+            "{{ status_dot({color: '" ~ color ~ "', animated: false}) }}",
+        ]) %}
+    {% endfor %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/status_dot.html.twig' import status_dot %}",
+        fromPathUrl : false,
+        codeTemplates : codeTemplates
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "status_dot" macro{% endblock %}
+    {% endembed %}
+
+    {# ======================================================= #}
+
+    {% set codeTemplates = [
+        "{{ status_indicator() }}",
+        "{{ status_indicator({animated: false}) }}",
+    ] %}
+    {% for color in colors %}
+        {% set codeTemplates = codeTemplates|merge([
+            "{{ status_indicator({color: '"~color~"', animated: true}) }}",
+            "{{ status_indicator({color: '"~color~"', animated: false}) }}",
+        ]) %}
+    {% endfor %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/status_indicator.html.twig' import status_indicator %}",
+        fromPathUrl : false,
+        codeTemplates : codeTemplates
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "status_indicator" macro{% endblock %}
+    {% endembed %}
+
+{% endblock %}

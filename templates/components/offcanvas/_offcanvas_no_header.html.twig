@@ -1,0 +1,9 @@
+{% set off_id = "noheader-oc" %}
+
+<a class="btn" data-bs-toggle="offcanvas" href="#{{ off_id }}" role="button" aria-controls="offcanvasStart">
+    Toggle offcanvas: {{ off_id }}
+</a>
+
+{% embed '@Tabler/embeds/offcanvas.html.twig' with {id: off_id} %}
+    {% block header %}{% endblock %} {# No Header => Remove X close button #}
+{% endembed %}

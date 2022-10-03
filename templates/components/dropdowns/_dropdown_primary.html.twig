@@ -1,0 +1,10 @@
+{% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+
+{{ dropdown_button(
+    {title : 'Actions', class: 'btn-primary'},
+    [
+        {title : 'Add more',     url : '#'},
+        {title : 'Help needed',  url : '#'},
+        {icon : 'delete',       url : '#'}
+    ]
+) }}

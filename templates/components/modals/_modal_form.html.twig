@@ -1,0 +1,100 @@
+<a class="btn" data-bs-toggle="modal" href="#form" role="button">
+    Toggle modal: form
+</a>
+
+{% embed '@Tabler/embeds/modal.html.twig' with {id: 'form'} %}
+    {% block modal_size 'modal_sm' %}
+    {% block modal_title 'Add a new team' %}
+    {% block modal_body %}
+        <div class="row mb-3 align-items-end">
+            <div class="col-auto">
+                <a href="#" class="avatar avatar-upload rounded">
+                    <span class="avatar-upload-text">Add</span>
+                </a>
+            </div>
+            <div class="col">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Pick your team color</label>
+            <div class="row g-2">
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="dark" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-dark"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput form-colorinput-light">
+                        <input name="color" type="radio" value="white" class="form-colorinput-input" checked="">
+                        <span class="form-colorinput-color bg-white"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="blue" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-blue"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="azure" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-azure"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="indigo" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-indigo"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="purple" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-purple"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="pink" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-pink"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="red" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-red"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="orange" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-orange"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="yellow" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-yellow"></span>
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <label class="form-colorinput">
+                        <input name="color" type="radio" value="lime" class="form-colorinput-input">
+                        <span class="form-colorinput-color bg-lime"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <label class="form-label">Additional info</label>
+            <textarea class="form-control"></textarea>
+        </div>
+    {% endblock %}
+    {% block modal_footer %}
+        <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Add Team</button>
+    {% endblock %}
+{% endembed %}

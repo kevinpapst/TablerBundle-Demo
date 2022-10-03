@@ -1,0 +1,20 @@
+<a class="btn" data-bs-toggle="modal" href="#full" role="button">
+    Toggle modal: full
+</a>
+
+{% embed '@Tabler/embeds/modal.html.twig' with {id: 'full'} %}
+    {% block modal_title 'A modal example' %}
+    {% block modal_body %}
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda ea est, eum exercitationem
+        illum itaque laboriosam magni necessitatibus, nemo nisi numquam quae reiciendis repellat sit soluta.
+        Aut!
+    {% endblock %}
+    {% block modal_footer %}
+        <div class="w-100">
+            <div class="row">
+                <div class="col"><a href="#" class="question-confirm btn btn-danger w-100" data-bs-dismiss="modal">Confirm</a></div>
+                <div class="col"><a href="#" class="question-cancel btn w-100" data-bs-dismiss="modal">Cancel</a></div>
+            </div>
+        </div>
+    {% endblock %}
+{% endembed %}

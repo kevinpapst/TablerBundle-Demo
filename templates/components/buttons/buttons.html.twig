@@ -1,0 +1,73 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Button demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/button.html.twig' import button %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "{{ button('save', {title : 'Save'|trans}) }}",
+            "{{ button('save', {title : 'Save'|trans}, false) }}",
+            "{{ button('save', {title : 'Save'|trans, label: '1'}) }}",
+            "{{ button('save', {title : 'Save'|trans}, 'success') }}",
+            "{{ button(false , {title : 'Save'|trans}) }}",
+            "{{ button(false , {title : 'Save'|trans}, 'link') }}",
+            "{{ button(false , {title : 'Save'|trans}, 'success') }}",
+            "{{ button('save', {title : 'Save'|trans, combined: true}, 'success') }}",
+            "{{ button('save', {title : 'Save'|trans, combined: true, label: 'test', labelColor: 'red'}, 'success') }}",
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "action_button" implementations renders &lt;button&gt; tags{% endblock %}
+    {% endembed %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/buttons.html.twig' import action_button %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'primary') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'primary', 'lg') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'primary', 'sm') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'default') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'default', 'lg') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'default', 'sm') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'primary') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'secondary') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'success') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'warning') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'danger') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'info') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'light') }}",
+            "{{ action_button('Test', 'toggle', 'fas fa-home', 'dark') }}",
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "action_button" implementations renders &lt;button&gt; tags{% endblock %}
+    {% endembed %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/buttons.html.twig' import link_button %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "{{ link_button('Test', '#', 'fas fa-home', 'primary') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'primary', 'lg') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'primary', 'sm') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'default') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'default', 'lg') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'default', 'sm') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'primary') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'secondary') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'outline-success') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'outline-success') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'outline-danger') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'pill') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'square') }}",
+            "{{ link_button('Test', '#', 'fas fa-home', 'purple') }}",
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "link_button" implementations renders &lt;a&gt; tags{% endblock %}
+    {% endembed %}
+
+{% endblock %}
