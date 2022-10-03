@@ -1,9 +1,0 @@
-{%- if pre_block ?? true -%}
-    <pre class="mb-0">{{ _self.code(template) }}</pre>
-{%- else -%}
-    {{ _self.code(template) }}
-{%- endif -%}
-
-{% macro code(template) -%}
-    <code class="language-twig">{{ template.source_code | trim }}</code>
-{%- endmacro %}
