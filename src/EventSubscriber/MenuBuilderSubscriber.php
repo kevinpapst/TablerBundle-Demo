@@ -87,9 +87,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         );
 
         if ($this->environment === 'dev') {
-            $layouts->addChild(new MenuItemModel('Error 403', 'Error 403', '_preview_error', ['code' => '403'], 'far fa-exclamation'));
-            $layouts->addChild(new MenuItemModel('Error 404', 'Error 404', '_preview_error', ['code' => '404'], 'far fa-bug'));
-            $layouts->addChild(new MenuItemModel('Error 500', 'Error 500', '_preview_error', ['code' => '500'], 'far fa-bomb'));
+            $layouts->addChild(new MenuItemModel('Error 403', 'Error 403', '_preview_error', ['code' => '403'], 'fas fa-exclamation'));
+            $layouts->addChild(new MenuItemModel('Error 404', 'Error 404', '_preview_error', ['code' => '404'], 'fas fa-bug'));
+            $layouts->addChild(new MenuItemModel('Error 500', 'Error 500', '_preview_error', ['code' => '500'], 'fas fa-bomb'));
         } else {
             $layouts->addChild(new MenuItemModel('Error 403', 'Error 403', 'error403', [], 'far fa-exclamation'));
             $layouts->addChild(new MenuItemModel('Error 404', 'Error 404', 'error404', [], 'far fa-bug'));
