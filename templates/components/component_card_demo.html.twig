@@ -15,7 +15,7 @@
 {% block box_body %}
     {% if _importTpl is not null %}
         <p>
-            Use it like this: {{ show_source_code(_importTpl, false) }}
+            Use it like this: <code>{{ _importTpl }}</code>
         </p>
     {% endif %}
 {% endblock %}
@@ -37,7 +37,7 @@
                         {{ include(template_from_string(_importTpl|default('') ~ code)) }}
                     </td>
                     <td>
-                        {{ show_source_code(code) }}
+                        <pre class="mb-0 p-1"><code class="language-twig">{{ code | trim }}</code></pre>
                     </td>
                 </tr>
             {% endfor %}
