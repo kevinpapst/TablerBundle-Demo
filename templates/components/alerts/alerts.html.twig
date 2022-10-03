@@ -59,10 +59,9 @@
             "{{ alert('info', null, 'title', null, true) }}",
         ]
     } %}
-        {% block box_title %}{{ tabler_icon('about') }} The "alert" macro{% endblock %}
-        {% block box_body %}
-            {{ parent() }}
-            <strong>This deprecated way of using it supported passing direct arguments. <br>
+        {% block box_title %}{{ tabler_icon('about') }} The "alert" macro (deprecated!){% endblock %}
+        {% block box_footer %}
+            <strong>This deprecated way of using it supported passing direct arguments.
                 Will be removed from the API soon: do NOT use it any longer!</strong>
         {% endblock %}
     {% endembed %}

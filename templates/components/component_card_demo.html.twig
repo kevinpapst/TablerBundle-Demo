@@ -12,15 +12,14 @@
     {% endif %}
 {% endblock %}
 
+{% block box_body_class %}p-0{% endblock %}
+
 {% block box_body %}
     {% if _importTpl is not null %}
-        <p>
+        <p class="p-3 mb-0">
             Use it like this: <code>{{ _importTpl }}</code>
         </p>
     {% endif %}
-{% endblock %}
-
-{% block box_footer_before %}
     <div class="table-responsive">
         <table class="table table-vcenter card-table">
             <thead>

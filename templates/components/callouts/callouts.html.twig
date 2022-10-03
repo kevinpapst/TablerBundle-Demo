@@ -33,11 +33,8 @@
         ]
     } %}
         {% block box_title %}{{ tabler_icon('about') }} The "callout" macro{% endblock %}
-        {% block box_body %}
-            {{ parent() }}
-            <p>
-                The `callout` component is a simplified version of the <a href="{{ path('alert') }}">alert</a>.
-            </p>
+        {% block box_footer %}
+            The `callout` component is a simplified version of the <a href="{{ path('alert') }}">alert</a>.
         {% endblock %}
     {% endembed %}
 

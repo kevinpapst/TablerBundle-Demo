@@ -7,7 +7,6 @@
 {% block page_content %}
 
     {% embed 'components/component_card_demo.html.twig' with {
-        importTpl : "{% from '@Tabler/components/buttons.html.twig' import dropdown_button %}",
         fromPathUrl : true,
         codeTemplates : [
             'components/dropdowns/_dropdown_default.html.twig',
@@ -15,7 +14,7 @@
             'components/dropdowns/_dropdown_danger.html.twig',
         ]
     } %}
-        {% block box_title %}{{ tabler_icon('about') }} The "dropdown_button" implementations renders a button with a dropdown menu{% endblock %}
+        {% block box_title %}{{ tabler_icon('about') }} The "dropdown_button" renders a button with a dropdown menu{% endblock %}
     {% endembed %}
 
 {% endblock %}
