@@ -5,17 +5,11 @@
 {% set _codeTemplates = codeTemplates ?? [] %}
 {% set _renderWidth = renderWidth ?? '30%' %}
 
-
-{% block box_header_before %}
-    {% if _importTpl is not null %}
-        {{ include(template_from_string(importTpl)) }}
-    {% endif %}
-{% endblock %}
-
 {% block box_body_class %}p-0{% endblock %}
 
 {% block box_body %}
     {% if _importTpl is not null %}
+        {{ include(template_from_string(importTpl)) }}
         <p class="p-3 mb-0">
             Use it like this: <code>{{ _importTpl }}</code>
         </p>
