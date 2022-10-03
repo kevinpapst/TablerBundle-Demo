@@ -18,12 +18,14 @@
             {{ tabler_icon('fas fa-globe', true) }}
         </a>
         <div class="dropdown-menu dropdown-menu-end dropdown-menu-card" data-bs-popper="none">
-            <div class="card-header text-nowrap">{{ 'Choose a language'|trans }}</div>
-            {% for locale in locales() %}
-                <a class="dropdown-item" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': locale})) }}">
-                    {{ locale|language(app.request.get('_locale')) }}
-                </a>
-            {% endfor %}
+            <div class="card">
+                <div class="card-header text-nowrap">{{ 'Choose a language'|trans }}</div>
+                {% for locale in locales() %}
+                    <a class="dropdown-item" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': locale})) }}">
+                        {{ locale|language(app.request.get('_locale')) }}
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

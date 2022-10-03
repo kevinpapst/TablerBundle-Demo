@@ -28,6 +28,10 @@ services:
     App\EventSubscriber\RedirectToLocaleSubscriber:
         arguments: ['@router', '%app_locales%', '%locale%']
 
+    App\EventSubscriber\MenuBuilderSubscriber:
+        arguments:
+            $environment: '%kernel.environment%'
+
     App\Twig\TwigExtensions:
         arguments: ['%app_locales%']
 

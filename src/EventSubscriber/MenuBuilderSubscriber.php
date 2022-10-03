@@ -19,10 +19,12 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 class MenuBuilderSubscriber implements EventSubscriberInterface
 {
     private $security;
+    private $environment;
 
-    public function __construct(AuthorizationCheckerInterface $security)
+    public function __construct(AuthorizationCheckerInterface $security, string $environment)
     {
         $this->security = $security;
+        $this->environment = $environment;
     }
 
     public static function getSubscribedEvents(): array
@@ -83,15 +85,18 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $layouts->addChild(
             new MenuItemModel('RTL', 'Right to left', 'layout-rtl', [])
         );
-        $layouts->addChild(
-            new MenuItemModel('Error 403', 'Error 403', 'error403', [], 'far fa-exclamation')
-        );
-        $layouts->addChild(
-            new MenuItemModel('Error 404', 'Error 404', 'error404', [], 'far fa-bug'),
-        );
-        $layouts->addChild(
-            new MenuItemModel('Error 500', 'Error 500', 'error500', [], 'far fa-bomb')
-        );
+
+        if ($this->environment === 'dev') {
+            $layouts->addChild(new MenuItemModel('Error 403', 'Error 403', '_preview_error', ['code' => '403'], 'far fa-exclamation'));
+            $layouts->addChild(new MenuItemModel('Error 404', 'Error 404', '_preview_error', ['code' => '404'], 'far fa-bug'));
+            $layouts->addChild(new MenuItemModel('Error 500', 'Error 500', '_preview_error', ['code' => '500'], 'far fa-bomb'));
+        } else {
+            $layouts->addChild(new MenuItemModel('Error 403', 'Error 403', 'error403', [], 'far fa-exclamation'));
+            $layouts->addChild(new MenuItemModel('Error 404', 'Error 404', 'error404', [], 'far fa-bug'));
+            $layouts->addChild(new MenuItemModel('Error 500', 'Error 500', 'error500', [], 'far fa-bomb'));
+        }
+
+        $layouts->addChild(new MenuItemModel('Without URL', 'Without URL'));
 
         $event->addItem($layouts);
 
@@ -104,6 +109,8 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
                 new MenuItemModel('login', 'login', 'security_login', [], 'fas fa-sign-in-alt')
             );
         }
+
+        $event->addItem(new MenuItemModel('Empty URL', 'Empty URL'));
 
         $this->activateByRoute(
             $event->getRequest()->get('_route'),
