@@ -1,0 +1,50 @@
+{% extends '@Tabler/wizard.html.twig' %}
+
+{% block title %}Wizard demo{% endblock %}
+
+{% block container_size %}container-tight{% endblock %}
+
+{% block wizard_content %}
+    <div class="card-body text-center py-4 p-sm-5">
+        <img src="{{ asset('images/undraw_appreciation.png') }}" height="120" class="mb-n2" alt="">
+        <br>
+        <small>Image by <a href="https://undraw.co/" target="_blank">Katerina Limpitsouni</a></small>
+        <h1 class="mt-5">Welcome to Tabler!</h1>
+        <p class="text-muted">Tabler comes with tons of well-designed components and features. Start your adventure with Tabler and make your dashboard great again.</p>
+    </div>
+    <div class="hr-text hr-text-center hr-text-spaceless">your data</div>
+    <div class="card-body">
+        <div class="mb-3">
+            <label class="form-label">Create your Tabler URL</label>
+            <div class="input-group input-group-flat">
+                    <span class="input-group-text">
+                      https://tabler.io/
+                    </span>
+                <input type="text" class="form-control ps-1" autocomplete="off">
+            </div>
+            <div class="form-hint">Choose a URL that describes you or your business in a concise way. Make it short and easy to remember so you can share links with ease.</div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block wizard_footer %}
+    <div class="row align-items-center mt-3">
+        <div class="col-4">
+            <div class="progress">
+                <div class="progress-bar" style="width: {{ percent }}%" role="progressbar" aria-valuenow="{{ percent }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ percent }}% Complete">
+                    <span class="visually-hidden">{{ percent }}% Complete</span>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="btn-list justify-content-end">
+                <a href="#" class="btn btn-link link-secondary">
+                    Set up later
+                </a>
+                <a href="{{ path('wizard', {'page': page + 1}) }}" class="btn btn-primary">
+                    Continue
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
