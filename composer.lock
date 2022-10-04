@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47e137b77acc219fb4073ea376564cc0",
+    "content-hash": "6fa942d656bf762f73dea6c87046bbd4",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -283,12 +283,12 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kevinpapst/TablerBundle.git",
+                "url": "https://github.com/TeamAllsoftware/TablerBundle.git",
                 "reference": "a2d91a62db826e770c645515286615668673cf1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/a2d91a62db826e770c645515286615668673cf1f",
+                "url": "https://api.github.com/repos/TeamAllsoftware/TablerBundle/zipball/a2d91a62db826e770c645515286615668673cf1f",
                 "reference": "a2d91a62db826e770c645515286615668673cf1f",
                 "shasum": ""
             },
@@ -326,7 +326,26 @@
                     "KevinPapst\\TablerBundle\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "KevinPapst\\TablerBundle\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "tests": [
+                    "vendor/bin/phpunit tests/"
+                ],
+                "phpstan": [
+                    "vendor/bin/phpstan analyse src/ --level=5",
+                    "vendor/bin/phpstan analyse -c tests/phpstan.neon tests/ --level=5"
+                ],
+                "codestyle": [
+                    "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none"
+                ],
+                "codestyle-fix": [
+                    "vendor/bin/php-cs-fixer fix"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -338,17 +357,16 @@
             ],
             "description": "Admin/Backend theme bundle for Symfony based on Tabler.io",
             "support": {
-                "issues": "https://github.com/kevinpapst/TablerBundle/issues",
-                "source": "https://github.com/kevinpapst/TablerBundle/tree/main"
+                "source": "https://github.com/TeamAllsoftware/TablerBundle/tree/main"
             },
             "funding": [
                 {
-                    "url": "https://paypal.me/kevinpapst",
-                    "type": "custom"
+                    "type": "github",
+                    "url": "https://github.com/kevinpapst"
                 },
                 {
-                    "url": "https://github.com/kevinpapst",
-                    "type": "github"
+                    "type": "custom",
+                    "url": "https://paypal.me/kevinpapst"
                 }
             ],
             "time": "2022-09-23T12:43:52+00:00"

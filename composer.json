@@ -91,5 +91,11 @@
             "allow-contrib": false,
             "require": "5.4.*"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/TeamAllsoftware/TablerBundle.git"
+        }
+    ]
 }
