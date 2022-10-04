@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Progress bar demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/progress_bar.html.twig' import progress_bar, progress_bars %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "{{ progress_bar() }}",
+            "{{ progress_bar({current : 1}) }}",
+            "{{ progress_bar({current : 2, max : 3, min : -1}) }}",
+            "{{ progress_bar({current : 2, max : 3}) }}",
+            "{{ progress_bar({current : 2, max : 3, color : 'bg-red'}, {backgroundColor : 'bg-grey'}) }}",
+            "{{ progress_bar({current : 2, max : 3, color : 'bg-green'}, {progressSize : 'progress-sm'}) }}",
+            "{{ progress_bar({current : 2, max : 3, color : 'bg-orange'}, {style : 'height: 20px;'}) }}",
+            "{{ progress_bar({color : 'bg-red'}, {backgroundColor : 'bg-grey'}) }}",
+            "{{ progress_bar({current :2, max: 5, color : 'bg-red', striped : true}) }}",
+            "{{ progress_bar({current :2, max: 5, striped : true, animated: true}) }}",
+            "{{ progress_bars([
+    {current :15, max: 100},
+    {current :30, max: 100, color: 'bg-success'},
+    {current :20, max: 100, color: 'bg-danger'},
+]) }}",
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "progress_bar" implementation render static or animated progress bars{% endblock %}
+    {% endembed %}
+
+{% endblock %}

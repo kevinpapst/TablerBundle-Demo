@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b18ca4cf14767ebe7c184f0b0301480b",
+    "content-hash": "6fa942d656bf762f73dea6c87046bbd4",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -280,16 +280,16 @@
         },
         {
             "name": "kevinpapst/tabler-bundle",
-            "version": "dev-feature/wizard",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TeamAllsoftware/TablerBundle.git",
-                "reference": "d4b72c8df1a6c0f7f345f63a53b21e636fe0e2eb"
+                "reference": "a2d91a62db826e770c645515286615668673cf1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TeamAllsoftware/TablerBundle/zipball/d4b72c8df1a6c0f7f345f63a53b21e636fe0e2eb",
-                "reference": "d4b72c8df1a6c0f7f345f63a53b21e636fe0e2eb",
+                "url": "https://api.github.com/repos/TeamAllsoftware/TablerBundle/zipball/a2d91a62db826e770c645515286615668673cf1f",
+                "reference": "a2d91a62db826e770c645515286615668673cf1f",
                 "shasum": ""
             },
             "require": {
@@ -319,6 +319,7 @@
             "suggest": {
                 "knplabs/knp-menu-bundle": "Allows easy menu integration"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
@@ -356,7 +357,7 @@
             ],
             "description": "Admin/Backend theme bundle for Symfony based on Tabler.io",
             "support": {
-                "source": "https://github.com/TeamAllsoftware/TablerBundle/tree/feature/wizard"
+                "source": "https://github.com/TeamAllsoftware/TablerBundle/tree/main"
             },
             "funding": [
                 {
@@ -368,7 +369,7 @@
                     "url": "https://paypal.me/kevinpapst"
                 }
             ],
-            "time": "2022-10-03T10:25:48+00:00"
+            "time": "2022-09-23T12:43:52+00:00"
         },
         {
             "name": "knplabs/knp-menu",

@@ -67,6 +67,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $components->addChild(new MenuItemModel('status', 'Statuses', 'status'));
         $components->addChild(new MenuItemModel('carousel', 'Carousel', 'carousel'));
         $components->addChild(new MenuItemModel('accordion', 'Accordion', 'accordion'));
+        $components->addChild(new MenuItemModel('progressbar', 'Progressbar', 'progressbar'));
 
         $event->addItem($components);
 

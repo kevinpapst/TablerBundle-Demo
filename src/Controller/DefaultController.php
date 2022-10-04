@@ -112,6 +112,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/progressbar", name="progressbar")
+     */
+    public function progressbar(): Response
+    {
+        return $this->render('components/progressbar/progressbar.html.twig');
+    }
+
+    /**
      * @Route("/offcanvas", name="offcanvas")
      */
     public function offcanvas(): Response
