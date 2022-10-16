@@ -128,6 +128,23 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/wizard/{page}", requirements={"page": "[1-9]\d*"}, defaults={"page": 1}, name="wizard")
+     */
+    public function wizard(string $page): Response
+    {
+        $page = (int) $page;
+
+        if ($page > 10) {
+            return $this->redirectToRoute('wizard', ['page' => 1]);
+        }
+
+        return $this->render('default/wizard.html.twig', [
+            'page' => $page,
+            'percent' => $page * 10,
+        ]);
+    }
+
+    /**
      * @Route("/timeline", name="timeline")
      */
     public function timeline(): Response

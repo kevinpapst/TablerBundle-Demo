@@ -98,6 +98,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         }
 
         $layouts->addChild(new MenuItemModel('Without URL', 'Without URL'));
+        $layouts->addChild(new MenuItemModel('Wizard', 'Wizard', 'wizard'));
 
         $event->addItem($layouts);
 
