@@ -134,9 +134,13 @@ class DefaultController extends AbstractController
     {
         $page = (int) $page;
 
+        if ($page > 10) {
+            return $this->redirectToRoute('wizard', ['page' => 1]);
+        }
+
         return $this->render('default/wizard.html.twig', [
             'page' => $page,
-            'percent' => $page <= 10 ? $page * 10 : 100,
+            'percent' => $page * 10,
         ]);
     }
 

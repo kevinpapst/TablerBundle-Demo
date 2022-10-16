@@ -1,4 +1,7 @@
 {% extends '@Tabler/wizard.html.twig' %}
+{% from '@Tabler/components/button.html.twig' import button %}
+{% from '@Tabler/components/buttons.html.twig' import link_button %}
+{% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
 
 {% block title %}Wizard demo{% endblock %}
 
@@ -27,24 +30,14 @@
     </div>
 {% endblock %}
 
-{% block wizard_footer %}
-    <div class="row align-items-center mt-3">
-        <div class="col-4">
-            <div class="progress">
-                <div class="progress-bar" style="width: {{ percent }}%" role="progressbar" aria-valuenow="{{ percent }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ percent }}% Complete">
-                    <span class="visually-hidden">{{ percent }}% Complete</span>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="btn-list justify-content-end">
-                <a href="#" class="btn btn-link link-secondary">
-                    Set up later
-                </a>
-                <a href="{{ path('wizard', {'page': page + 1}) }}" class="btn btn-primary">
-                    Continue
-                </a>
-            </div>
-        </div>
-    </div>
+{% block wizard_progress_bar %}
+    {{ progress_bar({current: percent, max: 100, min: 0}) }}
+{% endblock %}
+
+{% block wizard_previous_button %}
+    {{ link_button('Take me home'|trans({}, 'TablerBundle'), path('homepage'), false, 'link') }}
+{% endblock %}
+
+{% block wizard_next_button %}
+    {{ button(false, { title : 'Next'|trans({}, 'TablerBundle'), combined: true, url: path('wizard', {'page': page + 1}) }, 'primary') }}
 {% endblock %}
