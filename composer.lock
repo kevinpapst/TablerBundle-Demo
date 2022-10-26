@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47e137b77acc219fb4073ea376564cc0",
+    "content-hash": "13b844c2f182abe10459ea532c4178f0",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -284,12 +284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevinpapst/TablerBundle.git",
-                "reference": "aeb3aec7c6a49e7f741c0bdbd90650438d8bce9d"
+                "reference": "4d707d1a9b9f6bfba80f3f06a6bd9569611fdd24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/aeb3aec7c6a49e7f741c0bdbd90650438d8bce9d",
-                "reference": "aeb3aec7c6a49e7f741c0bdbd90650438d8bce9d",
+                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/4d707d1a9b9f6bfba80f3f06a6bd9569611fdd24",
+                "reference": "4d707d1a9b9f6bfba80f3f06a6bd9569611fdd24",
                 "shasum": ""
             },
             "require": {
@@ -351,7 +351,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-19T07:46:16+00:00"
+            "time": "2022-10-24T14:19:39+00:00"
         },
         {
             "name": "knplabs/knp-menu",
@@ -5278,16 +5278,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.8.10",
+            "version": "1.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "0c4459dc42c568b818b3f25186589f3acddc1823"
+                "reference": "46e223dd68a620da18855c23046ddb00940b4014"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0c4459dc42c568b818b3f25186589f3acddc1823",
-                "reference": "0c4459dc42c568b818b3f25186589f3acddc1823",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/46e223dd68a620da18855c23046ddb00940b4014",
+                "reference": "46e223dd68a620da18855c23046ddb00940b4014",
                 "shasum": ""
             },
             "require": {
@@ -5317,7 +5317,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.8.10"
+                "source": "https://github.com/phpstan/phpstan/tree/1.8.11"
             },
             "funding": [
                 {
@@ -5333,7 +5333,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-17T14:23:35+00:00"
+            "time": "2022-10-24T15:45:13+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -5631,7 +5631,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0"
+        "php": "^8.0 || ^8.1"
     },
     "platform-dev": [],
     "platform-overrides": {
