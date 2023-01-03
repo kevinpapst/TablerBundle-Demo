@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Card navigation{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+    {% set raw_html_example %}
+        <div class="card-body">
+            <h3><span class="badge bg-success">Active</span> content</h3>
+            <p class="mb-0">With some text</p>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex">
+                <a href="#" class="btn btn-link">Cancel</a>
+                <a href="#" class="btn btn-primary ms-auto">Go somewhere</a>
+            </div>
+        </div>
+    {% endset %}
+
+    {% set items = [
+        {
+            name : 'First',
+            content : 'First content',
+        },
+        {
+            name : '<i class="fas fa-times me-2"></i>Disabled',
+            content : 'Disabled content',
+            disabled : true,
+            raw : true,
+        },
+        {
+            name : 'Active',
+            content : raw_html_example,
+            active : true,
+            raw : true,
+        },
+        {
+            name : 'Url',
+            url : 'https://www.w3schools.com/',
+        },
+    ] %}
+
+    {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items} %}{% endembed %}
+
+    {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items, pills: true} %}
+        {% block card_nav_after %}
+            <li class="nav-item ms-auto">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </li>
+        {% endblock %}
+    {% endembed %}
+
+    {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items, tabs : true} %}{% endembed %}
+
+    {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items, tabs : true, bottom : true} %}{% endembed %}
+
+    {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items, tabs : true} %}
+        {% block card_content %}
+            <div class="card">
+                <div class="card-body">
+                    <h2>Single page/tab content</h2>
+                    <p>
+                        I'm a content that will not be changed.<br/>
+                        Even if you click tabs!
+                    </p>
+                    <blockquote>Useful when one tab correspond to one specifics URL</blockquote>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}
