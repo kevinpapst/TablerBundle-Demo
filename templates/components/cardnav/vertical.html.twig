@@ -1,0 +1,60 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Card navigation (vertical){% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+    {% set items = [
+        {
+            name: 'Account',
+            content: '<h1>My Account</h1><h3>Profile Details</h3>'
+        },
+        {
+            name: 'Another card',
+            content: '<h1>Card</h1>'
+        },
+        {
+            name: 'Experience',
+            header: true
+        },
+        {
+            name: 'Feedback',
+            content: '<h1>Give Feedback</h1>',
+            active: true,
+        },
+        {
+            name: 'Automates',
+            header: true
+        }
+    ] %}
+
+    {% embed '@Tabler/embeds/card-vertical-navigation.html.twig' with {items : items} %}{% endembed %}
+
+    {% set items = [
+        {
+            name: 'Card navigation',
+            url: path('cardnav')
+        },
+        {
+            name: 'Notifications',
+            active: true,
+        },
+        {
+            name: 'Experience',
+            header: true
+        },
+        {
+            name: 'Feedback',
+        },
+    ] %}
+
+    {% embed '@Tabler/embeds/card-vertical-navigation.html.twig' with {items : items} %}
+        {% block content %}
+            <h1>Notifications</h1>
+
+            <p>Here's my content manually inserted!</p>
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

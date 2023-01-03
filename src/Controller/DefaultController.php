@@ -136,6 +136,14 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/cardnav_vertical", name="cardnav_vertical")
+     */
+    public function cardnavVertical(): Response
+    {
+        return $this->render('components/cardnav/vertical.html.twig');
+    }
+
+    /**
      * @Route("/wizard/{page}", requirements={"page": "[1-9]\d*"}, defaults={"page": 1}, name="wizard")
      */
     public function wizard(string $page): Response
