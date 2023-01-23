@@ -43,7 +43,7 @@ composer install
 Go to your docker url (`localhost` for default config) at the port `80`.
 e.g : `localhost:80`
 
-> NO SUPPORT FOR DOCKER GIVEN
+> NO SUPPORT FOR DOCKER WILL BE GIVEN!
 
 
 # Testing different languages
@@ -56,5 +56,4 @@ e.g : `localhost:80`
 # Real world examples
 
 If you want to see the theme in action (in a real world application), 
-checkout my [time-tracking application Kimai](https://github.com/kevinpapst/kimai2) 
-(currently in preparation for the next major release in only in branch `v2`).
+checkout my [time-tracking application Kimai](https://github.com/kimai/kimai).
