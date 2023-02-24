@@ -101,6 +101,8 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
 
         $layouts->addChild(new MenuItemModel('Without URL', 'Without URL'));
         $layouts->addChild(new MenuItemModel('Wizard', 'Wizard', 'wizard'));
+        $layouts->addChild(new MenuItemModel('login-classic', 'Login (classic)', 'security-centered'));
+        $layouts->addChild(new MenuItemModel('login-cover', 'Login (cover)', 'security-cover'));
 
         $event->addItem($layouts);
 

@@ -312,4 +312,20 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', []);
     }
+
+    /**
+     * @Route("/security-centered", defaults={}, name="security-centered")
+     */
+    public function securityCentered(ContextHelper $contextHelper): Response
+    {
+        return $this->render('login.html.twig', []);
+    }
+
+    /**
+     * @Route("/security-cover", defaults={}, name="security-cover")
+     */
+    public function securityCover(ContextHelper $contextHelper): Response
+    {
+        return $this->render('login-cover.html.twig', []);
+    }
 }
