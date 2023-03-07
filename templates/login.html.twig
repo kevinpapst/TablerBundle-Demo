@@ -1,6 +1,10 @@
 {% extends '@Tabler/security.html.twig' %}
 
 {% block logo_login %}Tabler Demo - Login!{% endblock %}
+{% block login_box_msg %}
+    {{ 'Sign in to start your session'|trans({}, 'TablerBundle') }}
+{% endblock %}
+
 {% block login_form_start %}
 <p>
     Please use <strong>admin</strong> / <strong>password</strong> to login!
