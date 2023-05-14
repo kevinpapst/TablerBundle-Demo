@@ -15,8 +15,8 @@ use KevinPapst\TablerBundle\Helper\ContextHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -268,9 +268,9 @@ class DefaultController extends AbstractController
     /**
      * @Route("/dark-mode", name="dark-mode")
      */
-    public function themeDark(SessionInterface $session): Response
+    public function themeDark(RequestStack $requestStack): Response
     {
-        $session->set('theme', 'dark');
+        $requestStack->getSession()->set('theme', 'dark');
 
         return $this->redirectToRoute('homepage');
     }
@@ -278,9 +278,9 @@ class DefaultController extends AbstractController
     /**
      * @Route("/light-mode", name="light-mode")
      */
-    public function themeLight(SessionInterface $session): Response
+    public function themeLight(RequestStack $requestStack): Response
     {
-        $session->remove('theme');
+        $requestStack->getSession()->remove('theme');
 
         return $this->redirectToRoute('homepage');
     }
