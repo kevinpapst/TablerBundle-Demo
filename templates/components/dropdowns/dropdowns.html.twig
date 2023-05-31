@@ -9,6 +9,16 @@
     {% embed 'components/component_card_demo.html.twig' with {
         fromPathUrl : true,
         codeTemplates : [
+            'components/dropdowns/dropdown_full.html.twig',
+            'components/dropdowns/dropdown_small.html.twig',
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "dropdown" renders a dropdown menu{% endblock %}
+    {% endembed %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        fromPathUrl : true,
+        codeTemplates : [
             'components/dropdowns/_dropdown_default.html.twig',
             'components/dropdowns/_dropdown_primary.html.twig',
             'components/dropdowns/_dropdown_danger.html.twig',

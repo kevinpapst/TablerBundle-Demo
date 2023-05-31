@@ -1,0 +1,108 @@
+{% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+<style>
+    .dropdown-menu-demo {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-bottom: 1rem !important;
+    }
+    .avatar-kevin {
+        background-image: url(https://avatars.githubusercontent.com/u/533162);
+    }
+    .avatar-florian {
+        background-image: url(https://avatars.githubusercontent.com/u/25293190);
+    }
+</style>
+
+
+{{ dropdown([
+    {
+        type: 'header',
+        title:'Dropdown header',
+    },
+    {
+        title: 'Item 1',
+        icon: 'about',
+    },
+    {
+        title: 'Item 2',
+        icon: 'admin',
+    },
+    {
+        type: 'html',
+        html: '
+<a href="#" class="text-reset">My profile</a>
+<label class="form-check m-0 ms-auto">
+    <input type="checkbox" class="form-check-input">
+    Public
+</label>
+'
+    },
+    {
+        type: 'radio',
+        title: 'Radio input',
+        html: '<input class="form-check-input m-0 me-2" type="radio">'
+    },
+    {
+        type: 'checkbox',
+        title: 'Checkbox input',
+        html: '<input class="form-check-input m-0 me-2" type="checkbox">',
+    },
+    {
+        type: 'checkbox',
+        title: 'Checkbox input',
+        html: '<input class="form-check-input m-0 me-2" type="checkbox">',
+        disabled: true,
+    },
+    {
+        type: 'checkbox',
+        title: 'Checkbox input',
+        html: '<input class="form-check-input m-0 me-2" type="checkbox">',
+        active: true,
+    },
+    {
+        type: 'switch',
+        title: 'Checkbox input',
+        html: '<input class="form-check-input m-0 me-2" type="checkbox">'
+    },
+    {
+        type: 'divider',
+    },
+    {
+        title: 'Dropdown item 1',
+    },
+    {
+        title: 'Dropdown item 2',
+    },
+    {
+        title: 'Dropdown disabled',
+        disabled: true,
+    },
+    {
+        title: 'Dropdown active',
+        active: true,
+    },
+    {
+        type: 'divider',
+    },
+    {
+        title: 'Kevin Papst',
+        html: '<span class="avatar avatar-xs rounded me-2 avatar-kevin"></span>'
+    },
+    {
+        title: 'Florian Cavasin',
+        html: '<span class="avatar avatar-xs rounded me-2 avatar-florian"></span>'
+    },
+    {
+        title: 'Firstname Lastname',
+        html: '<span class="avatar avatar-xs rounded me-2">FL</span>'
+    },
+    {
+        type: 'divider',
+    },
+    {
+        title: 'Logout',
+        icon: 'back',
+    },
+], {extraClass : 'dropdown-menu-demo', menuArrow: true, menuArrowEnd: true}) }}

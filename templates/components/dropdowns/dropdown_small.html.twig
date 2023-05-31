@@ -1,0 +1,78 @@
+{% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+<style>
+    .dropdown-menu-demo {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-bottom: 1rem !important;
+    }
+</style>
+{{ dropdown([
+    {
+        type: 'header',
+        title:'With arrow',
+    },
+    {
+        title: 'Action',
+    },
+    {
+        title: 'Another action',
+    },
+], {extraClass : 'dropdown-menu-demo', menuArrow: true}) }}
+
+{{ dropdown([
+    {
+        type: 'header',
+        title:'With arrow end',
+    },
+    {
+        title: 'Action',
+    },
+    {
+        title: 'Another action',
+    },
+], {extraClass : 'dropdown-menu-demo', menuArrow: true, menuArrowEnd: true}) }}
+
+{{ dropdown([
+    {
+        type: 'header',
+        title:'With badge',
+    },
+    {
+        title: 'Action',
+        badge: {text: '12', class: 'bg-primary'}
+    },
+    {
+        title: 'Another action',
+        badge: {class: 'bg-success'}
+    },
+], {extraClass : 'dropdown-menu-demo'}) }}
+
+{{ dropdown([
+    {
+        type: 'header',
+        title:'Dark background',
+    },
+    {
+        title: 'Action',
+    },
+    {
+        title: 'Another action',
+    },
+    {
+        title: 'Dropdown disabled',
+        disabled: true,
+    },
+    {
+        title: 'Dropdown active',
+        active: true,
+    },
+    {
+        type: 'divider',
+    },
+    {
+        title: 'Dropdown item 1',
+        badge: {text: '2', class: 'bg-primary'}
+    },
+], {extraClass : 'dropdown-menu-demo bg-dark text-white', menuArrow: true, menuArrowEnd: true}) }}
