@@ -112,7 +112,7 @@ class DefaultController extends AbstractController
         return $this->render('components/cardnav/vertical.html.twig');
     }
 
-    #[Route(path: '/wizard/{page}', name: "wizard", requirements: ["page" => "[1-9]\d*"], defaults: ["page" => 1])]
+    #[Route(path: '/wizard/{page}', name: 'wizard', requirements: ['page' => "[1-9]\d*"], defaults: ['page' => 1])]
     public function wizard(string $page): Response
     {
         $page = (int) $page;
