@@ -10,15 +10,18 @@
 
     {# =================================================== #}
 
-    {% set codeTemplates = [] %}
+    {% set codeTemplates = [
+        "{{ status('Empty options') }}",
+    ] %}
+
     {% for color in colors %}
         {% set codeTemplates = codeTemplates|merge([
             "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "'}) }}",
-            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', with_dot: true}) }}",
-            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', with_dot: true, animated: false}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', withDot: true}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', withDot: true, animated: false}) }}",
             "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', lite: true}) }}",
-            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', with_dot: true, lite: true}) }}",
-            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', with_dot: true, animated: false, lite: true}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', withDot: true, lite: true}) }}",
+            "{{ status('" ~ color|title ~ "', {color: '" ~ color ~ "', withDot: true, animated: false, lite: true}) }}",
         ]) %}
     {% endfor %}
 
