@@ -80,16 +80,18 @@
     <div class="row">
         <div class="col-md-6">
             {# ... box widget with defaults ... #}
-            {% embed '@Tabler/embeds/card.html.twig' %}
+            {% embed '@Tabler/embeds/card.html.twig' with {
+                'id': 'myCollapsibleCard2',
+            } %}
 
                 {% import '@Tabler/components/buttons.html.twig' as button %}
                 {% block box_title %}Widget box title{% endblock %}
                 {% block box_tools %}
                     {{ button.action_cardtoolbutton('fas fa-edit', {}) }}
-                    {{ button.action_collapsebutton('Collapse', '#myCollapsibleCard .card-body') }}
+                    {{ button.action_collapsebutton('Collapse', '#myCollapsibleCard2 .card-body') }}
                 {% endblock %}
                 {% block box_body %}
-                    <div class="callout callout-info">
+                    <div>
                         Sed libero ipsum, auctor ac volutpat ac, adipiscing a enim. Nulla convallis quam eget tortor
                         dictum lobortis. Aenean tincidunt arcu id lectus facilisis imperdiet. Curabitur in orci nisl.
                         Nullam vitae arcu in tellus malesuada sollicitudin ut in sem. Ut eu nunc lacus, sit amet
@@ -116,7 +118,7 @@
                 {% import '@Tabler/components/buttons.html.twig' as button %}
                 {% block box_title %}Widget box title{% endblock %}
                 {% block box_body %}
-                    <div class="callout callout-info">
+                    <div>
                         Sed libero ipsum, auctor ac volutpat ac, adipiscing a enim. Nulla convallis quam eget tortor
                         dictum lobortis. Aenean tincidunt arcu id lectus facilisis imperdiet. Curabitur in orci nisl.
                         Nullam vitae arcu in tellus malesuada sollicitudin ut in sem. Ut eu nunc lacus, sit amet

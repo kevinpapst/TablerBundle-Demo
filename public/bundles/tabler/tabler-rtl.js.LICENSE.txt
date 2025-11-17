@@ -1,14 +1,12 @@
 /*!
-	  * Bootstrap v5.3.0-alpha3 (https://getbootstrap.com/)
-	  * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+	  * Bootstrap v5.3.7 (https://getbootstrap.com/)
+	  * Copyright 2011-2025 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
 	  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
 	  */
 
 /*!
-* Tabler v1.0.0-beta19 (https://tabler.io)
-* @version 1.0.0-beta19
-* @link https://tabler.io
-* Copyright 2018-2023 The Tabler Authors
-* Copyright 2018-2023 codecalm.net Paweł Kuna
-* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
-*/
+ * Tabler v1.4.0 (https://tabler.io)
+ * Copyright 2018-2025 The Tabler Authors
+ * Copyright 2018-2025 codecalm.net Paweł Kuna
+ * Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+ */
