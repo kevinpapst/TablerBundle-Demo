@@ -1,40 +1,43 @@
 {% extends '@Tabler/embeds/card.html.twig' %}
 
+{% set use_body = false %}
 {% set _fromPathUrl = fromPathUrl ?? false %}
 {% set _importTpl = importTpl ?? null %}
 {% set _codeTemplates = codeTemplates ?? [] %}
 {% set _renderWidth = renderWidth ?? '30%' %}
 
-{% block box_body_class %}p-0{% endblock %}
-
-{% block box_body %}
+{% block box_body_before %}
     {% if _importTpl is not null %}
-        {{ include(template_from_string(importTpl)) }}
-        <p class="p-3 mb-0">
-            Use it like this: <code>{{ _importTpl }}</code>
-        </p>
+        <div class="card-body">
+            {{ include(template_from_string(importTpl)) }}
+            <p class="p-3 mb-0">
+                Use it like this: <code>{{ _importTpl }}</code>
+            </p>
+        </div>
     {% endif %}
-    <div class="table-responsive">
-        <table class="table table-vcenter card-table">
-            <thead>
-            <tr>
-                <th>Rendered</th>
-                <th>Used code</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for tpl in codeTemplates %}
-                {% set code = _fromPathUrl ? source(tpl) : tpl %}
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-vcenter card-table">
+                <thead>
                 <tr>
-                    <td style="width: {{ _renderWidth }}">
-                        {{ include(template_from_string(_importTpl|default('') ~ code)) }}
-                    </td>
-                    <td>
-                        <pre class="mb-0 p-1"><code class="language-twig">{{ code | trim }}</code></pre>
-                    </td>
+                    <th>Rendered</th>
+                    <th>Used code</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for tpl in codeTemplates %}
+                    {% set code = _fromPathUrl ? source(tpl) : tpl %}
+                    <tr>
+                        <td style="width: {{ _renderWidth }}">
+                            {{ include(template_from_string(_importTpl|default('') ~ code)) }}
+                        </td>
+                        <td>
+                            <pre class="mb-0 p-1"><code class="language-twig">{{ code | trim }}</code></pre>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}
