@@ -23,6 +23,13 @@ Simple as that:
 composer create-project kevinpapst/tabler-bundle-demo
 ```
 
+or
+
+```bash
+git clone git@github.com:kevinpapst/TablerBundle-Demo.git tabler-bundle-demo
+composer install
+```
+
 # Usage
 ### Symfony binary
 Use the [Symfony binary](https://symfony.com/download) to quickly start up a development server:
