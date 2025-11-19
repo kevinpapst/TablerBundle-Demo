@@ -64,6 +64,12 @@ class DefaultController extends AbstractController
         return $this->render('components/buttons/buttons.html.twig');
     }
 
+    #[Route(path: '/badges', name: 'badges')]
+    public function badges(): Response
+    {
+        return $this->render('components/badges/badges.html.twig');
+    }
+
     #[Route(path: '/dropdown', name: 'dropdown')]
     public function dropdown(): Response
     {

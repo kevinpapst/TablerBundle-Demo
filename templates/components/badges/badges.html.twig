@@ -1,0 +1,157 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Badges demo{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+    {% from '@Tabler/components/badge.html.twig' import badge %}
+
+    <div class="badge-list mb-3">
+        <h1>Example heading <span class="badge">New</span></h1>
+        <span class="badge">Badge</span>
+        <span class="badge bg-blue text-blue-fg">Blue</span>
+        <span class="badge bg-blue-lt text-blue-lt-fg">Blue</span>
+        <span class="badge badge-outline text-blue">Blue</span>
+        <span class="badge bg-blue text-blue-fg badge-pill">Blue</span>
+        <span class="badge bg-red text-red-fg badge-notification"></span>
+        <span class="badge bg-red text-red-fg badge-notification badge-blink"></span>
+        <span class="badge badge-sm bg-primary text-primary-fg badge-sm">New</span>
+        <span class="badge bg-blue text-blue-fg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-2">
+              <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"></path>
+            </svg>
+            Blue
+        </span>
+        <span class="badge badge-icononly">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-2">
+            <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"></path></svg>
+        </span>
+        <a href="#" class="badge bg-blue-lt">Blue</a>
+    </div>
+
+    <div class="btn-list">
+        <button type="button" class="btn">Notifications <span class="badge text-bg-secondary ms-2">4</span></button>
+        <button type="button" class="btn">
+            Inbox
+            <span class="badge bg-red badge-notification text-red-fg">9+ <span class="visually-hidden">unread messages</span></span>
+        </button>
+        <button type="button" class="btn">
+            Profile
+            <span class="badge badge-dot bg-red badge-notification"></span>
+        </button>
+        <button type="button" class="btn">
+            Settings
+            <span class="badge badge-dot bg-red badge-notification badge-blink"></span>
+        </button>
+    </div>
+
+    <div class="badge-list mb-3">
+        <h1>Example heading {{ badge({ content: 'New' }) }}</h1>
+
+        {{ badge({ content: 'Badge' }) }}
+
+        {{ badge({ content: 'Blue', color: 'blue' }) }}
+
+        {{ badge({ content: 'Blue', color: 'blue-lt' }) }}
+
+        {{ badge({ content: 'Blue', color: 'blue', outline: true }) }}
+
+        {{ badge({ content: 'Blue', color: 'blue', pill: true }) }}
+
+        {{ badge({ color: 'red', notification: true }) }}
+
+        {{ badge({ color: 'red', notification: true, blink: true }) }}
+
+        {{ badge({ content: 'New', color: 'primary', size: 'sm' }) }}
+
+        {% set content %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-2">
+                <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"></path>
+            </svg>
+            Blue
+        {% endset %}
+        {{ badge({ content: content, raw : true, color: 'blue' }) }}
+
+        {% set content %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-2">
+                <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"></path>
+            </svg>
+        {% endset %}
+        {{ badge({ content: content, raw : true, iconOnly: true }) }}
+
+        {{ badge({ content: 'Blue', color: 'blue-lt', href: 'https://preview.tabler.io/badges.html' }) }}
+    </div>
+
+    <div class="btn-list mb-3">
+        <button type="button" class="btn">Notifications {{ badge({ content: "4", color: "secondary", extraClass: "ms-2" }) }}</button>
+        <button type="button" class="btn">
+            Inbox
+            {{ badge({ content: "9+", color: "red", notification: true }) }}
+        </button>
+        <button type="button" class="btn">
+            Profile
+            {{ badge({ dot: true, color: "red", notification: true }) }}
+        </button>
+        <button type="button" class="btn">
+            Settings
+            {{ badge({ dot: true, color: "red", notification: true, blink: true }) }}
+        </button>
+    </div>
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/badge.html.twig' import badge %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "<h1>Example heading {{ badge({ content: 'New' }) }}</h1>",
+            "{{ badge({ content: 'Badge' }) }}",
+            "{{ badge({ content: 'Blue', color: 'blue' }) }}",
+            "{{ badge({ content: 'Blue', color: 'blue-lt' }) }}",
+            "{{ badge({ content: 'Blue', color: 'blue', outline: true }) }}",
+            "{{ badge({ content: 'Blue', color: 'blue', pill: true }) }}",
+            "{{ badge({ content: 'New', color: 'primary', size: 'sm' }) }}",
+            '
+{% set content %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-2">
+        <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013
+        .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078
+        -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"></path>
+    </svg>
+    Blue
+{% endset %}
+{{ badge({ content: content, raw : true, color: "blue" }) }}
+            ',
+            '
+{% set content %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-2">
+        <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013
+        .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624
+        -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"></path>
+    </svg>
+{% endset %}
+{{ badge({ content: content, raw : true, iconOnly: true }) }}
+            ',
+            "{{ badge({ content: 'Link to tabler preview', color: 'blue-lt', href: 'https://preview.tabler.io/badges.html' }) }}",
+            '<button type="button" class="btn">Notifications {{ badge({ content: "4", color: "secondary", extraClass: "ms-2" }) }}</button>',
+            '
+<button type="button" class="btn">
+    Inbox
+    {{ badge({ content: "9+", color: "red", notification: true }) }}
+</button>
+            ',
+            '
+<button type="button" class="btn">
+    Profile
+    {{ badge({ dot: true, color: "red", notification: true }) }}
+</button>
+            ',
+            '
+<button type="button" class="btn">
+    Settings
+    {{ badge({ dot: true, color: "red", notification: true, blink: true }) }}
+</button>
+            ',
+        ]
+    } %}{% endembed %}
+
+{% endblock %}
