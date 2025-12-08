@@ -1,7 +1,6 @@
-version: '2'
 services:
     apache:
-        image: allsoftware/symfony:5-php-8.1-v6
+        image: allsoftware/symfony:6-php-8.3-v1
         volumes:
             - "./:/var/www/html"
             - "/var/www/html/var"

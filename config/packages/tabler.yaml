@@ -22,6 +22,12 @@ tabler:
         user_menu_condensed: true
         # url to your company logo (if not with a protocol, the asset() helper will be used to create the url
         logo_url: "https://preview.tabler.io/static/logo.svg"
+        # slate, gray, zinc, neutral, stone
+        theme_base: "slate"
+        # possible values: 0, 0.5, 1, 1.5, 2 | radius in pixels * 4
+        theme_radius: "0.5"
+        # blue, azure, indigo, purple, pink, red, orange, yellow, lime, green, teal, cyan
+        theme_primary: "blue"
 
     knp_menu:
         enable: false

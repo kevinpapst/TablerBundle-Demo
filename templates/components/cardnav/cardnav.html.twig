@@ -41,8 +41,10 @@
         },
     ] %}
 
+    <h2 class="mb-3">Default</h2>
     {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items} %}{% endembed %}
 
+    <h2 class="mb-3">Pills</h2>
     {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items, pills: true} %}
         {% block card_nav_after %}
             <li class="nav-item ms-auto">
@@ -53,10 +55,13 @@
         {% endblock %}
     {% endembed %}
 
+    <h2 class="mb-3">Tabs</h2>
     {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items, tabs : true} %}{% endembed %}
 
+    <h2 class="mb-3">Tabs bottom</h2>
     {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items, tabs : true, bottom : true} %}{% endembed %}
 
+    <h2 class="mb-3">Hard codded content</h2>
     {% embed '@Tabler/embeds/card_nav.html.twig' with { items : items, tabs : true} %}
         {% block card_content %}
             <div class="card">

@@ -5,31 +5,30 @@
     "description": "Demo application to showcase the Tabler Bundle",
     "require": {
         "php": "8.1.*||8.2.*",
-        "composer/package-versions-deprecated": "^1.11.99",
         "erusev/parsedown": "^1.7",
-        "kevinpapst/tabler-bundle": "dev-main",
+        "kevinpapst/tabler-bundle": "dev-tabler14",
         "knplabs/knp-menu-bundle": "^3.0",
-        "symfony/asset": "^6.0",
-        "symfony/console": "^6.0",
-        "symfony/dotenv": "^6.0",
-        "symfony/flex": "^1.0",
-        "symfony/form": "^6.0",
-        "symfony/framework-bundle": "^6.0",
-        "symfony/intl": "^6.0",
-        "symfony/runtime": "5.*",
-        "symfony/security-bundle": "^6.0",
-        "symfony/stopwatch": "^6.0",
-        "symfony/translation": "^6.0",
-        "symfony/twig-bundle": "^6.0",
-        "symfony/validator": "^6.0",
-        "symfony/webpack-encore-bundle": "^1.9",
-        "symfony/yaml": "^6.0"
+        "symfony/asset": "^6.4",
+        "symfony/console": "^6.4",
+        "symfony/dotenv": "^6.4",
+        "symfony/flex": "^2.0",
+        "symfony/form": "^6.4",
+        "symfony/framework-bundle": "^6.4",
+        "symfony/intl": "^6.4",
+        "symfony/runtime": "^6.4",
+        "symfony/security-bundle": "^6.4",
+        "symfony/stopwatch": "^6.4",
+        "symfony/translation": "^6.4",
+        "symfony/twig-bundle": "^6.4",
+        "symfony/validator": "^6.4",
+        "symfony/webpack-encore-bundle": "^2.0",
+        "symfony/yaml": "^6.4"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "phpstan/phpstan": "^1.2",
-        "symfony/debug-bundle": "^6.0",
-        "symfony/web-profiler-bundle": "^6.0"
+        "phpstan/phpstan": "^2.0",
+        "symfony/debug-bundle": "^6.4",
+        "symfony/web-profiler-bundle": "^6.4"
     },
     "config": {
         "platform": {
@@ -100,7 +99,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.3.*"
+            "require": "6.4.*"
         }
     }
 }
