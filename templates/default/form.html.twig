@@ -7,13 +7,13 @@
     <div class="row">
         <div class="col-md-12">
             {% embed '@Tabler/embeds/card.html.twig' %}
-                {% form_theme form '@Tabler/layout/form-theme.html.twig' %}
+                {% form_theme form '@Tabler/layout/form_theme.html.twig' %}
                 {% block box_before %}{{ form_start(form) }}{% endblock %}
                 {% block box_title %}{{ 'A simple form demo'|trans }}{% endblock %}
                 {% block box_body %}
                     <div>
                         Using the form theme:
-                        <pre>{% verbatim %}{% form_theme form '@Tabler/layout/form-theme.html.twig' %}{% endverbatim %}</pre>
+                        <pre>{% verbatim %}{% form_theme form '@Tabler/layout/form_theme.html.twig' %}{% endverbatim %}</pre>
                     </div>
                     <hr>
                     {{ form_widget(form) }}
