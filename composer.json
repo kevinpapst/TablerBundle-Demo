@@ -3,10 +3,15 @@
     "license": "MIT",
     "type": "project",
     "description": "Demo application to showcase the Tabler Bundle",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./lib/kevinpapst/tabler-bundle"
+        }
+    ],
     "require": {
-        "php": "8.1.*||8.2.*",
         "erusev/parsedown": "^1.7",
-        "kevinpapst/tabler-bundle": "dev-tabler14",
+        "kevinpapst/tabler-bundle": "dev-main",
         "knplabs/knp-menu-bundle": "^3.0",
         "symfony/asset": "^6.4",
         "symfony/console": "^6.4",
@@ -47,7 +52,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "KevinPapst\\TablerBundle\\": "lib/kevinpapst/tabler-bundle/src"
         }
     },
     "autoload-dev": {
