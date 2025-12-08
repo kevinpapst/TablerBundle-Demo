@@ -6,7 +6,7 @@
     "require": {
         "php": "8.1.*||8.2.*",
         "erusev/parsedown": "^1.7",
-        "kevinpapst/tabler-bundle": "dev-tabler14",
+        "kevinpapst/tabler-bundle": "dev-main",
         "knplabs/knp-menu-bundle": "^3.0",
         "symfony/asset": "^6.4",
         "symfony/console": "^6.4",
