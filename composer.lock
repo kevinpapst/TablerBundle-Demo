@@ -92,6 +92,7 @@
             "suggest": {
                 "knplabs/knp-menu-bundle": "Allows easy menu integration"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
