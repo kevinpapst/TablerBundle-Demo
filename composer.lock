@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58bd60125578db374d5d8aff3cae4c6f",
+    "content-hash": "1cd82d0df5797b19d7466924552bd5cc",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -59,16 +59,10 @@
         {
             "name": "kevinpapst/tabler-bundle",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kevinpapst/TablerBundle.git",
-                "reference": "12dbd33feac9d4afc84ec05af0fac875df634594"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/12dbd33feac9d4afc84ec05af0fac875df634594",
-                "reference": "12dbd33feac9d4afc84ec05af0fac875df634594",
-                "shasum": ""
+                "type": "path",
+                "url": "./lib/kevinpapst/tabler-bundle",
+                "reference": "c69ec018232b753217bc85d7bf9e365a61a08afd"
             },
             "require": {
                 "php": "^8.1",
@@ -105,7 +99,26 @@
                     "KevinPapst\\TablerBundle\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "KevinPapst\\TablerBundle\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "tests": [
+                    "vendor/bin/phpunit tests/"
+                ],
+                "phpstan": [
+                    "vendor/bin/phpstan analyse -c phpstan.neon src/",
+                    "vendor/bin/phpstan analyse -c tests/phpstan.neon tests/"
+                ],
+                "codestyle": [
+                    "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none"
+                ],
+                "codestyle-fix": [
+                    "vendor/bin/php-cs-fixer fix"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -116,21 +129,9 @@
                 }
             ],
             "description": "Admin/Backend theme bundle for Symfony based on Tabler.io",
-            "support": {
-                "issues": "https://github.com/kevinpapst/TablerBundle/issues",
-                "source": "https://github.com/kevinpapst/TablerBundle/tree/main"
-            },
-            "funding": [
-                {
-                    "url": "https://paypal.me/kevinpapst",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/kevinpapst",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-07T11:04:36+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "knplabs/knp-menu",
@@ -6027,9 +6028,7 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "php": "8.1.*||8.2.*"
-    },
+    "platform": {},
     "platform-dev": {},
     "platform-overrides": {
         "php": "8.1"
