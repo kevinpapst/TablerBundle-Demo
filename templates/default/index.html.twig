@@ -56,7 +56,6 @@
 
         <div class="col-sm-6 col-lg-3">
             {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
-                {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
                 {% block box_body %}
                     <div class="d-flex align-items-center">
                         <div class="subheader">Revenue</div>
@@ -78,7 +77,6 @@
 
         <div class="col-sm-6 col-lg-3">
             {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
-                {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
                 {% block box_body %}
                     <div class="d-flex align-items-center">
                         <div class="subheader">New clients</div>
@@ -169,6 +167,49 @@
                         {% endembed %}
                     </div>
                 {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="row row-cards">
+            <div class="col-12">
+                {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                    {% from '@Tabler/components/progress_bar.html.twig' import progress_bars %}
+                    {% block box_body %}
+                        <p class="mb-3">Using Storage <strong>6854.45 MB </strong>of 8 GB</p>
+                        <div class="mb-3">
+                            {{ progress_bars([
+                                {current : 44, max : 100, min : 0, color:'bg-primary'},
+                                {current : 19, max : 100, min : 0, color:'bg-info'},
+                                {current : 9, max : 100, min : 0, color:'bg-success'},
+                            ]) }}
+                        </div>
+
+                        <div class="row">
+                            <div class="col-auto d-flex align-items-center pe-2">
+                                <span class="legend me-2 bg-primary"></span>
+                                <span>Regular</span>
+                                <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">915MB</span>
+                            </div>
+                            <div class="col-auto d-flex align-items-center px-2">
+                                <span class="legend me-2 bg-info"></span>
+                                <span>System</span>
+                                <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">415MB</span>
+                            </div>
+                            <div class="col-auto d-flex align-items-center px-2">
+                                <span class="legend me-2 bg-success"></span>
+                                <span>Shared</span>
+                                <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">201MB</span>
+                            </div>
+                            <div class="col-auto d-flex align-items-center ps-2">
+                                <span class="legend me-2"></span>
+                                <span>Free</span>
+                                <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">612MB</span>
+                            </div>
+                        </div>
+                    {% endblock %}
+                {% endembed %}
             </div>
         </div>
     </div>
