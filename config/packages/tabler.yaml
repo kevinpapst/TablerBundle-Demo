@@ -80,3 +80,4 @@ tabler:
         chart_line: fas fa-chart-line
         minus: fas fa-minus
         ghost: fas fa-ghost
+        link: fas fa-link
