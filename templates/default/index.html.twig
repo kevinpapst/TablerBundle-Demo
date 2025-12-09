@@ -57,6 +57,9 @@
                     </div>
                     {{ progress_bar({current : 75, max : 100, min : 0, color:'bg-primary', label : "75% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
                 {% endblock %}
+                {% block box_body_after %}
+                    {# TODO : Chart js #}
+                {% endblock %}
             {% endembed %}
         </div>
 
@@ -77,6 +80,9 @@
                             </span>
                         </div>
                     </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    {# TODO : Chart js #}
                 {% endblock %}
             {% endembed %}
         </div>
@@ -99,6 +105,9 @@
                         </div>
                     </div>
                 {% endblock %}
+                {% block box_body_after %}
+                    {# TODO : Chart js #}
+                {% endblock %}
             {% endembed %}
         </div>
 
@@ -120,6 +129,9 @@
                             </span>
                         </div>
                     </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    {# TODO : Chart js #}
                 {% endblock %}
             {% endembed %}
         </div>
@@ -155,7 +167,7 @@
 
                 {% for item in items %}
                     <div class="col-sm-6 col-lg-3">
-                        {% embed '@Tabler/embeds/card.html.twig' %}
+                        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
                             {% block box_class %}card-sm{% endblock %}
                             {% block box_body %}
                                 <div class="row align-items-center">
@@ -175,82 +187,121 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
 
-    <div class="col-lg-6">
-        <div class="row row-cards">
-            <div class="col-12">
-                {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
-                    {% from '@Tabler/components/progress_bar.html.twig' import progress_bars %}
-                    {% block box_body %}
-                        <p class="mb-3">Using Storage <strong>6854.45 MB </strong>of 8 GB</p>
-                        <div class="mb-3">
-                            {{ progress_bars([
-                                {current : 44, max : 100, min : 0, color:'bg-primary'},
-                                {current : 19, max : 100, min : 0, color:'bg-info'},
-                                {current : 9, max : 100, min : 0, color:'bg-success'},
-                            ]) }}
-                        </div>
+        <div class="col-lg-6">
+            <div class="row row-cards">
+                <div class="col-12">
+                    {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                        {% from '@Tabler/components/progress_bar.html.twig' import progress_bars %}
+                        {% block box_body %}
+                            <p class="mb-3">Using Storage <strong>6854.45 MB </strong>of 8 GB</p>
+                            <div class="mb-3">
+                                {{ progress_bars([
+                                    {current : 44, max : 100, min : 0, color:'bg-primary'},
+                                    {current : 19, max : 100, min : 0, color:'bg-info'},
+                                    {current : 9, max : 100, min : 0, color:'bg-success'},
+                                ]) }}
+                            </div>
 
-                        <div class="row">
-                            <div class="col-auto d-flex align-items-center pe-2">
-                                <span class="legend me-2 bg-primary"></span>
-                                <span>Regular</span>
-                                <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">915MB</span>
+                            <div class="row">
+                                <div class="col-auto d-flex align-items-center pe-2">
+                                    <span class="legend me-2 bg-primary"></span>
+                                    <span>Regular</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">915MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center px-2">
+                                    <span class="legend me-2 bg-info"></span>
+                                    <span>System</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">415MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center px-2">
+                                    <span class="legend me-2 bg-success"></span>
+                                    <span>Shared</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">201MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center ps-2">
+                                    <span class="legend me-2"></span>
+                                    <span>Free</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">612MB</span>
+                                </div>
                             </div>
-                            <div class="col-auto d-flex align-items-center px-2">
-                                <span class="legend me-2 bg-info"></span>
-                                <span>System</span>
-                                <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">415MB</span>
-                            </div>
-                            <div class="col-auto d-flex align-items-center px-2">
-                                <span class="legend me-2 bg-success"></span>
-                                <span>Shared</span>
-                                <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">201MB</span>
-                            </div>
-                            <div class="col-auto d-flex align-items-center ps-2">
-                                <span class="legend me-2"></span>
-                                <span>Free</span>
-                                <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">612MB</span>
-                            </div>
-                        </div>
-                    {% endblock %}
-                {% endembed %}
-            </div>
+                        {% endblock %}
+                    {% endembed %}
+                </div>
 
-            <div class="col-12">
-                {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
-                    {% from '@Tabler/components/badge.html.twig' import badge %}
-                    {% block box_class %}card-body-scrollable card-body-scrollable-shadow{% endblock %}
-                    {% block box_attributes %}style="height: 28rem"{% endblock %}
-                    {% block box_body %}
-                        <div class="divide-y">
-                            {% for repeat in 0..2 %}
-                                {% for contributor in contributors %}
-                                    {% set index = repeat * contributors|length + loop.index0 %}
-                                    <div class="row">
-                                        <div class="col-auto">
+                <div class="col-12">
+                    {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                        {% from '@Tabler/components/badge.html.twig' import badge %}
+                        {% block box_class %}card-body-scrollable card-body-scrollable-shadow{% endblock %}
+                        {% block box_attributes %}style="height: 28rem"{% endblock %}
+                        {% block box_body %}
+                            <div class="divide-y">
+                                {% for repeat in 0..2 %}
+                                    {% for contributor in contributors %}
+                                        {% set index = repeat * contributors|length + loop.index0 %}
+                                        <div class="row">
+                                            <div class="col-auto">
                                             <span
                                                     class="avatar"
                                                     style="background-image: url('https://avatars.githubusercontent.com/u/{{ contributor.githubId }}?s=60&v=4')"
                                             ></span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="text-truncate"><strong>{{ contributor.name }}</strong></div>
-                                            <div class="text-secondary">{{ contributor.firstContribution|date('F j, Y') }}</div>
-                                        </div>
-                                        {% if index < 3 %}
-                                            <div class="col-auto align-self-center">
-                                                {{ badge({content: '#' ~ (index + 1)}) }}
                                             </div>
-                                        {% endif %}
-                                    </div>
+                                            <div class="col">
+                                                <div class="text-truncate"><strong>{{ contributor.name }}</strong></div>
+                                                <div class="text-secondary">{{ contributor.firstContribution|date('F j, Y') }}</div>
+                                            </div>
+                                            {% if index < 3 %}
+                                                <div class="col-auto align-self-center">
+                                                    {{ badge({content: '#' ~ (index + 1)}) }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
                                 {% endfor %}
-                            {% endfor %}
-                        </div>
-                    {% endblock %}
-                {% endembed %}
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                </div>
             </div>
+        </div>
+
+        <div class="col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_title %}Development activity{% endblock %}
+                {% block box_header_class %}border-0{% endblock %}
+                {% block box_body_before %}
+                    <div class="position-relative">
+                        {# TODO : Chart js #}
+                    </div>
+                    <div class="card-table table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Commit</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for contributor in contributors %}
+                                <tr>
+                                    <td class="w-1">
+                                    <span
+                                            class="avatar avatar-sm"
+                                            style="background-image: url('https://avatars.githubusercontent.com/u/{{ contributor.githubId }}?s=60&v=4')"
+                                    ></span>
+                                    </td>
+                                    <td class="td-truncate">
+                                        <div class="text-truncate">{{ contributor.name|capitalize }}</div>
+                                    </td>
+                                    <td class="text-nowrap text-secondary">{{ contributor.firstContribution|date('j F Y') }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endblock %}
+            {% endembed %}
         </div>
     </div>
 
