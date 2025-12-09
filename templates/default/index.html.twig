@@ -5,6 +5,174 @@
 
 {% block page_content %}
 
+    <div class="row row-deck row-cards">
+        {% set periodDropdown -%}
+            {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+            <div class="dropdown">
+                <a
+                        class="dropdown-toggle text-secondary" id="sales-dropdown" href="#"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        aria-label="Select time range for sales data"
+                >Last 7 days</a>
+
+                {{ dropdown([
+                    {
+                        title:'Last 7 days',
+                        active: true,
+                    },
+                    {
+                        title:'Last 30 days',
+                    },
+                    {
+                        title:'Last 3 months',
+                    },
+                ]) }}
+            </div>
+        {%- endset %}
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Sales</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="h1 mb-3">75%</div>
+                    <div class="d-flex mb-2">
+                        <div>Conversion rate</div>
+                        <div class="ms-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              7% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                    {{ progress_bar({current : 75, max : 100, min : 0, color:'bg-primary', label : "75% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Revenue</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">$4,300</div>
+                        <div class="me-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              8% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">New clients</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">6,782</div>
+                        <div class="me-auto">
+                            <span class="text-yellow d-inline-flex align-items-center lh-1">
+                              0% {{ tabler_icon('minus') }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Active subscriptions</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">2,986</div>
+                        <div class="me-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              4% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-12">
+            <div class="row row-cards">
+                {% set items = [
+                    {
+                        color : 'primary',
+                        icon : 'dollar',
+                        title : '132 Sales',
+                        text : '12 waiting payments',
+                    },
+                    {
+                        color : 'green',
+                        icon : 'cart',
+                        title : '78 Orders',
+                        text : '32 shipped',
+                    },
+                    {
+                        color : 'x',
+                        icon : 'brand_x',
+                        title : '623 Shares',
+                        text : '16 today',
+                    },
+                    {
+                        color : 'facebook',
+                        icon : 'brand_facebook',
+                        title : '132 Likes',
+                        text : '21 today',
+                    },
+                ] %}
+
+                {% for item in items %}
+                    <div class="col-sm-6 col-lg-3">
+                        {% embed '@Tabler/embeds/card.html.twig' %}
+                            {% block box_class %}card-sm{% endblock %}
+                            {% block box_body %}
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                    <span class="bg-{{ item.color }} text-white avatar">
+                                      {{ tabler_icon(item.icon, false) }}
+                                    </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="font-weight-medium">{{ item.title }}</div>
+                                        <div class="text-secondary">{{ item.text }}</div>
+                                    </div>
+                                </div>
+                            {% endblock %}
+                        {% endembed %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-6">
             {# ... box widget with defaults ... #}
@@ -41,10 +209,10 @@
         <div class="col-md-6">
             {# ... box widget with some options ... #}
             {% embed '@Tabler/embeds/card.html.twig' with {
-            'boxtype' : 'success',
-            'solid' : 0,
-            'id': 'myCollapsibleCard',
-            'margin_bottom': 4
+                'boxtype' : 'success',
+                'solid' : 0,
+                'id': 'myCollapsibleCard',
+                'margin_bottom': 4
             } %}
 
                 {% import '@Tabler/components/buttons.html.twig' as button %}

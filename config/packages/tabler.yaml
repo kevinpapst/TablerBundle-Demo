@@ -73,3 +73,9 @@ tabler:
         moon: far fa-moon
         sun: far fa-sun
         warning: fas fa-exclamation-triangle
+        dollar: fas fa-dollar-sign
+        cart: fas fa-shopping-cart
+        brand_facebook: fab fa-facebook-f
+        brand_x: fab fa-twitter
+        chart_line: fas fa-chart-line
+        minus: fas fa-minus
