@@ -79,3 +79,4 @@ tabler:
         brand_x: fab fa-twitter
         chart_line: fas fa-chart-line
         minus: fas fa-minus
+        ghost: fas fa-ghost

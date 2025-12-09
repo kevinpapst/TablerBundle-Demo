@@ -303,6 +303,40 @@
                 {% endblock %}
             {% endembed %}
         </div>
+
+        <div class="col-12">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/button.html.twig' import button %}
+                {% block box_class %}card-md sticky-top{% endblock %}
+                {% block box_body_before %}
+                    <div class="card-stamp card-stamp-lg">
+                        <div class="card-stamp-icon bg-primary">
+                            {{ tabler_icon('ghost') }}
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body %}
+                    <div class="row align-items-center">
+                        <div class="col-10">
+                            <h3 class="h1">Tabler Icons</h3>
+                            <div class="markdown">
+                                All icons come from the Tabler Icons set and are MIT-licensed. Visit
+                                <a href="https://tabler.io/icons" target="_blank" rel="noopener"> Tabler Icons Website</a>,
+                                download any of the 5880 icons in SVG, PNG
+                                or React and use them in your favourite design tools.
+                            </div>
+                            <div class="mt-3">
+                                {{ button('download', {
+                                    url : "https://tabler.io/icons",
+                                    title : 'Download icons',
+                                    combined : true,
+                                }, 'primary') }}
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
     </div>
 
     <div class="row">
