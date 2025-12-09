@@ -433,6 +433,33 @@
         {% endembed %}
     </div>
 
+    <div class="col-md-6 col-lg-4">
+        {% from '@Tabler/components/button.html.twig' import button %}
+        <a
+                class="card border-primary"
+                href="https://github.com/sponsors/kevinpapst"
+                target="_blank" rel="noopener" aria-label="Sponsor Tabler!"
+                style="background: color-mix(in srgb, var(--tblr-primary) 4%, var(--tblr-bg-surface))"
+        >
+            <div class="card-body d-flex flex-column justify-content-center p-5">
+                <div class="row">
+                    <div class="col-7 offset-5 text-primary">
+                        <div class="h1 text-uppercase">Help Tabler Grow and Thrive</div>
+                        <p class="h3 fw-normal">Sponsor Tabler and help us make a difference!</p>
+                        <div class="mt-4">
+                            {# TODO : WTF is going on here ?!? #}
+                            {{ button('heart', {
+                                class : 'w-100 pe-none text-pink',
+                                title : 'Become a Sponsor',
+                                combined : true,
+                            }, 'button') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
     <div class="row">
         <div class="col-md-6">
             {# ... box widget with defaults ... #}

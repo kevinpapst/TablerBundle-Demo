@@ -81,3 +81,4 @@ tabler:
         minus: fas fa-minus
         ghost: fas fa-ghost
         link: fas fa-link
+        heart: fas fa-heart
