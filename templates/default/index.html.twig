@@ -3,8 +3,14 @@
 {% block page_title %}Dashboard{% endblock %}
 {% block page_pretitle %}You are using the language: {{ app.request.locale|language(app.request.get('_locale')) }}{% endblock %}
 
-{% block page_content %}
+{% set contributors = [
+    {githubId: 533162, name: 'kevinpapst', firstContribution: date('2021-11-01')},
+    {githubId: 25293190, name: 'cavasinf', firstContribution: date('2021-12-01')},
+    {githubId: 1607653, name: 'webplate', firstContribution: date('2023-01-01')},
+    {githubId: 3634653, name: 'wucherpfennig', firstContribution: date('2023-04-01')},
+] %}
 
+{% block page_content %}
     <div class="row row-deck row-cards">
         {% set periodDropdown -%}
             {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
@@ -207,6 +213,40 @@
                                 <span>Free</span>
                                 <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">612MB</span>
                             </div>
+                        </div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+
+            <div class="col-12">
+                {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                    {% from '@Tabler/components/badge.html.twig' import badge %}
+                    {% block box_class %}card-body-scrollable card-body-scrollable-shadow{% endblock %}
+                    {% block box_attributes %}style="height: 28rem"{% endblock %}
+                    {% block box_body %}
+                        <div class="divide-y">
+                            {% for repeat in 0..2 %}
+                                {% for contributor in contributors %}
+                                    {% set index = repeat * contributors|length + loop.index0 %}
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <span
+                                                    class="avatar"
+                                                    style="background-image: url('https://avatars.githubusercontent.com/u/{{ contributor.githubId }}?s=60&v=4')"
+                                            ></span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="text-truncate"><strong>{{ contributor.name }}</strong></div>
+                                            <div class="text-secondary">{{ contributor.firstContribution|date('F j, Y') }}</div>
+                                        </div>
+                                        {% if index < 3 %}
+                                            <div class="col-auto align-self-center">
+                                                {{ badge({content: '#' ~ (index + 1)}) }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
                         </div>
                     {% endblock %}
                 {% endembed %}
