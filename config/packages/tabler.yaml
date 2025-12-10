@@ -84,3 +84,5 @@ tabler:
         heart: fas fa-heart
         check: fas fa-check
         comment_alt: far fa-comment-alt
+        chevron_left: fas fa-chevron-left
+        chevron_right: fas fa-chevron-right
