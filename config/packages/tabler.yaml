@@ -82,3 +82,5 @@ tabler:
         ghost: fas fa-ghost
         link: fas fa-link
         heart: fas fa-heart
+        check: fas fa-check
+        comment_alt: far fa-comment-alt

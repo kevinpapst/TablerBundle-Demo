@@ -637,18 +637,72 @@
                     </thead>
                     <tbody>
                     {% for item in items %}
-                    <tr>
-                        <td>{{ item.network }}</td>
-                        <td>{{ item.visitors }}</td>
-                        <td class="w-50">
-                            {{ progress_bar({current : item.progress, max : 100, min : 0}, {progressSize : 'progress-xs'}) }}
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ item.network }}</td>
+                            <td>{{ item.visitors }}</td>
+                            <td class="w-50">
+                                {{ progress_bar({current : item.progress, max : 100, min : 0}, {progressSize : 'progress-xs'}) }}
+                            </td>
+                        </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             {% endblock %}
         {% endembed %}
+    </div>
+
+    <div class="col-md-12 col-lg-8">
+        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+        {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+        {% block box_title %}Tasks{% endblock %}
+        {% block box_body_before %}
+        <div class="table-responsive">
+            <table class="table table-selectable card-table table-vcenter">
+                <tbody>
+                {% for index, contributor in topContributors %}
+                    {% set done = random(1) is same as 1 %}
+                    {% set tasks = random(10) %}
+                    {% set tasksDone = random(tasks) %}
+                    <tr>
+                        <td class="w-1 pe-0">
+                            <input
+                                    type="checkbox"
+                                    {% if done %}checked{% endif %}
+                                    class="form-check-input m-0 align-middle table-selectable-check"
+                                    aria-label="Select task"
+                            >
+                        </td>
+                        <td class="w-100">
+                            <a href="#" class="text-reset">Extend the data model.</a>
+                        </td>
+                        <td class="text-nowrap text-secondary">
+                            {{ tabler_icon('calendar') }}
+                            December 08, 2024
+                        </td>
+                        <td class="text-nowrap">
+                            <a href="#" class="text-secondary">
+                                {{ tabler_icon('check') }}
+                                {{ tasksDone }}/{{ tasks }}
+                            </a>
+                        </td>
+                        <td class="text-nowrap">
+                            <a href="#" class="text-secondary">
+                                {{ tabler_icon('comment_alt') }}
+                                3</a>
+                        </td>
+                        <td>
+                        <span
+                                class="avatar avatar-sm"
+                                style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
+                        ></span>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% endblock %}
+            {% endembed %}
+        </div>
     </div>
 
     <div class="row">
