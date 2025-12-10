@@ -182,6 +182,32 @@
     </div>
 
     <div class="col-lg-6">
+        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+            {% block box_body %}
+                <h3 class="card-title">Traffic summary</h3>
+                <div id="chart-mentions" class="position-relative chart-lg" style="min-height: 240px;">
+                    {# TODO : Chart js #}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+    <div class="col-lg-6">
+        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+            {% block box_body %}
+                <h3 class="card-title">Locations</h3>
+                <div class="ratio ratio-21x9">
+                    <div>
+                        <div id="map-world" class="w-100 h-100 jvm-container" style="background-color: transparent;">
+                            {# TODO : Map world #}
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+    <div class="col-lg-6">
         <div class="row row-cards">
             <div class="col-12">
                 {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
