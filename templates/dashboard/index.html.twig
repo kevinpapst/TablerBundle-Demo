@@ -585,6 +585,72 @@
         </a>
     </div>
 
+    <div class="col-md-6 col-lg-4">
+        {% set items = [
+            {
+                network : 'Instagram',
+                visitors : '3,550',
+                progress : 71,
+            },
+            {
+                network : 'Twitter',
+                visitors : '1,798',
+                progress : 35.96,
+            },
+            {
+                network : 'Facebook',
+                visitors : '1,245',
+                progress : 24.9,
+            },
+            {
+                network : 'TikTok',
+                visitors : '986',
+                progress : 19.72,
+            },
+            {
+                network : 'Pinterest',
+                visitors : '854',
+                progress : 17.08,
+            },
+            {
+                network : 'VK',
+                visitors : '650',
+                progress : 13,
+            },
+            {
+                network : 'Pinterest',
+                visitors : '420',
+                progress : 8.4,
+            },
+        ] %}
+
+        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+            {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+            {% block box_title %}Social Media Traffic{% endblock %}
+            {% block box_body_before %}
+                <table class="table card-table table-vcenter">
+                    <thead>
+                    <tr>
+                        <th>Network</th>
+                        <th colspan="2">Visitors</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.network }}</td>
+                        <td>{{ item.visitors }}</td>
+                        <td class="w-50">
+                            {{ progress_bar({current : item.progress, max : 100, min : 0}, {progressSize : 'progress-xs'}) }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endblock %}
+        {% endembed %}
+    </div>
+
     <div class="row">
         <div class="col-md-6">
             {# ... box widget with defaults ... #}
