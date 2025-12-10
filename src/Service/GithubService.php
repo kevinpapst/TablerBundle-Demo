@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the Tabler-Bundle demo.
+ * Copyright 2021 Kevin Papst - www.kevinpapst.de
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Service;
 
 use App\Model\GithubCommit;
@@ -10,7 +18,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class GithubService
 {
-    final const repository = 'kevinpapst/TablerBundle';
+    final public const repository = 'kevinpapst/TablerBundle';
 
     public function __construct(
         private readonly ParameterBagInterface $parameterBag,
@@ -30,8 +38,8 @@ class GithubService
         try {
             $contributorsResponse = $this->httpClient->request(
                 'GET',
-                sprintf(
-                    "%s/contributors?q=contributions&per_page=%s&order=%s",
+                \sprintf(
+                    '%s/contributors?q=contributions&per_page=%s&order=%s',
                     $this->apiUrl($repository),
                     $perPage,
                     $asc ? 'asc' : 'desc',
@@ -73,8 +81,8 @@ class GithubService
         try {
             $contributorsResponse = $this->httpClient->request(
                 'GET',
-                sprintf(
-                    "%s/commits?sha=%s&per_page=%s",
+                \sprintf(
+                    '%s/commits?sha=%s&per_page=%s',
                     $this->apiUrl($repository),
                     $branch,
                     $perPage,
@@ -97,8 +105,8 @@ class GithubService
 
     private function apiUrl(?string $repository = null): string
     {
-        return sprintf(
-            "https://api.github.com/repos/%s",
+        return \sprintf(
+            'https://api.github.com/repos/%s',
             $repository ?? self::repository,
         );
     }

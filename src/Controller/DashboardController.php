@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the Tabler-Bundle demo.
+ * Copyright 2021 Kevin Papst - www.kevinpapst.de
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Controller;
 
 use App\Service\GithubService;
@@ -15,7 +23,7 @@ class DashboardController extends AbstractController
     ): Response {
         return $this->render('dashboard/index.html.twig', [
             'topContributors' => $githubService->fetchTopContributors(),
-            'commits'      => $githubService->fetchCommits(perPage: 5),
+            'commits' => $githubService->fetchCommits(perPage: 5),
         ]);
     }
 }

@@ -24,7 +24,8 @@ class DefaultController extends AbstractController
     #[Route(path: '/', name: 'homepage')]
     #[Route(path: '/third-level', name: 'third_level')]
     #[Route(path: '/third-level2', name: 'third_level2')]
-    public function index(): Response {
+    public function index(): Response
+    {
         return $this->redirectToRoute('dashboard');
     }
 
@@ -127,7 +128,7 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('default/wizard.html.twig', [
-            'page'    => $page,
+            'page' => $page,
             'percent' => $page * 10,
         ]);
     }
@@ -167,7 +168,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/documentation.html.twig', [
             'chapter' => $chapter,
-            'docs'    => $markdown,
+            'docs' => $markdown,
         ]);
     }
 
