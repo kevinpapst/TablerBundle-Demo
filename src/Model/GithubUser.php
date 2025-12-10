@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Symfony\Component\Serializer\Attribute\SerializedName;
 
-final class GithubContributor
+final class GithubUser
 {
     public function __construct(
         #[SerializedName('login')]
@@ -65,7 +65,7 @@ final class GithubContributor
         private readonly bool $siteAdmin,
 
         #[SerializedName('contributions')]
-        private readonly int $contributions,
+        private readonly ?int $contributions,
     ) {
     }
 

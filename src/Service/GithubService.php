@@ -2,7 +2,8 @@
 
 namespace App\Service;
 
-use App\Model\GithubContributor;
+use App\Model\GithubCommit;
+use App\Model\GithubUser;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -17,7 +18,7 @@ class GithubService
     }
 
     /**
-     * @return GithubContributor[]
+     * @return GithubUser[]
      */
     public function fetchContributors(
         ?string $repository = null,
@@ -37,7 +38,46 @@ class GithubService
 
             return $this->serializer->denormalize(
                 $contributorsResponse->toArray(),
-                GithubContributor::class . '[]',
+                GithubUser::class . '[]',
+                'array'
+            );
+        } catch (\Throwable) {
+            return [];
+        }
+    }
+
+    /**
+     * @return GithubUser[]
+     */
+    public function fetchTopContributors(
+        ?string $repository = null,
+        int $perPage = 10,
+    ): array {
+        return $this->fetchContributors(repository: $repository, perPage: $perPage, asc: false);
+    }
+
+    /**
+     * @return GithubCommit[]
+     */
+    public function fetchCommits(
+        ?string $repository = null,
+        string $branch = 'main',
+        int $perPage = 10,
+    ): array {
+        try {
+            $contributorsResponse = $this->httpClient->request(
+                'GET',
+                sprintf(
+                    "%s/commits?sha=%s&per_page=%s",
+                    $this->apiUrl($repository),
+                    $branch,
+                    $perPage,
+                ),
+            );
+
+            return $this->serializer->denormalize(
+                $contributorsResponse->toArray(),
+                GithubCommit::class . '[]',
                 'array'
             );
         } catch (\Throwable) {

@@ -14,7 +14,8 @@ class DashboardController extends AbstractController
         GithubService $githubService,
     ): Response {
         return $this->render('dashboard/index.html.twig', [
-            'contributors' => $githubService->fetchContributors(perPage: 7, asc: false),
+            'topContributors' => $githubService->fetchTopContributors(),
+            'commits'      => $githubService->fetchCommits(perPage: 5),
         ]);
     }
 }
