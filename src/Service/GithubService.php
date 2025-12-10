@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Model\GithubCommit;
 use App\Model\GithubUser;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -12,6 +13,7 @@ class GithubService
     final const repository = 'kevinpapst/TablerBundle';
 
     public function __construct(
+        private readonly ParameterBagInterface $parameterBag,
         private readonly HttpClientInterface $httpClient,
         private readonly DenormalizerInterface $serializer,
     ) {
@@ -42,7 +44,11 @@ class GithubService
                 'array'
             );
         } catch (\Throwable) {
-            return [];
+            return $this->serializer->denormalize(
+                json_decode(file_get_contents($this->resourceDir() . DIRECTORY_SEPARATOR . 'contributors.json')),
+                GithubUser::class . '[]',
+                'json'
+            );
         }
     }
 
@@ -81,7 +87,11 @@ class GithubService
                 'array'
             );
         } catch (\Throwable) {
-            return [];
+            return $this->serializer->denormalize(
+                json_decode(file_get_contents($this->resourceDir() . DIRECTORY_SEPARATOR . 'commits.json')),
+                GithubCommit::class . '[]',
+                'json'
+            );
         }
     }
 
@@ -91,5 +101,13 @@ class GithubService
             "https://api.github.com/repos/%s",
             $repository ?? self::repository,
         );
+    }
+
+    private function resourceDir(): string
+    {
+        return $this->parameterBag->get('kernel.project_dir')
+            . DIRECTORY_SEPARATOR . 'src'
+            . DIRECTORY_SEPARATOR . 'Resources'
+            . DIRECTORY_SEPARATOR . 'Github';
     }
 }
