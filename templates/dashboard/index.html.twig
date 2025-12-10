@@ -688,14 +688,14 @@
                             </td>
                             <td class="text-nowrap">
                                 <a href="#" class="text-secondary">
-                                    {{ tabler_icon('comment_alt') }}
-                                    3</a>
+                                    {{ tabler_icon('comment_alt') }} 3
+                                </a>
                             </td>
                             <td>
-                        <span
-                                class="avatar avatar-sm"
-                                style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
-                        ></span>
+                                <span
+                                        class="avatar avatar-sm"
+                                        style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
+                                ></span>
                             </td>
                         </tr>
                     {% endfor %}
@@ -705,7 +705,7 @@
                 {% endembed %}
             </div>
         </div>
-        
+
         <div class="col-12">
             {% set items = [
                 {
@@ -825,8 +825,10 @@
                             <thead>
                             <tr>
                                 <th class="w-1">
-                                    <input class="form-check-input m-0 align-middle" type="checkbox"
-                                           aria-label="Select all invoices">
+                                    <input
+                                            class="form-check-input m-0 align-middle" type="checkbox"
+                                           aria-label="Select all invoices"
+                                    >
                                 </th>
                                 <th class="w-1">No.</th>
                                 <th>Invoice Subject</th>
@@ -848,26 +850,23 @@
                                         >
                                     </td>
                                     <td><span class="text-secondary">{{ item.number }}</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">{{ item.subject }}</a>
-                                    </td>
+                                    <td><a href="#" class="text-reset" tabindex="-1">{{ item.subject }}</a></td>
                                     <td>
-                                        <span class="flag flag-xs flag-country-{{ item.flag }} me-2"></span>
-                                        {{ item.client }}
+                                        <span class="flag flag-xs flag-country-{{ item.flag }} me-2"></span> {{ item.client }}
                                     </td>
                                     <td>{{ item.vat }}</td>
                                     <td>1{{ item.created|date('j F Y') }}</td>
-                                    <td><span class="badge bg-{{ item.statusBadge }} me-1"></span> {{ item.status }}
-                                    </td>
+                                    <td><span class="badge bg-{{ item.statusBadge }} me-1"></span>{{ item.status }}</td>
                                     <td>${{ item.price }}</td>
                                     <td class="text-end">
-                                    <span class="dropdown">
-                                      <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                              data-bs-toggle="dropdown" aria-expanded="false">Actions</button>
-                                      <div class="dropdown-menu dropdown-menu-end" style="">
-                                        <a class="dropdown-item" href="#"> Action </a>
-                                        <a class="dropdown-item" href="#"> Another action </a>
-                                      </div>
-                                    </span>
+                                        {% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+                                        {{ dropdown_button(
+                                            {title : 'Actions'},
+                                            [
+                                                {title : 'Action'},
+                                                {title : 'Another action'},
+                                            ]
+                                        ) }}
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -890,21 +889,11 @@
                                         {{ tabler_icon('chevron_left') }}
                                     </a>
                                 </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">4</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">5</a>
-                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
                                 <li class="page-item">
                                     <a class="page-link" href="#">
                                         {{ tabler_icon('chevron_right') }}
