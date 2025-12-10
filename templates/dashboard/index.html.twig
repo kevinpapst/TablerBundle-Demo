@@ -1,7 +1,15 @@
 {% extends 'layout.html.twig' %}
+{% from '@Tabler/components/button.html.twig' import button %}
 
+{% block page_pretitle %}Overview{% endblock %}
 {% block page_title %}Dashboard{% endblock %}
-{% block page_pretitle %}You are using the language: {{ app.request.locale|language(app.request.get('_locale')) }}{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}
+    <div class="btn-list">
+        {{ button(false, {title: 'New view'}, 'white') }}
+        {{ button('plus', {title: 'Create new report', combined : true}, 'primary') }}
+    </div>
+{% endblock %}
 
 {% block page_content %}
 <div class="row row-deck row-cards">
