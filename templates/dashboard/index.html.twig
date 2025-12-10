@@ -1,14 +1,8 @@
+{# @var contributors \App\Model\GithubContributor[] #}
 {% extends 'layout.html.twig' %}
 
 {% block page_title %}Dashboard{% endblock %}
 {% block page_pretitle %}You are using the language: {{ app.request.locale|language(app.request.get('_locale')) }}{% endblock %}
-
-{% set contributors = [
-    {githubId: 533162, name: 'kevinpapst', firstContribution: date('2021-11-01')},
-    {githubId: 25293190, name: 'cavasinf', firstContribution: date('2021-12-01')},
-    {githubId: 1607653, name: 'webplate', firstContribution: date('2023-01-01')},
-    {githubId: 3634653, name: 'wucherpfennig', firstContribution: date('2023-04-01')},
-] %}
 
 {% block page_content %}
 <div class="row row-deck row-cards">
@@ -232,32 +226,47 @@
             <div class="col-12">
                 {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
                     {% from '@Tabler/components/badge.html.twig' import badge %}
-                    {% block box_class %}card-body-scrollable card-body-scrollable-shadow{% endblock %}
                     {% block box_attributes %}style="height: 28rem"{% endblock %}
+                    {% block box_body_class %}card-body-scrollable card-body-scrollable-shadow{% endblock %}
                     {% block box_body %}
-                        <div class="divide-y">
-                            {% for repeat in 0..2 %}
-                                {% for contributor in contributors %}
-                                    {% set index = repeat * contributors|length + loop.index0 %}
-                                    <div class="row">
-                                        <div class="col-auto">
+                        <div>
+                            <div class="divide-y">
+                                {% for repeat in 0..2 %}
+                                    {% for contributor in contributors %}
+                                        {% set index = repeat * contributors|length + loop.index0 %}
+                                        <div class="row">
+                                            <div class="col-auto">
                                             <span
                                                     class="avatar"
-                                                    style="background-image: url('https://avatars.githubusercontent.com/u/{{ contributor.githubId }}?s=60&v=4')"
+                                                    style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
                                             ></span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="text-truncate"><strong>{{ contributor.name }}</strong></div>
-                                            <div class="text-secondary">{{ contributor.firstContribution|date('F j, Y') }}</div>
-                                        </div>
-                                        {% if index < 3 %}
-                                            <div class="col-auto align-self-center">
-                                                {{ badge({content: '#' ~ (index + 1)}) }}
                                             </div>
-                                        {% endif %}
-                                    </div>
+                                            <div class="col">
+                                                <div class="text-truncate"><strong>{{ contributor.login }}</strong>
+                                                </div>
+                                                <div class="text-secondary">
+                                                    Contributions: {{ contributor.contributions }}</div>
+                                            </div>
+                                            {% if index < 3 %}
+                                                {% set place = index + 1 %}
+                                                {% if place is same as 1 %}
+                                                    {% set color = 'yellow-lt' %}
+                                                {% elseif place is same as 2 %}
+                                                    {% set color = 'gray-lt' %}
+                                                {% else %}
+                                                    {% set color = 'orange-lt' %}
+                                                {% endif %}
+                                                <div class="col-auto align-self-center">
+                                                    {{ badge({
+                                                        content: '#' ~ place,
+                                                        color : color,
+                                                    }) }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
                                 {% endfor %}
-                            {% endfor %}
+                            </div>
                         </div>
                     {% endblock %}
                 {% endembed %}
@@ -278,8 +287,8 @@
                         <thead>
                         <tr>
                             <th>User</th>
-                            <th>Commit</th>
-                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Contributions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -288,13 +297,13 @@
                                 <td class="w-1">
                                     <span
                                             class="avatar avatar-sm"
-                                            style="background-image: url('https://avatars.githubusercontent.com/u/{{ contributor.githubId }}?s=60&v=4')"
+                                            style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
                                     ></span>
                                 </td>
                                 <td class="td-truncate">
-                                    <div class="text-truncate">{{ contributor.name|capitalize }}</div>
+                                    <div class="text-truncate">{{ contributor.login|capitalize }}</div>
                                 </td>
-                                <td class="text-nowrap text-secondary">{{ contributor.firstContribution|date('j F Y') }}</td>
+                                <td class="text-nowrap text-secondary">{{ contributor.contributions }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>

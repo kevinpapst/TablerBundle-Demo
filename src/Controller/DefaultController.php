@@ -24,9 +24,8 @@ class DefaultController extends AbstractController
     #[Route(path: '/', name: 'homepage')]
     #[Route(path: '/third-level', name: 'third_level')]
     #[Route(path: '/third-level2', name: 'third_level2')]
-    public function index(): Response
-    {
-        return $this->render('default/index.html.twig', []);
+    public function index(): Response {
+        return $this->redirectToRoute('dashboard');
     }
 
     #[Route(path: '/forms', name: 'forms')]
@@ -128,7 +127,7 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('default/wizard.html.twig', [
-            'page' => $page,
+            'page'    => $page,
             'percent' => $page * 10,
         ]);
     }
@@ -162,12 +161,13 @@ class DefaultController extends AbstractController
         $markdown = file_get_contents($fullUrl);
         preg_match_all('/\((.*)\.md\)/', $markdown, $results, PREG_SET_ORDER);
         foreach ($results as $result) {
-            $markdown = str_replace($result[0], '(' . $this->generateUrl('documentation', ['chapter' => $result[1]]) . ')', $markdown);
+            $markdown =
+                str_replace($result[0], '(' . $this->generateUrl('documentation', ['chapter' => $result[1]]) . ')', $markdown);
         }
 
         return $this->render('default/documentation.html.twig', [
             'chapter' => $chapter,
-            'docs' => $markdown,
+            'docs'    => $markdown,
         ]);
     }
 
