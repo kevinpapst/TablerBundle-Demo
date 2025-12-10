@@ -5,6 +5,52 @@
 
 {% block page_content %}
 <div class="row row-deck row-cards">
+
+    <div class="col-sm-12 col-lg-6">
+        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+            {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+            {% block box_body %}
+                <div class="row gy-3">
+                    <div class="col-12 col-sm d-flex flex-column">
+                        <h3 class="h2">Welcome back, User</h3>
+                        <p class="text-muted">You have 5 new messages and 2 new notifications.</p>
+                        <div class="row g-5 mt-auto">
+                            <div class="col-auto">
+                                <div class="subheader">Today's Sales</div>
+                                <div class="d-flex align-items-baseline">
+                                    <div class="h3 me-2">6,782</div>
+                                    <div class="me-auto">
+                                        <span class="text-green d-inline-flex align-items-center lh-1">
+                                          7% {{ tabler_icon('chart_line') }}
+                                        </span>
+                                    </div>
+                                </div>
+                                {{ progress_bar({current : 75, max : 100, min : 0, color:'bg-success', label : "75% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                            </div>
+                            <div class="col-auto">
+                                <div class="subheader">Growth Rate</div>
+                                <div class="d-flex align-items-baseline">
+                                    <div class="h3 me-2">78,4%</div>
+                                    <div class="me-auto">
+                                        <span class="text-red d-inline-flex align-items-center lh-1">
+                                          -1% {{ tabler_icon('chart_line') }}
+                                        </span>
+                                    </div>
+                                </div>
+                                {{ progress_bar({current : 78, max : 100, min : 0, color:'bg-danger', label : "78% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-auto d-flex justify-content-center">
+                        <a href="https://preview.tabler.io/illustrations.html" target="_blank">
+                            {{ source('@public_path'~asset('images/good-info.svg')) }}
+                        </a>
+                    </div>
+                </div>
+            {% endblock %}
+        {% endembed %}
+    </div>
+
     {% set periodDropdown -%}
         {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
         <div class="dropdown">
