@@ -59,6 +59,45 @@
         {% endembed %}
     </div>
 
+    <div class="col-sm-6 col-lg-3">
+        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+            {% block box_body %}
+                <div class="subheader">Total Users</div>
+                <div class="d-flex align-items-baseline">
+                    <div class="h1 mb-0 me-2">75,782</div>
+                    <div class="me-auto">
+                        <span class="text-green d-inline-flex align-items-center lh-1">
+                          2% {{ tabler_icon('chart_line') }}
+                        </span>
+                    </div>
+                </div>
+                <div class="text-secondary mt-2">24,635 users increased from last month</div>
+                <div id="chart-visitors" class="position-relative" style="min-height: 96px;">
+                    {# TODO : Chart js #}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="subheader">Active Users</div>
+                <div class="d-flex align-items-baseline mb-2">
+                    <div class="h1 mb-0 me-2">25,782</div>
+                    <div class="me-auto">
+                        <span class="text-red d-inline-flex align-items-center lh-1">
+                          -1% {{ tabler_icon('chart_line') }}
+                        </span>
+                    </div>
+                </div>
+                <div id="chart-active-users-3" class="position-relative" style="min-height: 130px;">
+                    {# TODO : Chart js #}
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% set periodDropdown -%}
         {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
         <div class="dropdown">
