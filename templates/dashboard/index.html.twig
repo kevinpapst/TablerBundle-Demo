@@ -559,7 +559,6 @@
         </div>
 
         <div class="col-md-6 col-lg-4">
-            {% from '@Tabler/components/button.html.twig' import button %}
             <a
                     class="card border-primary"
                     href="https://github.com/sponsors/kevinpapst"
@@ -573,8 +572,8 @@
                             <div class="h1 text-uppercase">Help Tabler Grow and Thrive</div>
                             <p class="h3 fw-normal">Sponsor Tabler and help us make a difference!</p>
                             <div class="mt-4">
-                                {# TODO : WTF is going on here ?!? #}
                                 {{- button('heart', {
+                                    buttonType : 'button',
                                     class : 'w-100 pe-none text-pink',
                                     title : 'Become a Sponsor',
                                     combined : true,
