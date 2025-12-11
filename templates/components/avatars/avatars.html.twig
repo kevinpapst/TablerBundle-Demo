@@ -1,0 +1,188 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Avatars{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block page_content %}
+    {% from '@Tabler/components/avatar.html.twig' import avatar %}
+    {% set userIcon = tabler_icon('user') %}
+    {% set sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'] %}
+    {% set colors = [
+        'blue',
+        'azure',
+        'indigo',
+        'purple',
+        'pink',
+        'red',
+        'orange',
+        'yellow',
+        'lime',
+        'green',
+        'teal',
+        'cyan',
+    ] %}
+
+    <div class="row row-cards">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Default avatar</h2>
+                    {{ avatar({ content: userIcon }) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar with icon</h2>
+                    <div class="avatar-list">
+                        {% for icon in ['user', 'about', 'admin', 'back', 'bookmark', 'calendar', 'comment', 'copy'] %}
+                            {{ avatar({ content: tabler_icon(icon) }) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar with icon</h2>
+                    <div class="avatar-list">
+                        {% for color in colors %}
+                            {{ avatar({ content: userIcon, color: color ~ '-lt' }) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Simple avatar</h2>
+                    <div class="avatar-list">
+                        {% for contributor in contributors %}
+                            {{ avatar({ imageUrl: contributor.avatarUrl }) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar placeholder</h2>
+                    <div class="avatar-list">
+                        {% for contributor in contributors %}
+                            {{ avatar({ content: contributor.login|slice(0, 2)|upper }) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar shapes</h2>
+                    <div class="avatar-list">
+                        {{ avatar({ content: userIcon }) }}
+                        {{ avatar({ content: userIcon, circle : true }) }}
+                        {{ avatar({ content: userIcon, rounded : 0 }) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar sizes</h2>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="avatar-list">
+                                {% for size in sizes %}
+                                    {{ avatar({ content: userIcon, size : size }) }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="avatar-list">
+                                {% for size in sizes %}
+                                    {{ avatar({ content: 'FC', size : size }) }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar lists</h2>
+                    <div class="row g-3">
+                        {% for size in sizes|slice(0,-2) %}
+                            {% for circle in 0..1 %}
+                                <div class="col-6">
+                                    <div class="avatar-list avatar-list-stacked avatar-list-{{ size }}">
+                                        {% for contributor in contributors %}
+                                            {{ avatar({ imageUrl: contributor.avatarUrl, circle : circle is same as 1 }) }}
+                                        {% endfor %}
+                                        {{ avatar({ content: tabler_icon('plus'), link : true }) }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar placeholder</h2>
+                    {% for size in sizes %}
+                        {{ avatar({ content : tabler_icon('plus'), upload : true, size : size, href : '#' }) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar statuses</h2>
+                    {% set contributor = contributors|first %}
+                    {% for color in colors %}
+                        {{ avatar({
+                            imageUrl: contributor.avatarUrl,
+                            circle : true,
+                            badge : {
+                                color : color,
+                            },
+                        }) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Avatar brands</h2>
+                    {% set contributor = contributors|first %}
+                    {% for brand in [
+                        'brand_facebook',
+                        'brand_x',
+                        'brand_amazon',
+                        'brand_facebook_messenger',
+                        'brand_figma',
+                        'brand_twitch',
+                    ] %}
+                        {{ avatar({
+                            imageUrl: contributor.avatarUrl,
+                            content: avatar({brand : true, content : tabler_icon(brand)}),
+                        }) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

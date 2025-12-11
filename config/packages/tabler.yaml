@@ -86,3 +86,7 @@ tabler:
         comment_alt: far fa-comment-alt
         chevron_left: fas fa-chevron-left
         chevron_right: fas fa-chevron-right
+        brand_amazon: fab fa-amazon
+        brand_facebook_messenger: fab fa-facebook-messenger
+        brand_figma: fab fa-figma
+        brand_twitch: fab fa-twitch

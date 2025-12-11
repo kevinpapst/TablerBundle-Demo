@@ -11,6 +11,7 @@
 namespace App\Controller;
 
 use App\Form\FormDemoModelType;
+use App\Service\GithubService;
 use KevinPapst\TablerBundle\Helper\ContextHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
@@ -128,7 +129,7 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('default/wizard.html.twig', [
-            'page' => $page,
+            'page'    => $page,
             'percent' => $page * 10,
         ]);
     }
@@ -168,7 +169,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/documentation.html.twig', [
             'chapter' => $chapter,
-            'docs' => $markdown,
+            'docs'    => $markdown,
         ]);
     }
 
@@ -271,5 +272,13 @@ class DefaultController extends AbstractController
     public function securityCover(ContextHelper $contextHelper): Response
     {
         return $this->render('login-cover.html.twig', []);
+    }
+
+    #[Route(path: '/avatars', name: 'avatars')]
+    public function avatars(GitHubService $gitHubService): Response
+    {
+        return $this->render('components/avatars/avatars.html.twig', [
+            'contributors' => $gitHubService->fetchTopContributors(perPage: 8),
+        ]);
     }
 }
