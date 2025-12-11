@@ -19,7 +19,7 @@ tabler:
         # false = left to right, true = right to left
         rtl_mode: false
         # true = only avatar, false = show username and title as well
-        user_menu_condensed: true
+        user_menu_condensed: false
         # url to your company logo (if not with a protocol, the asset() helper will be used to create the url
         logo_url: "https://preview.tabler.io/static/logo.svg"
         # slate, gray, zinc, neutral, stone

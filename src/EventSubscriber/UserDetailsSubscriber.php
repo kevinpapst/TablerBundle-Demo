@@ -19,8 +19,9 @@ use Symfony\Component\Security\Core\User\InMemoryUser;
 
 class UserDetailsSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private Security $security)
-    {
+    public function __construct(
+        private readonly Security $security
+    ) {
     }
 
     public static function getSubscribedEvents(): array
@@ -39,14 +40,26 @@ class UserDetailsSubscriber implements EventSubscriberInterface
         /* @var $myUser InMemoryUser */
         $myUser = $this->security->getUser();
 
+        // ** User
         $user = new UserModel('1', $myUser->getUserIdentifier());
-        $user->setName('admin@example.com');
-        $user->setTitle('demo user');
-        //$user->setAvatar('bundles/tabler/images/default_avatar.png');
-
+        $user->setName('Kevin Papst');
+        $user->setTitle('Software engineer');
+        $user->setAvatar('https://avatars.githubusercontent.com/u/533162?v=4&s=60');
         $event->setUser($user);
 
+        // ** MenuItems
+        $status = new MenuItemModel('status', 'Status');
+        $status->setDisabled(true);
+        $event->addLink($status);
+
         $event->addLink(new MenuItemModel('profile', 'My profile', 'profile'));
-        $event->addLink(new MenuItemModel('empty_profile', 'Details (no link)'));
+
+        $feedback = new MenuItemModel('feedback', 'Feedback');
+        $feedback->setDisabled(true);
+        $event->addLink($feedback);
+
+        $settings = new MenuItemModel('settings', 'Settings');
+        $settings->setDisabled(true);
+        $event->addLink($settings);
     }
 }
