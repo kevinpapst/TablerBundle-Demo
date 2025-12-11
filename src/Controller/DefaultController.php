@@ -129,7 +129,7 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('default/wizard.html.twig', [
-            'page'    => $page,
+            'page' => $page,
             'percent' => $page * 10,
         ]);
     }
@@ -169,7 +169,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/documentation.html.twig', [
             'chapter' => $chapter,
-            'docs'    => $markdown,
+            'docs' => $markdown,
         ]);
     }
 
