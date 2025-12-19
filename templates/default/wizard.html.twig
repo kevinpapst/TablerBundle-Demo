@@ -39,5 +39,5 @@
 {% endblock %}
 
 {% block wizard_next_button %}
-    {{ button(false, { title : 'Next'|trans({}, 'TablerBundle'), combined: true, url: path('wizard', {'page': page + 1}) }, 'primary') }}
+    {{ button(false, { title : 'Next'|trans({}, 'TablerBundle'), combined: true, href: path('wizard', {'page': page + 1}) }, 'primary') }}
 {% endblock %}
