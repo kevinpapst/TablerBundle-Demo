@@ -1,4 +1,4 @@
-{% extends '@Tabler/layout-horizontal.html.twig' %}
+{% extends '@Tabler/layout_horizontal.html.twig' %}
 
 {% block page_title %}Demo application{% endblock %}
 {% block page_pretitle %}{% endblock %}
@@ -32,7 +32,9 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <style>
+        @import url("https://rsms.me/inter/inter.css");
+    </style>    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
 {% endblock %}
 
 {% block javascripts %}

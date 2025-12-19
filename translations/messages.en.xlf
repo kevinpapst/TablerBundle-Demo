@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" target-language="en" datatype="plaintext" original="none">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
     <body>
       <trans-unit id="FQn1YfJ" resname="Save">
         <source>Save</source>
@@ -10,17 +13,45 @@
         <source>Cancel</source>
         <target>Cancel</target>
       </trans-unit>
-      <trans-unit id="njOR6b8" resname="homepage">
-        <source>Homepage</source>
+      <trans-unit id="pcWhXux" resname="homepage">
+        <source>homepage</source>
         <target>Dashboard</target>
       </trans-unit>
-      <trans-unit id="nWMiwfT" resname="login">
-        <source>Login</source>
+      <trans-unit id="QoghNQ6" resname="login">
+        <source>login</source>
         <target>Login</target>
       </trans-unit>
-      <trans-unit id="0FJ_Sz1" resname="logout">
-        <source>Logout</source>
+      <trans-unit id="ACcM9j_" resname="logout">
+        <source>logout</source>
         <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="6nJ3H93" resname="My custom title">
+        <source>My custom title</source>
+        <target>My custom title</target>
+      </trans-unit>
+      <trans-unit id="_zfBin5" resname="No Item custom title">
+        <source>No Item custom title</source>
+        <target>No Item custom title</target>
+      </trans-unit>
+      <trans-unit id="s_7yU3t" resname="My active Message">
+        <source>My active Message</source>
+        <target>My active Message</target>
+      </trans-unit>
+      <trans-unit id="P8hYCg3" resname="My default Message">
+        <source>My default Message</source>
+        <target>My default Message</target>
+      </trans-unit>
+      <trans-unit id="AgcZP0p" resname="My disabled Message">
+        <source>My disabled Message</source>
+        <target>My disabled Message</target>
+      </trans-unit>
+      <trans-unit id="PWq4Pq1" resname="Link to Tabler">
+        <source>Link to Tabler</source>
+        <target>Link to Tabler</target>
+      </trans-unit>
+      <trans-unit id="JhntDho" resname="Notification with badge">
+        <source>Notification with badge</source>
+        <target>Notification with badge</target>
       </trans-unit>
     </body>
   </file>
