@@ -11,20 +11,51 @@
         fromPathUrl : false,
         codeTemplates : [
             "{{ progress_bar() }}",
-            "{{ progress_bar({current : 1}) }}",
-            "{{ progress_bar({current : 2, max : 3, min : -1}) }}",
-            "{{ progress_bar({current : 2, max : 3}) }}",
-            "{{ progress_bar({current : 2, max : 3, color : 'bg-red'}, {backgroundColor : 'bg-grey'}) }}",
-            "{{ progress_bar({current : 2, max : 3, color : 'bg-green'}, {progressSize : 'progress-sm'}) }}",
-            "{{ progress_bar({current : 2, max : 3, color : 'bg-orange'}, {style : 'height: 20px;'}) }}",
-            "{{ progress_bar({color : 'bg-red'}, {backgroundColor : 'bg-grey'}) }}",
-            "{{ progress_bar({current :2, max: 5, color : 'bg-red', striped : true}) }}",
-            "{{ progress_bar({current :2, max: 5, striped : true, animated: true}) }}",
+            "{{ progress_bar({value: 10}) }}",
+            "{{ progress_bar({value: 66, max : 100}) }}",
+            "{{ progress_bar({value: 40, max : 50, min : -50}) }}",
+            "{{ progress_bar({value: 66, max : 100, color : 'success'}, {extraClass : 'bg-danger'}) }}",
+            "{{ progress_bar({value: 66, max : 100, color : 'orange'}, {height: '4px'}) }}",
+            "{{ progress_bar({value: 66, max : 100, autoLabel : true}) }}",
+            "{{ progress_bar({value: 66, max : 100, label : 'Partially done'}, {height: '20px'}) }}",
+            "{{ progress_bar({value: 66, max : 100, label : 'Error while processing', color : 'danger'}, {height: '20px'}) }}",
+            "{{ progress_bar({color : 'green'}, {extraClass : 'bg-green-lt'}) }}",
+            "{{ progress_bar({value: 2, max: 5, color : 'red', striped : true}) }}",
+            "{{ progress_bar({value: 4, max: 5, striped : true, animated: true}) }}",
+            "{{ progress_bars() }}",
             "{{ progress_bars([
-    {current :15, max: 100},
-    {current :30, max: 100, color: 'bg-success'},
-    {current :20, max: 100, color: 'bg-danger'},
+    {value: 15, max: 100},
+    {value: 30, max: 100, color: 'success'},
+    {value: 20, max: 100, color: 'danger'},
 ]) }}",
+            "{{ progress_bars([
+    {value: 15, max: 100},
+    {value: 30, max: 100, color: 'success'},
+    {value: 20, max: 100, color: 'danger'},
+], {separated : true}) }}",
+            "{{ progress_bars([
+    {value: 15, max: 100},
+    {value: 30, max: 100, color: 'success'},
+    {value: 20, max: 100, color: 'danger'},
+], {height: '20px'}) }}",
+        ]
+    } %}
+        {% block box_title %}{{ tabler_icon('about') }} The "progress_bar" implementation render static or animated progress bars{% endblock %}
+    {% endembed %}
+
+    {% embed 'components/component_card_demo.html.twig' with {
+        importTpl : "{% from '@Tabler/components/progress_bar.html.twig' import progress_background %}",
+        fromPathUrl : false,
+        codeTemplates : [
+            "{{ progress_background() }}",
+            "{{ progress_background({width : 65, text: 'Poland'}) }}",
+            "{{ progress_background({width : 98, text: 'Tabler Demo', value: 'Near completed'}) }}",
+            "{{ progress_background({width : 65, text: 'Poland'}) }}
+{{ progress_background({width : 35, text: 'Germany'}) }}
+{{ progress_background({width : 28, text: 'United Stated'}) }}
+{{ progress_background({width : 20, text: 'United Kingdom'}) }}
+{{ progress_background({width : 15, text: 'France'}) }}
+",
         ]
     } %}
         {% block box_title %}{{ tabler_icon('about') }} The "progress_bar" implementation render static or animated progress bars{% endblock %}
