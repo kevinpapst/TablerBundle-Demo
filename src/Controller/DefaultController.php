@@ -162,8 +162,7 @@ class DefaultController extends AbstractController
         $markdown = file_get_contents($fullUrl);
         preg_match_all('/\((.*)\.md\)/', $markdown, $results, PREG_SET_ORDER);
         foreach ($results as $result) {
-            $markdown =
-                str_replace($result[0], '(' . $this->generateUrl('documentation', ['chapter' => $result[1]]) . ')', $markdown);
+            $markdown = str_replace($result[0], '(' . $this->generateUrl('documentation', ['chapter' => $result[1]]) . ')', $markdown);
         }
 
         return $this->render('default/documentation.html.twig', [
