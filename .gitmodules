@@ -1,4 +1,0 @@
-[submodule "lib/kevinpapst/tabler-bundle"]
-	path = lib/kevinpapst/tabler-bundle
-	url = git@github.com:kevinpapst/TablerBundle.git
-	branch = main
