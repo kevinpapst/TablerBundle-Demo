@@ -1,0 +1,909 @@
+{% extends 'layout.html.twig' %}
+{% from '@Tabler/components/button.html.twig' import button %}
+
+{% block page_pretitle %}Overview{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}
+    <div class="btn-list">
+        {{ button(false, {title: 'New view'}, 'white') }}
+        {{ button('plus', {title: 'Create new report', combined : true}, 'primary') }}
+    </div>
+{% endblock %}
+
+{% block page_content %}
+    <div class="row row-deck row-cards">
+
+        <div class="col-sm-12 col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_body %}
+                    <div class="row gy-3">
+                        <div class="col-12 col-sm d-flex flex-column">
+                            <h3 class="h2">Welcome back, User</h3>
+                            <p class="text-muted">You have 5 new messages and 2 new notifications.</p>
+                            <div class="row g-5 mt-auto">
+                                <div class="col-auto">
+                                    <div class="subheader">Today's Sales</div>
+                                    <div class="d-flex align-items-baseline">
+                                        <div class="h3 me-2">6,782</div>
+                                        <div class="me-auto">
+                                        <span class="text-green d-inline-flex align-items-center lh-1">
+                                          7% {{ tabler_icon('chart_line') }}
+                                        </span>
+                                        </div>
+                                    </div>
+                                    {{ progress_bar({current : 75, max : 100, min : 0, color:'bg-success', label : "75% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                                </div>
+                                <div class="col-auto">
+                                    <div class="subheader">Growth Rate</div>
+                                    <div class="d-flex align-items-baseline">
+                                        <div class="h3 me-2">78,4%</div>
+                                        <div class="me-auto">
+                                        <span class="text-red d-inline-flex align-items-center lh-1">
+                                          -1% {{ tabler_icon('chart_line') }}
+                                        </span>
+                                        </div>
+                                    </div>
+                                    {{ progress_bar({current : 78, max : 100, min : 0, color:'bg-danger', label : "78% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-auto d-flex justify-content-center">
+                            <a href="https://preview.tabler.io/illustrations.html" target="_blank">
+                                {{ source('@public_path'~asset('images/good-info.svg')) }}
+                            </a>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <div class="subheader">Total Users</div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">75,782</div>
+                        <div class="me-auto">
+                        <span class="text-green d-inline-flex align-items-center lh-1">
+                          2% {{ tabler_icon('chart_line') }}
+                        </span>
+                        </div>
+                    </div>
+                    <div class="text-secondary mt-2">24,635 users increased from last month</div>
+                    <div id="chart-visitors" class="position-relative" style="min-height: 96px;">
+                        {# TODO : Chart js #}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="subheader">Active Users</div>
+                    <div class="d-flex align-items-baseline mb-2">
+                        <div class="h1 mb-0 me-2">25,782</div>
+                        <div class="me-auto">
+                        <span class="text-red d-inline-flex align-items-center lh-1">
+                          -1% {{ tabler_icon('chart_line') }}
+                        </span>
+                        </div>
+                    </div>
+                    <div id="chart-active-users-3" class="position-relative" style="min-height: 130px;">
+                        {# TODO : Chart js #}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% set periodDropdown -%}
+            {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+            <div class="dropdown">
+                <a
+                        class="dropdown-toggle text-secondary" id="sales-dropdown" href="#"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        aria-label="Select time range for sales data"
+                >Last 7 days</a>
+
+                {{ dropdown([
+                    {
+                        title:'Last 7 days',
+                        active: true,
+                    },
+                    {
+                        title:'Last 30 days',
+                    },
+                    {
+                        title:'Last 3 months',
+                    },
+                ]) }}
+            </div>
+        {%- endset %}
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Sales</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="h1 mb-3">75%</div>
+                    <div class="d-flex mb-2">
+                        <div>Conversion rate</div>
+                        <div class="ms-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              7% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                    {{ progress_bar({current : 75, max : 100, min : 0, color:'bg-primary', label : "75% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                {% endblock %}
+                {% block box_body_after %}
+                    {# TODO : Chart js #}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Revenue</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">$4,300</div>
+                        <div class="me-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              8% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    {# TODO : Chart js #}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">New clients</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">6,782</div>
+                        <div class="me-auto">
+                            <span class="text-yellow d-inline-flex align-items-center lh-1">
+                              0% {{ tabler_icon('minus') }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    {# TODO : Chart js #}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Active subscriptions</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">2,986</div>
+                        <div class="me-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              4% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    {# TODO : Chart js #}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-12">
+            <div class="row row-cards">
+                {% set items = [
+                    {
+                        color : 'primary',
+                        icon : 'dollar',
+                        title : '132 Sales',
+                        text : '12 waiting payments',
+                    },
+                    {
+                        color : 'green',
+                        icon : 'cart',
+                        title : '78 Orders',
+                        text : '32 shipped',
+                    },
+                    {
+                        color : 'x',
+                        icon : 'brand_x',
+                        title : '623 Shares',
+                        text : '16 today',
+                    },
+                    {
+                        color : 'facebook',
+                        icon : 'brand_facebook',
+                        title : '132 Likes',
+                        text : '21 today',
+                    },
+                ] %}
+
+                {% for item in items %}
+                    <div class="col-sm-6 col-lg-3">
+                        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                            {% block box_class %}card-sm{% endblock %}
+                            {% block box_body %}
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                    <span class="bg-{{ item.color }} text-white avatar">
+                                      {{ tabler_icon(item.icon, false) }}
+                                    </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="font-weight-medium">{{ item.title }}</div>
+                                        <div class="text-secondary">{{ item.text }}</div>
+                                    </div>
+                                </div>
+                            {% endblock %}
+                        {% endembed %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <h3 class="card-title">Traffic summary</h3>
+                    <div id="chart-mentions" class="position-relative chart-lg" style="min-height: 240px;">
+                        {# TODO : Chart js #}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <h3 class="card-title">Locations</h3>
+                    <div class="ratio ratio-21x9">
+                        <div>
+                            <div id="map-world" class="w-100 h-100 jvm-container"
+                                 style="background-color: transparent;">
+                                {# TODO : Map world #}
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-lg-6">
+            <div class="row row-cards">
+                <div class="col-12">
+                    {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                        {% from '@Tabler/components/progress_bar.html.twig' import progress_bars %}
+                        {% block box_body %}
+                            <p class="mb-3">Using Storage <strong>6854.45 MB </strong>of 8 GB</p>
+                            <div class="mb-3">
+                                {{ progress_bars([
+                                    {current : 44, max : 100, min : 0, color:'bg-primary'},
+                                    {current : 19, max : 100, min : 0, color:'bg-info'},
+                                    {current : 9, max : 100, min : 0, color:'bg-success'},
+                                ]) }}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-auto d-flex align-items-center pe-2">
+                                    <span class="legend me-2 bg-primary"></span>
+                                    <span>Regular</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">915MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center px-2">
+                                    <span class="legend me-2 bg-info"></span>
+                                    <span>System</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">415MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center px-2">
+                                    <span class="legend me-2 bg-success"></span>
+                                    <span>Shared</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">201MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center ps-2">
+                                    <span class="legend me-2"></span>
+                                    <span>Free</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">612MB</span>
+                                </div>
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                </div>
+
+                <div class="col-12">
+                    {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                        {% from '@Tabler/components/badge.html.twig' import badge %}
+                        {% block box_attributes %}style="height: 28rem"{% endblock %}
+                        {% block box_body_class %}card-body-scrollable card-body-scrollable-shadow{% endblock %}
+                        {% block box_body %}
+                            <div>
+                                <div class="divide-y">
+                                    {% for index, contributor in topContributors %}
+                                        <div class="row">
+                                            <div class="col-auto">
+                                            <span
+                                                    class="avatar"
+                                                    style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
+                                            ></span>
+                                            </div>
+                                            <div class="col">
+                                                <div class="text-truncate"><strong>{{ contributor.login }}</strong>
+                                                </div>
+                                                <div class="text-secondary">
+                                                    Contributions: {{ contributor.contributions }}</div>
+                                            </div>
+                                            {% if index < 3 %}
+                                                {% set place = index + 1 %}
+                                                {% if place is same as 1 %}
+                                                    {% set color = 'yellow-lt' %}
+                                                {% elseif place is same as 2 %}
+                                                    {% set color = 'gray-lt' %}
+                                                {% else %}
+                                                    {% set color = 'orange-lt' %}
+                                                {% endif %}
+                                                <div class="col-auto align-self-center">
+                                                    {{ badge({
+                                                        content: '#' ~ place,
+                                                        color : color,
+                                                    }) }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_title %}Development activity{% endblock %}
+                {% block box_header_class %}border-0{% endblock %}
+                {% block box_body_before %}
+                    <div class="position-relative">
+                        {# TODO : Chart js #}
+                    </div>
+                    <div class="card-table table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Commit</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for commit in commits %}
+                                <tr>
+                                    <td class="w-1">
+                                    <span
+                                            class="avatar avatar-sm"
+                                            style="background-image: url({{ commit.author.avatarUrl ~'&s=60' }})"
+                                    ></span>
+                                    </td>
+                                    <td class="td-truncate">
+                                        <div class="text-truncate">{{ commit.commit.message }}</div>
+                                    </td>
+                                    <td class="text-nowrap text-secondary">{{ commit.commit.author.date|date('j F Y') }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-12">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/button.html.twig' import button %}
+                {% block box_class %}card-md sticky-top{% endblock %}
+                {% block box_body_before %}
+                    <div class="card-stamp card-stamp-lg">
+                        <div class="card-stamp-icon bg-primary">
+                            {{ tabler_icon('ghost') }}
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body %}
+                    <div class="row align-items-center">
+                        <div class="col-10">
+                            <h3 class="h1">Tabler Icons</h3>
+                            <div class="markdown">
+                                All icons come from the Tabler Icons set and are MIT-licensed. Visit
+                                <a href="https://tabler.io/icons" target="_blank" rel="noopener"> Tabler Icons
+                                    Website</a>,
+                                download any of the 5880 icons in SVG, PNG
+                                or React and use them in your favourite design tools.
+                            </div>
+                            <div class="mt-3">
+                                {{ button('download', {
+                                    url : "https://tabler.io/icons",
+                                    title : 'Download icons',
+                                    combined : true,
+                                }, 'primary') }}
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-md-12 col-lg-8">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+                {% block box_title %}Most Visited Pages{% endblock %}
+                {% block box_body_before %}
+                    <div class="card-table table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>Page name</th>
+                                <th>Visitors</th>
+                                <th>Unique</th>
+                                <th colspan="2">Bounce rate</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    /
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">4,896</td>
+                                <td class="text-secondary">3,654</td>
+                                <td class="text-secondary">82.54%</td>
+                                <td class="text-end w-1">
+                                    {# TODO : Chart Js #}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /form-elements.html
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">3,652</td>
+                                <td class="text-secondary">3,215</td>
+                                <td class="text-secondary">76.29%</td>
+                                <td class="text-end w-1">
+                                    {# TODO : Chart Js #}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /index.html
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">3,256</td>
+                                <td class="text-secondary">2,865</td>
+                                <td class="text-secondary">72.65%</td>
+                                <td class="text-end w-1">
+                                    {# TODO : Chart Js #}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /icons.html
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">986</td>
+                                <td class="text-secondary">865</td>
+                                <td class="text-secondary">44.89%</td>
+                                <td class="text-end w-1">
+                                    {# TODO : Chart Js #}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /docs/
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">912</td>
+                                <td class="text-secondary">822</td>
+                                <td class="text-secondary">41.12%</td>
+                                <td class="text-end w-1">
+                                    {# TODO : Chart Js #}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /accordion.html
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">855</td>
+                                <td class="text-secondary">798</td>
+                                <td class="text-secondary">32.65%</td>
+                                <td class="text-end w-1">
+                                    {# TODO : Chart Js #}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <a
+                    class="card border-primary"
+                    href="https://github.com/sponsors/kevinpapst"
+                    target="_blank" rel="noopener" aria-label="Sponsor Tabler!"
+                    style="background: color-mix(in srgb, var(--tblr-primary) 4%, var(--tblr-bg-surface))"
+            >
+                {{ source('@public_path'~asset('images/become-sponsor.svg')) }}
+                <div class="card-body d-flex flex-column justify-content-center p-5">
+                    <div class="row">
+                        <div class="col-7 offset-5 text-primary">
+                            <div class="h1 text-uppercase">Help Tabler Grow and Thrive</div>
+                            <p class="h3 fw-normal">Sponsor Tabler and help us make a difference!</p>
+                            <div class="mt-4">
+                                {{- button('heart', {
+                                    buttonType : 'button',
+                                    class : 'w-100 pe-none text-pink',
+                                    title : 'Become a Sponsor',
+                                    combined : true,
+                                }, 'button') -}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            {% set items = [
+                {
+                    network : 'Instagram',
+                    visitors : '3,550',
+                    progress : 71,
+                },
+                {
+                    network : 'Twitter',
+                    visitors : '1,798',
+                    progress : 35.96,
+                },
+                {
+                    network : 'Facebook',
+                    visitors : '1,245',
+                    progress : 24.9,
+                },
+                {
+                    network : 'TikTok',
+                    visitors : '986',
+                    progress : 19.72,
+                },
+                {
+                    network : 'Pinterest',
+                    visitors : '854',
+                    progress : 17.08,
+                },
+                {
+                    network : 'VK',
+                    visitors : '650',
+                    progress : 13,
+                },
+                {
+                    network : 'Pinterest',
+                    visitors : '420',
+                    progress : 8.4,
+                },
+            ] %}
+
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_title %}Social Media Traffic{% endblock %}
+                {% block box_body_before %}
+                    <table class="table card-table table-vcenter">
+                        <thead>
+                        <tr>
+                            <th>Network</th>
+                            <th colspan="2">Visitors</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td>{{ item.network }}</td>
+                                <td>{{ item.visitors }}</td>
+                                <td class="w-50">
+                                    {{ progress_bar({current : item.progress, max : 100, min : 0}, {progressSize : 'progress-xs'}) }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-md-12 col-lg-8">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+            {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+            {% block box_title %}Tasks{% endblock %}
+            {% block box_body_before %}
+            <div class="table-responsive">
+                <table class="table table-selectable card-table table-vcenter">
+                    <tbody>
+                    {% for index, contributor in topContributors %}
+                        {% set done = random(1) is same as 1 %}
+                        {% set tasks = random(10) %}
+                        {% set tasksDone = random(tasks) %}
+                        <tr>
+                            <td class="w-1 pe-0">
+                                <input
+                                        type="checkbox"
+                                        {% if done %}checked{% endif %}
+                                        class="form-check-input m-0 align-middle table-selectable-check"
+                                        aria-label="Select task"
+                                >
+                            </td>
+                            <td class="w-100">
+                                <a href="#" class="text-reset">Extend the data model.</a>
+                            </td>
+                            <td class="text-nowrap text-secondary">
+                                {{ tabler_icon('calendar') }}
+                                December 08, 2024
+                            </td>
+                            <td class="text-nowrap">
+                                <a href="#" class="text-secondary">
+                                    {{ tabler_icon('check') }}
+                                    {{ tasksDone }}/{{ tasks }}
+                                </a>
+                            </td>
+                            <td class="text-nowrap">
+                                <a href="#" class="text-secondary">
+                                    {{ tabler_icon('comment_alt') }} 3
+                                </a>
+                            </td>
+                            <td>
+                                <span
+                                        class="avatar avatar-sm"
+                                        style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
+                                ></span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% endblock %}
+                {% endembed %}
+            </div>
+        </div>
+
+        <div class="col-12">
+            {% set items = [
+                {
+                    number : '001401',
+                    subject : 'Design Works',
+                    flag : 'us',
+                    client : 'Carlson Limited',
+                    vat : '87956621',
+                    created : date('2017-12-15'),
+                    statusBadge : 'success',
+                    status : 'Paid',
+                    price : 887,
+                },
+                {
+                    number: '001402',
+                    subject: 'UX Wireframes',
+                    flag: 'gb',
+                    client: 'Adobe',
+                    vat: '87956421',
+                    created: date('2017-04-12'),
+                    statusBadge: 'warning',
+                    status: 'Pending',
+                    price: 1200,
+                },
+                {
+                    number: '001403',
+                    subject: 'New Dashboard',
+                    flag: 'de',
+                    client: 'Bluewolf',
+                    vat: '87952621',
+                    created: date('2017-10-23'),
+                    statusBadge: 'warning',
+                    status: 'Pending',
+                    price: 534,
+                },
+                {
+                    number: '001404',
+                    subject: 'Landing Page',
+                    flag: 'br',
+                    client: 'Salesforce',
+                    vat: '87953421',
+                    created: date('2017-09-02'),
+                    statusBadge: 'secondary',
+                    status: 'Due in 2 Weeks',
+                    price: 1500,
+                },
+                {
+                    number: '001405',
+                    subject: 'Marketing Templates',
+                    flag: 'pl',
+                    client: 'Printic',
+                    vat: '87956621',
+                    created: date('2018-01-29'),
+                    statusBadge: 'danger',
+                    status: 'Paid Today',
+                    price: 648,
+                },
+                {
+                    number: '001406',
+                    subject: 'Sales Presentation',
+                    flag: 'br',
+                    client: 'Tabdaq',
+                    vat: '87956621',
+                    created: date('2018-02-04'),
+                    statusBadge: 'secondary',
+                    status: 'Due in 3 Weeks',
+                    price: 300,
+                },
+                {
+                    number: '001407',
+                    subject: 'Logo & Print',
+                    flag: 'us',
+                    client: 'Apple',
+                    vat: '87956621',
+                    created: date('2018-03-22'),
+                    statusBadge: 'success',
+                    status: 'Paid Today',
+                    price: 2500,
+                },
+                {
+                    number: '001408',
+                    subject: 'Icons',
+                    flag: 'pl',
+                    client: 'Tookapic',
+                    vat: '87956621',
+                    created: date('2018-05-13'),
+                    statusBadge: 'success',
+                    status: 'Paid Today',
+                    price: 940,
+                },
+            ] %}
+
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_title %}Invoices{% endblock %}
+                {% block box_body %}
+                    <div class="d-flex">
+                        <div class="text-secondary">
+                            Show
+                            <div class="mx-2 d-inline-block">
+                                <input type="text" class="form-control form-control-sm" value="8" size="3"
+                                       aria-label="Invoices count">
+                            </div>
+                            entries
+                        </div>
+                        <div class="ms-auto text-secondary">
+                            Search:
+                            <div class="ms-2 d-inline-block">
+                                <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    <div class="table-responsive border-top">
+                        <table class="table table-selectable card-table table-vcenter text-nowrap datatable">
+                            <thead>
+                            <tr>
+                                <th class="w-1">
+                                    <input
+                                            class="form-check-input m-0 align-middle" type="checkbox"
+                                           aria-label="Select all invoices"
+                                    >
+                                </th>
+                                <th class="w-1">No.</th>
+                                <th>Invoice Subject</th>
+                                <th>Client</th>
+                                <th>VAT No.</th>
+                                <th>Created</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in items %}
+                                <tr>
+                                    <td>
+                                        <input
+                                                class="form-check-input m-0 align-middle table-selectable-check"
+                                                type="checkbox" aria-label="Select invoice"
+                                        >
+                                    </td>
+                                    <td><span class="text-secondary">{{ item.number }}</span></td>
+                                    <td><a href="#" class="text-reset" tabindex="-1">{{ item.subject }}</a></td>
+                                    <td>
+                                        <span class="flag flag-xs flag-country-{{ item.flag }} me-2"></span> {{ item.client }}
+                                    </td>
+                                    <td>{{ item.vat }}</td>
+                                    <td>1{{ item.created|date('j F Y') }}</td>
+                                    <td><span class="badge bg-{{ item.statusBadge }} me-1"></span>{{ item.status }}</td>
+                                    <td>${{ item.price }}</td>
+                                    <td class="text-end">
+                                        {% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+                                        {{ dropdown_button(
+                                            {title : 'Actions'},
+                                            [
+                                                {title : 'Action'},
+                                                {title : 'Another action'},
+                                            ]
+                                        ) }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endblock %}
+                {% block box_footer %}
+                    <div class="row g-2 justify-content-center justify-content-sm-between">
+                        <div class="col-auto d-flex align-items-center">
+                            <p class="m-0 text-secondary">
+                                Showing <strong>1 to {{ items|length }}</strong> of <strong>{{ items|length }}
+                                    entries</strong>
+                            </p>
+                        </div>
+                        <div class="col-auto">
+                            <ul class="pagination m-0 ms-auto">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                        {{ tabler_icon('chevron_left') }}
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        {{ tabler_icon('chevron_right') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+    </div>
+{% endblock %}
