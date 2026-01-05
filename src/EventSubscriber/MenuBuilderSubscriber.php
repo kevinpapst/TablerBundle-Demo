@@ -52,6 +52,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $event->addItem($forms);
 
         $components = new MenuItemModel('components', 'Components', null, []);
+        $components->addChild(new MenuItemModel('avatars', 'Avatars', 'avatars'));
         $components->addChild(new MenuItemModel('badges', 'Badges', 'badges'));
         $components->addChild(new MenuItemModel('buttons', 'Buttons', 'buttons', [], 'far fa-save'));
         $components->addChild(new MenuItemModel('timeline', 'Timeline', 'timeline', [], 'fas fa-stream'));
