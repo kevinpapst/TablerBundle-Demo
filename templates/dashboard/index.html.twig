@@ -118,7 +118,7 @@
                     {
                         title:'Last 3 months',
                     },
-                ]) }}
+                ], {menuAlignementEnd : true}) }}
             </div>
         {%- endset %}
 
@@ -313,7 +313,7 @@
                                     {current : 44, max : 100, min : 0, color:'bg-primary'},
                                     {current : 19, max : 100, min : 0, color:'bg-info'},
                                     {current : 9, max : 100, min : 0, color:'bg-success'},
-                                ]) }}
+                                ], {separated : true}) }}
                             </div>
 
                             <div class="row">
@@ -343,10 +343,9 @@
                 </div>
 
                 <div class="col-12">
-                    {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                    {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, bodyScrollable: true, bodyScrollableShadow: true} %}
                         {% from '@Tabler/components/badge.html.twig' import badge %}
                         {% block box_attributes %}style="height: 28rem"{% endblock %}
-                        {% block box_body_class %}card-body-scrollable card-body-scrollable-shadow{% endblock %}
                         {% block box_body %}
                             <div>
                                 <div class="divide-y">
@@ -391,9 +390,8 @@
         </div>
 
         <div class="col-lg-6">
-            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, headerBorderNone : true} %}
                 {% block box_title %}Development activity{% endblock %}
-                {% block box_header_class %}border-0{% endblock %}
                 {% block box_body_before %}
                     <div class="position-relative">
                         {# TODO : Chart js #}

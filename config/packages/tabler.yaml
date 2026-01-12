@@ -9,7 +9,7 @@ tabler:
         # true = dark mode (light colors on dark background), false = normal mode (dark colors on light background)
         dark_mode: false
         # condensed = one nav-bar, false = two nav-bars
-        navbar_condensed: true
+        navbar_condensed: false
         # true = dark mode, false = light mode (on header)
         header_dark: false
         # true = dark mode, false = light mode (on menu)
