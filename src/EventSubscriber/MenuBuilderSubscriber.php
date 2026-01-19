@@ -32,7 +32,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
     public function onSetupNavbar(MenuEvent $event): void
     {
         $event->addItem(
-            new MenuItemModel('homepage', 'homepage', 'homepage', [], 'fas fa-tachometer-alt')
+            new MenuItemModel('homepage', 'homepage', 'homepage', [], 'tabler:home')
         );
 
         $forms = new MenuItemModel('forms', 'Forms', null, [], 'fab fa-wpforms');
