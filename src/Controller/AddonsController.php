@@ -10,9 +10,18 @@
 
 namespace App\Controller;
 
+use App\Service\TablerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
 class AddonsController extends AbstractController
 {
-
+    #[Route('/flags', name: 'addons_flags')]
+    public function icons(TablerService $tablerService): Response
+    {
+        return $this->render('addons/flags.html.twig', [
+            'flags' => $tablerService->flags(),
+        ]);
+    }
 }

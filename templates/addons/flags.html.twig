@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Flags{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core/dist/css/tabler-flags.min.css">
+{% endblock %}
+
+{% block page_content %}
+    {% embed '@Tabler/embeds/card.html.twig' with {fullsize : true} %}
+        {% block box_title %}List of all flags{% endblock %}
+        {% block box_body %}
+            <div class="demo-icons-list-wrap">
+                <div class="demo-icons-list">
+                    {% for flag in flags %}
+                        <span class="demo-icons-list-item"
+                              title="{{ flag.name }}"
+                              data-bs-toggle="tooltip" data-bs-placement="top"
+                        >
+                            <span class="flag flag-country-{{ flag.flag }}"></span>
+                        </span>
+                    {% endfor %}
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
