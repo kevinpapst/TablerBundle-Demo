@@ -12,13 +12,13 @@ namespace App\Service;
 
 use App\Model\TablerFlag;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 class TablerService
 {
     public function __construct(
         private readonly ParameterBagInterface $parameterBag,
-        private readonly SerializerInterface $serializer,
+        private readonly DenormalizerInterface $denormalizer,
     ) {
     }
 
@@ -27,7 +27,7 @@ class TablerService
      */
     public function flags(): array
     {
-        return $this->serializer->denormalize(
+        return $this->denormalizer->denormalize(
             json_decode(file_get_contents($this->dataDir() . DIRECTORY_SEPARATOR . 'flags.json')),
             TablerFlag::class . '[]',
             'json'
