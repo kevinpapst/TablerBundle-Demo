@@ -11,8 +11,14 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
 class AddonsController extends AbstractController
 {
-
+    #[Route('/icons', name: 'icons')]
+    public function icons(): Response
+    {
+        return $this->render('addons/icons.html.twig');
+    }
 }

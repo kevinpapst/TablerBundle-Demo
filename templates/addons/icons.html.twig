@@ -1,0 +1,53 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_content %}
+    {% embed '@Tabler/embeds/card.html.twig' with {fullsize : false} %}
+        {% block box_title %}Interface icons{% endblock %}
+        {% block box_body %}
+            <div class="card">
+                <table class="table table-vcenter card-table">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Alias</th>
+                        <th>Ux icon fullName</th>
+                        <th>Fontawesome name</th>
+                        <th>Fontawesome fullName</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="bg-primary-lt">
+                        <td>Values</td>
+                        <td><code>about</code></td>
+                        <td><code>fa7-solid:info-circle</code></td>
+                        <td><code>fa-info-circle</code></td>
+                        <td><code>fas fa-info-circle</code></td>
+                    </tr>
+                    <tr>
+                        <td>Ux icon</td>
+                        <td>{{ ux_icon('about') }}</td>
+                        <td>{{ ux_icon('fa7-solid:info-circle') }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>NEW tabler_icon</td>
+                        <td>{{ tabler_icon('about', true) }}</td>
+                        <td>{{ tabler_icon('fa7-solid:info-circle', true) }}</td>
+                        <td>{{ tabler_icon('fa-info-circle', true) }}</td>
+                        <td>{{ tabler_icon('fas fa-info-circle', true) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Manual</td>
+                        <td>{{ ux_icon('tabler:forms') }}</td>
+                        <td>{{ tabler_icon('forms') }}</td>
+                        <td>{{ tabler_icon('tabler:forms') }}</td>
+                        <td>{{ tabler_icon('tabler:forms', true) }}</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
