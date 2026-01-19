@@ -67,7 +67,7 @@ class GithubService
         ?string $repository = null,
         int $perPage = 10,
     ): array {
-        return $this->fetchContributors(repository: $repository, perPage: $perPage, asc: false);
+        return $this->fetchContributors($repository, $perPage, false);
     }
 
     /**
