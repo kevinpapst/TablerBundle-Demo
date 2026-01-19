@@ -11,6 +11,7 @@
 namespace App\Service;
 
 use App\Model\TablerFlag;
+use App\Model\TablerPayment;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
@@ -20,6 +21,18 @@ class TablerService
         private readonly ParameterBagInterface $parameterBag,
         private readonly DenormalizerInterface $denormalizer,
     ) {
+    }
+
+    /**
+     * @return TablerPayment[]
+     */
+    public function payments(): array
+    {
+        return $this->serializer->denormalize(
+            json_decode(file_get_contents($this->dataDir() . DIRECTORY_SEPARATOR . 'payments.json')),
+            TablerPayment::class . '[]',
+            'json'
+        );
     }
 
     /**

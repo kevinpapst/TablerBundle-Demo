@@ -110,6 +110,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $addons->addChild(
             new MenuItemModel('flags', 'Flags', 'addons_flags')
         );
+        $addons->addChild(
+            new MenuItemModel('payment_providers', 'Payment providers', 'addons_payment_providers')
+        );
         $event->addItem($addons);
 
         if (!$this->security->isGranted('IS_AUTHENTICATED')) {

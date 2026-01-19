@@ -24,4 +24,12 @@ class AddonsController extends AbstractController
             'flags' => $tablerService->flags(),
         ]);
     }
+
+    #[Route('/payment-providers', name: 'addons_payment_providers')]
+    public function paymentProviders(TablerService $tablerService): Response
+    {
+        return $this->render('addons/payment-providers.html.twig', [
+            'payments' => $tablerService->payments(),
+        ]);
+    }
 }

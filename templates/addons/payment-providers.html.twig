@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}Payment Providers{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core/dist/css/tabler-payments.min.css">
+{% endblock %}
+
+{% block page_content %}
+    {% for version in [{name: 'Light', suffix: ''}, {name: 'Dark', suffix: 'dark'}] %}
+        {% embed '@Tabler/embeds/card.html.twig' %}
+            {% block box_title %}{{ version.name }} version{% endblock %}
+            {% block box_body %}
+                <div class="row g-5 row-cols-5">
+                    {% for payment in payments %}
+                        {% set codes = [payment.logo] %}
+                        {% if version.suffix is not empty %}
+                            {% set codes = codes|merge([version.suffix]) %}
+                        {% endif %}
+
+                        {% set code = codes|join('-') %}
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-auto"><span class="payment payment-1 payment-provider-{{ code }}"></span></div>
+                                <div class="col">
+                                    <strong class="d-block">{{ payment.name }}</strong>
+                                    <div class="mt-1">
+                                        <code>{{ code }}</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endfor %}
+{% endblock %}
