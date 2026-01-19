@@ -28,7 +28,7 @@ class TablerService
      */
     public function payments(): array
     {
-        return $this->serializer->denormalize(
+        return $this->denormalizer->denormalize(
             json_decode(file_get_contents($this->dataDir() . DIRECTORY_SEPARATOR . 'payments.json')),
             TablerPayment::class . '[]',
             'json'
