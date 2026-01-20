@@ -107,6 +107,15 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $docu->setBadgeColor('blue');
         $event->addItem($docu);
 
+        $addons = new MenuItemModel('addons', 'Addons');
+        $addons->addChild(
+            new MenuItemModel('flags', 'Flags', 'addons_flags')
+        );
+        $addons->addChild(
+            new MenuItemModel('payment_providers', 'Payment providers', 'addons_payment_providers')
+        );
+        $event->addItem($addons);
+
         if (!$this->security->isGranted('IS_AUTHENTICATED')) {
             $event->addItem(
                 new MenuItemModel('login', 'login', 'security_login', [], 'fas fa-sign-in-alt')

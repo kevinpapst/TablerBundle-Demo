@@ -23,7 +23,7 @@ class GithubService
     public function __construct(
         private readonly ParameterBagInterface $parameterBag,
         private readonly HttpClientInterface $httpClient,
-        private readonly DenormalizerInterface $serializer,
+        private readonly DenormalizerInterface $denormalizer,
     ) {
     }
 
@@ -46,13 +46,13 @@ class GithubService
                 ),
             );
 
-            return $this->serializer->denormalize(
+            return $this->denormalizer->denormalize(
                 $contributorsResponse->toArray(),
                 GithubUser::class . '[]',
                 'array'
             );
         } catch (\Throwable) {
-            return $this->serializer->denormalize(
+            return $this->denormalizer->denormalize(
                 json_decode(file_get_contents($this->resourceDir() . DIRECTORY_SEPARATOR . 'contributors.json')),
                 GithubUser::class . '[]',
                 'json'
@@ -89,13 +89,13 @@ class GithubService
                 ),
             );
 
-            return $this->serializer->denormalize(
+            return $this->denormalizer->denormalize(
                 $contributorsResponse->toArray(),
                 GithubCommit::class . '[]',
                 'array'
             );
         } catch (\Throwable) {
-            return $this->serializer->denormalize(
+            return $this->denormalizer->denormalize(
                 json_decode(file_get_contents($this->resourceDir() . DIRECTORY_SEPARATOR . 'commits.json')),
                 GithubCommit::class . '[]',
                 'json'
