@@ -9,7 +9,7 @@ tabler:
         # true = dark mode (light colors on dark background), false = normal mode (dark colors on light background)
         dark_mode: false
         # condensed = one nav-bar, false = two nav-bars
-        navbar_condensed: true
+        navbar_condensed: false
         # true = dark mode, false = light mode (on header)
         header_dark: false
         # true = dark mode, false = light mode (on menu)
@@ -73,3 +73,16 @@ tabler:
         moon: far fa-moon
         sun: far fa-sun
         warning: fas fa-exclamation-triangle
+        dollar: fas fa-dollar-sign
+        cart: fas fa-shopping-cart
+        brand_facebook: fab fa-facebook-f
+        brand_x: fab fa-twitter
+        chart_line: fas fa-chart-line
+        minus: fas fa-minus
+        ghost: fas fa-ghost
+        link: fas fa-link
+        heart: fas fa-heart
+        check: fas fa-check
+        comment_alt: far fa-comment-alt
+        chevron_left: fas fa-chevron-left
+        chevron_right: fas fa-chevron-right

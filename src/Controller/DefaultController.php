@@ -26,7 +26,7 @@ class DefaultController extends AbstractController
     #[Route(path: '/third-level2', name: 'third_level2')]
     public function index(): Response
     {
-        return $this->render('default/index.html.twig', []);
+        return $this->redirectToRoute('dashboard');
     }
 
     #[Route(path: '/forms', name: 'forms')]

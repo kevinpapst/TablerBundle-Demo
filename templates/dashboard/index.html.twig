@@ -1,0 +1,2011 @@
+{% extends 'layout.html.twig' %}
+{% from '@Tabler/components/button.html.twig' import button %}
+
+{% block page_pretitle %}Overview{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block page_actions %}
+    <div class="btn-list">
+        {{ button(false, {title: 'New view'}, 'white') }}
+        {{ button('plus', {title: 'Create new report', combined : true}, 'primary') }}
+    </div>
+{% endblock %}
+
+{% block page_content %}
+    <div class="row row-deck row-cards">
+
+        <div class="col-sm-12 col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_body %}
+                    <div class="row gy-3">
+                        <div class="col-12 col-sm d-flex flex-column">
+                            <h3 class="h2">Welcome back, User</h3>
+                            <p class="text-muted">You have 5 new messages and 2 new notifications.</p>
+                            <div class="row g-5 mt-auto">
+                                <div class="col-auto">
+                                    <div class="subheader">Today's Sales</div>
+                                    <div class="d-flex align-items-baseline">
+                                        <div class="h3 me-2">6,782</div>
+                                        <div class="me-auto">
+                                        <span class="text-green d-inline-flex align-items-center lh-1">
+                                          7% {{ tabler_icon('chart_line') }}
+                                        </span>
+                                        </div>
+                                    </div>
+                                    {{ progress_bar({current : 75, max : 100, min : 0, color:'bg-success', label : "75% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                                </div>
+                                <div class="col-auto">
+                                    <div class="subheader">Growth Rate</div>
+                                    <div class="d-flex align-items-baseline">
+                                        <div class="h3 me-2">78,4%</div>
+                                        <div class="me-auto">
+                                        <span class="text-red d-inline-flex align-items-center lh-1">
+                                          -1% {{ tabler_icon('chart_line') }}
+                                        </span>
+                                        </div>
+                                    </div>
+                                    {{ progress_bar({current : 78, max : 100, min : 0, color:'bg-danger', label : "78% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-auto d-flex justify-content-center">
+                            <a href="https://preview.tabler.io/illustrations.html" target="_blank">
+                                {{ source('@public_path'~asset('images/good-info.svg')) }}
+                            </a>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <div class="subheader">Total Users</div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">75,782</div>
+                        <div class="me-auto">
+                        <span class="text-green d-inline-flex align-items-center lh-1">
+                          2% {{ tabler_icon('chart_line') }}
+                        </span>
+                        </div>
+                    </div>
+                    <div class="text-secondary mt-2">24,635 users increased from last month</div>
+                {% endblock %}
+                {% block box_body_after %}
+                    <div id="chart-visitors" class="position-relative" style="min-height: 96px;"></div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="subheader">Active Users</div>
+                    <div class="d-flex align-items-baseline mb-2">
+                        <div class="h1 mb-0 me-2">25,782</div>
+                        <div class="me-auto">
+                        <span class="text-red d-inline-flex align-items-center lh-1">
+                          -1% {{ tabler_icon('chart_line') }}
+                        </span>
+                        </div>
+                    </div>
+                    <div id="chart-active-users-3" class="position-relative" style="min-height: 130px;"></div>
+                </div>
+            </div>
+        </div>
+
+        {% set periodDropdown -%}
+            {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+            <div class="dropdown">
+                <a
+                        class="dropdown-toggle text-secondary" id="sales-dropdown" href="#"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        aria-label="Select time range for sales data"
+                >Last 7 days</a>
+
+                {{ dropdown([
+                    {
+                        title:'Last 7 days',
+                        active: true,
+                    },
+                    {
+                        title:'Last 30 days',
+                    },
+                    {
+                        title:'Last 3 months',
+                    },
+                ], {menuAlignementEnd : true}) }}
+            </div>
+        {%- endset %}
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Sales</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="h1 mb-3">75%</div>
+                    <div class="d-flex mb-2">
+                        <div>Conversion rate</div>
+                        <div class="ms-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              7% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                    {{ progress_bar({current : 75, max : 100, min : 0, color:'bg-primary', label : "75% Complete", labelVisible : false}, {progressSize : 'progress-sm'}) }}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Revenue</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">$4,300</div>
+                        <div class="me-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              8% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    <div id="chart-revenue-bg" class="position-relative rounded-bottom chart-sm"></div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">New clients</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">6,782</div>
+                        <div class="me-auto">
+                            <span class="text-yellow d-inline-flex align-items-center lh-1">
+                              0% {{ tabler_icon('minus') }}
+                            </span>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    <div id="chart-new-clients" class="position-relative chart-sm"></div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/dropdown.html.twig' import dropdown %}
+                {% block box_body %}
+                    <div class="d-flex align-items-center">
+                        <div class="subheader">Active subscriptions</div>
+                        <div class="ms-auto lh-1">
+                            {{ periodDropdown }}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-baseline">
+                        <div class="h1 mb-0 me-2">2,986</div>
+                        <div class="me-auto">
+                            <span class="text-green d-inline-flex align-items-center lh-1">
+                              4% {{ tabler_icon('chart_line') }}
+                            </span>
+                        </div>
+                    </div>
+                    <div id="chart-active-users" class="position-relative chart-sm"></div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-12">
+            <div class="row row-cards">
+                {% set items = [
+                    {
+                        color : 'primary',
+                        icon : 'dollar',
+                        title : '132 Sales',
+                        text : '12 waiting payments',
+                    },
+                    {
+                        color : 'green',
+                        icon : 'cart',
+                        title : '78 Orders',
+                        text : '32 shipped',
+                    },
+                    {
+                        color : 'x',
+                        icon : 'brand_x',
+                        title : '623 Shares',
+                        text : '16 today',
+                    },
+                    {
+                        color : 'facebook',
+                        icon : 'brand_facebook',
+                        title : '132 Likes',
+                        text : '21 today',
+                    },
+                ] %}
+
+                {% for item in items %}
+                    <div class="col-sm-6 col-lg-3">
+                        {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                            {% block box_class %}card-sm{% endblock %}
+                            {% block box_body %}
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                    <span class="bg-{{ item.color }} text-white avatar">
+                                      {{ tabler_icon(item.icon, false) }}
+                                    </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="font-weight-medium">{{ item.title }}</div>
+                                        <div class="text-secondary">{{ item.text }}</div>
+                                    </div>
+                                </div>
+                            {% endblock %}
+                        {% endembed %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <h3 class="card-title">Traffic summary</h3>
+                    <div id="chart-mentions" class="position-relative chart-lg"></div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% block box_body %}
+                    <h3 class="card-title">Locations</h3>
+                    <div class="ratio ratio-21x9">
+                        <div>
+                            <div id="map-world" class="w-100 h-100"></div>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-lg-6">
+            <div class="row row-cards">
+                <div class="col-12">
+                    {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                        {% from '@Tabler/components/progress_bar.html.twig' import progress_bars %}
+                        {% block box_body %}
+                            <p class="mb-3">Using Storage <strong>6854.45 MB </strong>of 8 GB</p>
+                            <div class="mb-3">
+                                {{ progress_bars([
+                                    {current : 44, max : 100, min : 0, color:'bg-primary'},
+                                    {current : 19, max : 100, min : 0, color:'bg-info'},
+                                    {current : 9, max : 100, min : 0, color:'bg-success'},
+                                ], {separated : true}) }}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-auto d-flex align-items-center pe-2">
+                                    <span class="legend me-2 bg-primary"></span>
+                                    <span>Regular</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">915MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center px-2">
+                                    <span class="legend me-2 bg-info"></span>
+                                    <span>System</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">415MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center px-2">
+                                    <span class="legend me-2 bg-success"></span>
+                                    <span>Shared</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">201MB</span>
+                                </div>
+                                <div class="col-auto d-flex align-items-center ps-2">
+                                    <span class="legend me-2"></span>
+                                    <span>Free</span>
+                                    <span class="d-none d-md-inline d-lg-none d-xxl-inline ms-2 text-secondary">612MB</span>
+                                </div>
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                </div>
+
+                <div class="col-12">
+                    {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, bodyScrollable: true, bodyScrollableShadow: true} %}
+                        {% from '@Tabler/components/badge.html.twig' import badge %}
+                        {% block box_attributes %}style="height: 28rem"{% endblock %}
+                        {% block box_body %}
+                            <div>
+                                <div class="divide-y">
+                                    {% for index, contributor in topContributors %}
+                                        <div class="row">
+                                            <div class="col-auto">
+                                            <span
+                                                    class="avatar"
+                                                    style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
+                                            ></span>
+                                            </div>
+                                            <div class="col">
+                                                <div class="text-truncate"><strong>{{ contributor.login }}</strong>
+                                                </div>
+                                                <div class="text-secondary">
+                                                    Contributions: {{ contributor.contributions }}</div>
+                                            </div>
+                                            {% if index < 3 %}
+                                                {% set place = index + 1 %}
+                                                {% if place is same as 1 %}
+                                                    {% set color = 'yellow-lt' %}
+                                                {% elseif place is same as 2 %}
+                                                    {% set color = 'gray-lt' %}
+                                                {% else %}
+                                                    {% set color = 'orange-lt' %}
+                                                {% endif %}
+                                                <div class="col-auto align-self-center">
+                                                    {{ badge({
+                                                        content: '#' ~ place,
+                                                        color : color,
+                                                    }) }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, headerBorderNone : true} %}
+                {% block box_title %}Development activity{% endblock %}
+                {% block box_body_before %}
+                    <div class="position-relative">
+                        <div class="position-absolute top-0 left-0 px-3 mt-1 w-75">
+                            <div class="row g-2">
+                                <div class="col-auto">
+                                    <div class="chart-sparkline chart-sparkline-square" id="sparkline-activity"></div>
+                                </div>
+                                <div class="col">
+                                    <div>Today's Earning: $4,262.40</div>
+                                    <div class="text-secondary">
+                                        {{ tabler_icon('chart_line') }}
+                                        +5% more than yesterday
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="chart-development-activity" class="position-relative"></div>
+                    </div>
+                    <div class="card-table table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Commit</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for commit in commits %}
+                                <tr>
+                                    <td class="w-1">
+                                    <span
+                                            class="avatar avatar-sm"
+                                            style="background-image: url({{ commit.author.avatarUrl ~'&s=60' }})"
+                                    ></span>
+                                    </td>
+                                    <td class="td-truncate">
+                                        <div class="text-truncate">{{ commit.commit.message }}</div>
+                                    </td>
+                                    <td class="text-nowrap text-secondary">{{ commit.commit.author.date|date('j F Y') }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-12">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0} %}
+                {% from '@Tabler/components/button.html.twig' import button %}
+                {% block box_class %}card-md sticky-top{% endblock %}
+                {% block box_body_before %}
+                    <div class="card-stamp card-stamp-lg">
+                        <div class="card-stamp-icon bg-primary">
+                            {{ tabler_icon('ghost') }}
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body %}
+                    <div class="row align-items-center">
+                        <div class="col-10">
+                            <h3 class="h1">Tabler Icons</h3>
+                            <div class="markdown">
+                                All icons come from the Tabler Icons set and are MIT-licensed. Visit
+                                <a href="https://tabler.io/icons" target="_blank" rel="noopener"> Tabler Icons
+                                    Website</a>,
+                                download any of the 5880 icons in SVG, PNG
+                                or React and use them in your favourite design tools.
+                            </div>
+                            <div class="mt-3">
+                                {{ button('download', {
+                                    url : "https://tabler.io/icons",
+                                    title : 'Download icons',
+                                    combined : true,
+                                }, 'primary') }}
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-md-12 col-lg-8">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+                {% block box_title %}Most Visited Pages{% endblock %}
+                {% block box_body_before %}
+                    <div class="card-table table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>Page name</th>
+                                <th>Visitors</th>
+                                <th>Unique</th>
+                                <th colspan="2">Bounce rate</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    /
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">4,896</td>
+                                <td class="text-secondary">3,654</td>
+                                <td class="text-secondary">82.54%</td>
+                                <td class="text-end w-1">
+                                    <div class="chart-sparkline chart-sparkline-sm" id="sparkline-bounce-rate-1"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /form-elements.html
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">3,652</td>
+                                <td class="text-secondary">3,215</td>
+                                <td class="text-secondary">76.29%</td>
+                                <td class="text-end w-1">
+                                    <div class="chart-sparkline chart-sparkline-sm" id="sparkline-bounce-rate-2"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /index.html
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">3,256</td>
+                                <td class="text-secondary">2,865</td>
+                                <td class="text-secondary">72.65%</td>
+                                <td class="text-end w-1">
+                                    <div class="chart-sparkline chart-sparkline-sm" id="sparkline-bounce-rate-3"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /icons.html
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">986</td>
+                                <td class="text-secondary">865</td>
+                                <td class="text-secondary">44.89%</td>
+                                <td class="text-end w-1">
+                                    <div class="chart-sparkline chart-sparkline-sm" id="sparkline-bounce-rate-4"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /docs/
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">912</td>
+                                <td class="text-secondary">822</td>
+                                <td class="text-secondary">41.12%</td>
+                                <td class="text-end w-1">
+                                    <div class="chart-sparkline chart-sparkline-sm" id="sparkline-bounce-rate-5"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    /accordion.html
+                                    <a href="#" class="ms-1" aria-label="Open website">{{ tabler_icon('link') }}</a>
+                                </td>
+                                <td class="text-secondary">855</td>
+                                <td class="text-secondary">798</td>
+                                <td class="text-secondary">32.65%</td>
+                                <td class="text-end w-1">
+                                    <div class="chart-sparkline chart-sparkline-sm" id="sparkline-bounce-rate-6"></div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <a
+                    class="card border-primary"
+                    href="https://github.com/sponsors/kevinpapst"
+                    target="_blank" rel="noopener" aria-label="Sponsor Tabler!"
+                    style="background: color-mix(in srgb, var(--tblr-primary) 4%, var(--tblr-bg-surface))"
+            >
+                {{ source('@public_path'~asset('images/become-sponsor.svg')) }}
+                <div class="card-body d-flex flex-column justify-content-center p-5">
+                    <div class="row">
+                        <div class="col-7 offset-5 text-primary">
+                            <div class="h1 text-uppercase">Help Tabler Grow and Thrive</div>
+                            <p class="h3 fw-normal">Sponsor Tabler and help us make a difference!</p>
+                            <div class="mt-4">
+                                {{- button('heart', {
+                                    buttonType : 'button',
+                                    class : 'w-100 pe-none text-pink',
+                                    title : 'Become a Sponsor',
+                                    combined : true,
+                                }, 'button') -}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            {% set items = [
+                {
+                    network : 'Instagram',
+                    visitors : '3,550',
+                    progress : 71,
+                },
+                {
+                    network : 'Twitter',
+                    visitors : '1,798',
+                    progress : 35.96,
+                },
+                {
+                    network : 'Facebook',
+                    visitors : '1,245',
+                    progress : 24.9,
+                },
+                {
+                    network : 'TikTok',
+                    visitors : '986',
+                    progress : 19.72,
+                },
+                {
+                    network : 'Pinterest',
+                    visitors : '854',
+                    progress : 17.08,
+                },
+                {
+                    network : 'VK',
+                    visitors : '650',
+                    progress : 13,
+                },
+                {
+                    network : 'Pinterest',
+                    visitors : '420',
+                    progress : 8.4,
+                },
+            ] %}
+
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_title %}Social Media Traffic{% endblock %}
+                {% block box_body_before %}
+                    <table class="table card-table table-vcenter">
+                        <thead>
+                        <tr>
+                            <th>Network</th>
+                            <th colspan="2">Visitors</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td>{{ item.network }}</td>
+                                <td>{{ item.visitors }}</td>
+                                <td class="w-50">
+                                    {{ progress_bar({current : item.progress, max : 100, min : 0}, {progressSize : 'progress-xs'}) }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="col-md-12 col-lg-8">
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+            {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+            {% block box_title %}Tasks{% endblock %}
+            {% block box_body_before %}
+            <div class="table-responsive">
+                <table class="table table-selectable card-table table-vcenter">
+                    <tbody>
+                    {% for index, contributor in topContributors %}
+                        {% set done = random(1) is same as 1 %}
+                        {% set tasks = random(10) %}
+                        {% set tasksDone = random(tasks) %}
+                        <tr>
+                            <td class="w-1 pe-0">
+                                <input
+                                        type="checkbox"
+                                        {% if done %}checked{% endif %}
+                                        class="form-check-input m-0 align-middle table-selectable-check"
+                                        aria-label="Select task"
+                                >
+                            </td>
+                            <td class="w-100">
+                                <a href="#" class="text-reset">Extend the data model.</a>
+                            </td>
+                            <td class="text-nowrap text-secondary">
+                                {{ tabler_icon('calendar') }}
+                                December 08, 2024
+                            </td>
+                            <td class="text-nowrap">
+                                <a href="#" class="text-secondary">
+                                    {{ tabler_icon('check') }}
+                                    {{ tasksDone }}/{{ tasks }}
+                                </a>
+                            </td>
+                            <td class="text-nowrap">
+                                <a href="#" class="text-secondary">
+                                    {{ tabler_icon('comment_alt') }} 3
+                                </a>
+                            </td>
+                            <td>
+                                <span
+                                        class="avatar avatar-sm"
+                                        style="background-image: url({{ contributor.avatarUrl ~'&s=60' }})"
+                                ></span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% endblock %}
+                {% endembed %}
+            </div>
+        </div>
+
+        <div class="col-12">
+            {% set items = [
+                {
+                    number : '001401',
+                    subject : 'Design Works',
+                    flag : 'us',
+                    client : 'Carlson Limited',
+                    vat : '87956621',
+                    created : date('2017-12-15'),
+                    statusBadge : 'success',
+                    status : 'Paid',
+                    price : 887,
+                },
+                {
+                    number: '001402',
+                    subject: 'UX Wireframes',
+                    flag: 'gb',
+                    client: 'Adobe',
+                    vat: '87956421',
+                    created: date('2017-04-12'),
+                    statusBadge: 'warning',
+                    status: 'Pending',
+                    price: 1200,
+                },
+                {
+                    number: '001403',
+                    subject: 'New Dashboard',
+                    flag: 'de',
+                    client: 'Bluewolf',
+                    vat: '87952621',
+                    created: date('2017-10-23'),
+                    statusBadge: 'warning',
+                    status: 'Pending',
+                    price: 534,
+                },
+                {
+                    number: '001404',
+                    subject: 'Landing Page',
+                    flag: 'br',
+                    client: 'Salesforce',
+                    vat: '87953421',
+                    created: date('2017-09-02'),
+                    statusBadge: 'secondary',
+                    status: 'Due in 2 Weeks',
+                    price: 1500,
+                },
+                {
+                    number: '001405',
+                    subject: 'Marketing Templates',
+                    flag: 'pl',
+                    client: 'Printic',
+                    vat: '87956621',
+                    created: date('2018-01-29'),
+                    statusBadge: 'danger',
+                    status: 'Paid Today',
+                    price: 648,
+                },
+                {
+                    number: '001406',
+                    subject: 'Sales Presentation',
+                    flag: 'br',
+                    client: 'Tabdaq',
+                    vat: '87956621',
+                    created: date('2018-02-04'),
+                    statusBadge: 'secondary',
+                    status: 'Due in 3 Weeks',
+                    price: 300,
+                },
+                {
+                    number: '001407',
+                    subject: 'Logo & Print',
+                    flag: 'us',
+                    client: 'Apple',
+                    vat: '87956621',
+                    created: date('2018-03-22'),
+                    statusBadge: 'success',
+                    status: 'Paid Today',
+                    price: 2500,
+                },
+                {
+                    number: '001408',
+                    subject: 'Icons',
+                    flag: 'pl',
+                    client: 'Tookapic',
+                    vat: '87956621',
+                    created: date('2018-05-13'),
+                    statusBadge: 'success',
+                    status: 'Paid Today',
+                    price: 940,
+                },
+            ] %}
+
+            {% embed '@Tabler/embeds/card.html.twig' with {margin_bottom : 0, use_body : false} %}
+                {% from '@Tabler/components/progress_bar.html.twig' import progress_bar %}
+                {% block box_title %}Invoices{% endblock %}
+                {% block box_body %}
+                    <div class="d-flex">
+                        <div class="text-secondary">
+                            Show
+                            <div class="mx-2 d-inline-block">
+                                <input type="text" class="form-control form-control-sm" value="8" size="3"
+                                       aria-label="Invoices count">
+                            </div>
+                            entries
+                        </div>
+                        <div class="ms-auto text-secondary">
+                            Search:
+                            <div class="ms-2 d-inline-block">
+                                <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block box_body_after %}
+                    <div class="table-responsive border-top">
+                        <table class="table table-selectable card-table table-vcenter text-nowrap datatable">
+                            <thead>
+                            <tr>
+                                <th class="w-1">
+                                    <input
+                                            class="form-check-input m-0 align-middle" type="checkbox"
+                                            aria-label="Select all invoices"
+                                    >
+                                </th>
+                                <th class="w-1">No.</th>
+                                <th>Invoice Subject</th>
+                                <th>Client</th>
+                                <th>VAT No.</th>
+                                <th>Created</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in items %}
+                                <tr>
+                                    <td>
+                                        <input
+                                                class="form-check-input m-0 align-middle table-selectable-check"
+                                                type="checkbox" aria-label="Select invoice"
+                                        >
+                                    </td>
+                                    <td><span class="text-secondary">{{ item.number }}</span></td>
+                                    <td><a href="#" class="text-reset" tabindex="-1">{{ item.subject }}</a></td>
+                                    <td>
+                                        <span class="flag flag-xs flag-country-{{ item.flag }} me-2"></span> {{ item.client }}
+                                    </td>
+                                    <td>{{ item.vat }}</td>
+                                    <td>1{{ item.created|date('j F Y') }}</td>
+                                    <td><span class="badge bg-{{ item.statusBadge }} me-1"></span>{{ item.status }}</td>
+                                    <td>${{ item.price }}</td>
+                                    <td class="text-end">
+                                        {% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+                                        {{ dropdown_button(
+                                            {title : 'Actions'},
+                                            [
+                                                {title : 'Action'},
+                                                {title : 'Another action'},
+                                            ]
+                                        ) }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endblock %}
+                {% block box_footer %}
+                    <div class="row g-2 justify-content-center justify-content-sm-between">
+                        <div class="col-auto d-flex align-items-center">
+                            <p class="m-0 text-secondary">
+                                Showing <strong>1 to {{ items|length }}</strong> of <strong>{{ items|length }}
+                                    entries</strong>
+                            </p>
+                        </div>
+                        <div class="col-auto">
+                            <ul class="pagination m-0 ms-auto">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                        {{ tabler_icon('chevron_left') }}
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        {{ tabler_icon('chevron_right') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@5.3.6" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/js/jsvectormap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world-merc.js" defer></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("chart-visitors"), {
+                chart: {
+                    type: "line",
+                    fontFamily: "inherit",
+                    height: 96,
+                    sparkline: {
+                        enabled: true,
+                    },
+                    animations: {
+                        enabled: false,
+                    },
+                },
+                stroke: {
+                    width: [2, 1],
+                    dashArray: [0, 3],
+                    lineCap: "round",
+                    curve: "smooth",
+                },
+                series: [
+                    {
+                        name: "Visitors",
+                        data: [
+                            7687, 7543, 7545, 7543, 7635, 8140, 7810, 8315, 8379, 8441, 8485, 8227, 8906, 8561, 8333, 8551, 9305, 9647, 9359, 9840, 9805, 8612, 8970,
+                            8097, 8070, 9829, 10545, 10754, 10270, 9282,
+                        ],
+                    },
+                    {
+                        name: "Visitors last month",
+                        data: [
+                            8630, 9389, 8427, 9669, 8736, 8261, 8037, 8922, 9758, 8592, 8976, 9459, 8125, 8528, 8027, 8256, 8670, 9384, 9813, 8425, 8162, 8024, 8897,
+                            9284, 8972, 8776, 8121, 9476, 8281, 9065,
+                        ],
+                    },
+                ],
+                tooltip: {
+                    theme: "dark",
+                },
+                grid: {
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                    type: "datetime",
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4,
+                    },
+                },
+                labels: [
+                    "2020-06-21",
+                    "2020-06-22",
+                    "2020-06-23",
+                    "2020-06-24",
+                    "2020-06-25",
+                    "2020-06-26",
+                    "2020-06-27",
+                    "2020-06-28",
+                    "2020-06-29",
+                    "2020-06-30",
+                    "2020-07-01",
+                    "2020-07-02",
+                    "2020-07-03",
+                    "2020-07-04",
+                    "2020-07-05",
+                    "2020-07-06",
+                    "2020-07-07",
+                    "2020-07-08",
+                    "2020-07-09",
+                    "2020-07-10",
+                    "2020-07-11",
+                    "2020-07-12",
+                    "2020-07-13",
+                    "2020-07-14",
+                    "2020-07-15",
+                    "2020-07-16",
+                    "2020-07-17",
+                    "2020-07-18",
+                    "2020-07-19",
+                    "2020-07-20",
+                ],
+                colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 100%)", "color-mix(in srgb, transparent, var(--tblr-gray-400) 100%)"],
+                legend: {
+                    show: false,
+                },
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("chart-active-users-3"), {
+                chart: {
+                    type: "radialBar",
+                    fontFamily: "inherit",
+                    height: 192,
+                    sparkline: {
+                        enabled: true,
+                    },
+                    animations: {
+                        enabled: false,
+                    },
+                },
+                plotOptions: {
+                    radialBar: {
+                        startAngle: -120,
+                        endAngle: 120,
+                        hollow: {
+                            margin: 16,
+                            size: "50%",
+                        },
+                        dataLabels: {
+                            show: true,
+                            value: {
+                                offsetY: -8,
+                                fontSize: "24px",
+                            },
+                        },
+                    },
+                },
+                series: [78],
+                labels: [""],
+                tooltip: {
+                    theme: "dark",
+                },
+                grid: {
+                    strokeDashArray: 4,
+                },
+                colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 100%)"],
+                legend: {
+                    show: false,
+                },
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("chart-revenue-bg"), {
+                chart: {
+                    type: "area",
+                    fontFamily: "inherit",
+                    height: 40,
+                    sparkline: {
+                        enabled: true,
+                    },
+                    animations: {
+                        enabled: false,
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                fill: {
+                    colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 16%)", "color-mix(in srgb, transparent, var(--tblr-primary) 16%)"],
+                    type: "solid",
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                    curve: "smooth",
+                },
+                series: [
+                    {
+                        name: "Profits",
+                        data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 39, 62, 51, 35, 41, 67],
+                    },
+                ],
+                tooltip: {
+                    theme: "dark",
+                },
+                grid: {
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    type: "datetime",
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4,
+                    },
+                },
+                labels: [
+                    "2020-06-21",
+                    "2020-06-22",
+                    "2020-06-23",
+                    "2020-06-24",
+                    "2020-06-25",
+                    "2020-06-26",
+                    "2020-06-27",
+                    "2020-06-28",
+                    "2020-06-29",
+                    "2020-06-30",
+                    "2020-07-01",
+                    "2020-07-02",
+                    "2020-07-03",
+                    "2020-07-04",
+                    "2020-07-05",
+                    "2020-07-06",
+                    "2020-07-07",
+                    "2020-07-08",
+                    "2020-07-09",
+                    "2020-07-10",
+                    "2020-07-11",
+                    "2020-07-12",
+                    "2020-07-13",
+                    "2020-07-14",
+                    "2020-07-15",
+                    "2020-07-16",
+                    "2020-07-17",
+                    "2020-07-18",
+                    "2020-07-19",
+                    "2020-07-20",
+                ],
+                colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 100%)"],
+                legend: {
+                    show: false,
+                },
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("chart-new-clients"), {
+                chart: {
+                    type: "line",
+                    fontFamily: "inherit",
+                    height: 40,
+                    sparkline: {
+                        enabled: true,
+                    },
+                    animations: {
+                        enabled: false,
+                    },
+                },
+                stroke: {
+                    width: [2, 1],
+                    dashArray: [0, 3],
+                    lineCap: "round",
+                    curve: "smooth",
+                },
+                series: [
+                    {
+                        name: "May",
+                        data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 4, 46, 39, 62, 51, 35, 41, 67],
+                    },
+                    {
+                        name: "April",
+                        data: [93, 54, 51, 24, 35, 35, 31, 67, 19, 43, 28, 36, 62, 61, 27, 39, 35, 41, 27, 35, 51, 46, 62, 37, 44, 53, 41, 65, 39, 37],
+                    },
+                ],
+                tooltip: {
+                    theme: "dark",
+                },
+                grid: {
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                    type: "datetime",
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4,
+                    },
+                },
+                labels: [
+                    "2020-06-21",
+                    "2020-06-22",
+                    "2020-06-23",
+                    "2020-06-24",
+                    "2020-06-25",
+                    "2020-06-26",
+                    "2020-06-27",
+                    "2020-06-28",
+                    "2020-06-29",
+                    "2020-06-30",
+                    "2020-07-01",
+                    "2020-07-02",
+                    "2020-07-03",
+                    "2020-07-04",
+                    "2020-07-05",
+                    "2020-07-06",
+                    "2020-07-07",
+                    "2020-07-08",
+                    "2020-07-09",
+                    "2020-07-10",
+                    "2020-07-11",
+                    "2020-07-12",
+                    "2020-07-13",
+                    "2020-07-14",
+                    "2020-07-15",
+                    "2020-07-16",
+                    "2020-07-17",
+                    "2020-07-18",
+                    "2020-07-19",
+                    "2020-07-20",
+                ],
+                colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 100%)", "color-mix(in srgb, transparent, var(--tblr-gray-600) 100%)"],
+                legend: {
+                    show: false,
+                },
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("chart-active-users"), {
+                chart: {
+                    type: "bar",
+                    fontFamily: "inherit",
+                    height: 40,
+                    sparkline: {
+                        enabled: true,
+                    },
+                    animations: {
+                        enabled: false,
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: "50%",
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                series: [
+                    {
+                        name: "Profits",
+                        data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 39, 62, 51, 35, 41, 67],
+                    },
+                ],
+                tooltip: {
+                    theme: "dark",
+                },
+                grid: {
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    type: "datetime",
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4,
+                    },
+                },
+                labels: [
+                    "2020-06-21",
+                    "2020-06-22",
+                    "2020-06-23",
+                    "2020-06-24",
+                    "2020-06-25",
+                    "2020-06-26",
+                    "2020-06-27",
+                    "2020-06-28",
+                    "2020-06-29",
+                    "2020-06-30",
+                    "2020-07-01",
+                    "2020-07-02",
+                    "2020-07-03",
+                    "2020-07-04",
+                    "2020-07-05",
+                    "2020-07-06",
+                    "2020-07-07",
+                    "2020-07-08",
+                    "2020-07-09",
+                    "2020-07-10",
+                    "2020-07-11",
+                    "2020-07-12",
+                    "2020-07-13",
+                    "2020-07-14",
+                    "2020-07-15",
+                    "2020-07-16",
+                    "2020-07-17",
+                    "2020-07-18",
+                    "2020-07-19",
+                    "2020-07-20",
+                ],
+                colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 100%)"],
+                legend: {
+                    show: false,
+                },
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("chart-mentions"), {
+                chart: {
+                    type: "bar",
+                    fontFamily: "inherit",
+                    height: 240,
+                    parentHeightOffset: 0,
+                    toolbar: {
+                        show: false,
+                    },
+                    animations: {
+                        enabled: false,
+                    },
+                    stacked: true,
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: "50%",
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                series: [
+                    {
+                        name: "Web",
+                        data: [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 12, 5, 8, 22, 6, 8, 6, 4, 1, 8, 24, 29, 51, 40, 47, 23, 26, 50, 26, 41, 22, 46, 47, 81, 46, 6],
+                    },
+                    {
+                        name: "Social",
+                        data: [2, 5, 4, 3, 3, 1, 4, 7, 5, 1, 2, 5, 3, 2, 6, 7, 7, 1, 5, 5, 2, 12, 4, 6, 18, 3, 5, 2, 13, 15, 20, 47, 18, 15, 11, 10, 0],
+                    },
+                    {
+                        name: "Other",
+                        data: [2, 9, 1, 7, 8, 3, 6, 5, 5, 4, 6, 4, 1, 9, 3, 6, 7, 5, 2, 8, 4, 9, 1, 2, 6, 7, 5, 1, 8, 3, 2, 3, 4, 9, 7, 1, 6],
+                    },
+                ],
+                tooltip: {
+                    theme: "dark",
+                },
+                grid: {
+                    padding: {
+                        top: -20,
+                        right: 0,
+                        left: -4,
+                        bottom: -4,
+                    },
+                    strokeDashArray: 4,
+                    xaxis: {
+                        lines: {
+                            show: true,
+                        },
+                    },
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    type: "datetime",
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4,
+                    },
+                },
+                labels: [
+                    "2020-06-21",
+                    "2020-06-22",
+                    "2020-06-23",
+                    "2020-06-24",
+                    "2020-06-25",
+                    "2020-06-26",
+                    "2020-06-27",
+                    "2020-06-28",
+                    "2020-06-29",
+                    "2020-06-30",
+                    "2020-07-01",
+                    "2020-07-02",
+                    "2020-07-03",
+                    "2020-07-04",
+                    "2020-07-05",
+                    "2020-07-06",
+                    "2020-07-07",
+                    "2020-07-08",
+                    "2020-07-09",
+                    "2020-07-10",
+                    "2020-07-11",
+                    "2020-07-12",
+                    "2020-07-13",
+                    "2020-07-14",
+                    "2020-07-15",
+                    "2020-07-16",
+                    "2020-07-17",
+                    "2020-07-18",
+                    "2020-07-19",
+                    "2020-07-20",
+                    "2020-07-21",
+                    "2020-07-22",
+                    "2020-07-23",
+                    "2020-07-24",
+                    "2020-07-25",
+                    "2020-07-26",
+                    "2020-07-27",
+                ],
+                colors: [
+                    "color-mix(in srgb, transparent, var(--tblr-primary) 100%)",
+                    "color-mix(in srgb, transparent, var(--tblr-primary) 80%)",
+                    "color-mix(in srgb, transparent, var(--tblr-green) 80%)",
+                ],
+                legend: {
+                    show: false,
+                },
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const map = new jsVectorMap({
+                selector: "#map-world",
+                map: "world",
+                backgroundColor: "transparent",
+                regionStyle: {
+                    initial: {
+                        fill: "var(--tblr-bg-surface-secondary)",
+                        stroke: "var(--tblr-border-color)",
+                        strokeWidth: 2,
+                    },
+                },
+                zoomOnScroll: false,
+                zoomButtons: false,
+                series: {
+                    regions: [
+                        {
+                            attribute: "fill",
+                            scale: {
+                                scale1: "color-mix(in srgb, transparent, var(--tblr-primary) 10%)",
+                                scale2: "color-mix(in srgb, transparent, var(--tblr-primary) 20%)",
+                                scale3: "color-mix(in srgb, transparent, var(--tblr-primary) 30%)",
+                                scale4: "color-mix(in srgb, transparent, var(--tblr-primary) 40%)",
+                                scale5: "color-mix(in srgb, transparent, var(--tblr-primary) 50%)",
+                                scale6: "color-mix(in srgb, transparent, var(--tblr-primary) 60%)",
+                                scale7: "color-mix(in srgb, transparent, var(--tblr-primary) 70%)",
+                                scale8: "color-mix(in srgb, transparent, var(--tblr-primary) 80%)",
+                                scale9: "color-mix(in srgb, transparent, var(--tblr-primary) 90%)",
+                                scale10: "color-mix(in srgb, transparent, var(--tblr-primary) 100%)",
+                            },
+                            values: {
+                                AF: "scale2",
+                                AL: "scale2",
+                                DZ: "scale4",
+                                AO: "scale3",
+                                AG: "scale1",
+                                AR: "scale5",
+                                AM: "scale1",
+                                AU: "scale7",
+                                AT: "scale5",
+                                AZ: "scale3",
+                                BS: "scale1",
+                                BH: "scale2",
+                                BD: "scale4",
+                                BB: "scale1",
+                                BY: "scale3",
+                                BE: "scale5",
+                                BZ: "scale1",
+                                BJ: "scale1",
+                                BT: "scale1",
+                                BO: "scale2",
+                                BA: "scale2",
+                                BW: "scale2",
+                                BR: "scale8",
+                                BN: "scale2",
+                                BG: "scale2",
+                                BF: "scale1",
+                                BI: "scale1",
+                                KH: "scale2",
+                                CM: "scale2",
+                                CA: "scale7",
+                                CV: "scale1",
+                                CF: "scale1",
+                                TD: "scale1",
+                                CL: "scale4",
+                                CN: "scale9",
+                                CO: "scale5",
+                                KM: "scale1",
+                                CD: "scale2",
+                                CG: "scale2",
+                                CR: "scale2",
+                                CI: "scale2",
+                                HR: "scale3",
+                                CY: "scale2",
+                                CZ: "scale4",
+                                DK: "scale5",
+                                DJ: "scale1",
+                                DM: "scale1",
+                                DO: "scale3",
+                                EC: "scale3",
+                                EG: "scale5",
+                                SV: "scale2",
+                                GQ: "scale2",
+                                ER: "scale1",
+                                EE: "scale2",
+                                ET: "scale2",
+                                FJ: "scale1",
+                                FI: "scale5",
+                                FR: "scale8",
+                                GA: "scale2",
+                                GM: "scale1",
+                                GE: "scale2",
+                                DE: "scale8",
+                                GH: "scale2",
+                                GR: "scale5",
+                                GD: "scale1",
+                                GT: "scale2",
+                                GN: "scale1",
+                                GW: "scale1",
+                                GY: "scale1",
+                                HT: "scale1",
+                                HN: "scale2",
+                                HK: "scale5",
+                                HU: "scale4",
+                                IS: "scale2",
+                                IN: "scale7",
+                                ID: "scale6",
+                                IR: "scale5",
+                                IQ: "scale3",
+                                IE: "scale5",
+                                IL: "scale5",
+                                IT: "scale8",
+                                JM: "scale2",
+                                JP: "scale9",
+                                JO: "scale2",
+                                KZ: "scale4",
+                                KE: "scale2",
+                                KI: "scale1",
+                                KR: "scale6",
+                                KW: "scale4",
+                                KG: "scale1",
+                                LA: "scale1",
+                                LV: "scale2",
+                                LB: "scale2",
+                                LS: "scale1",
+                                LR: "scale1",
+                                LY: "scale3",
+                                LT: "scale2",
+                                LU: "scale3",
+                                MK: "scale1",
+                                MG: "scale1",
+                                MW: "scale1",
+                                MY: "scale5",
+                                MV: "scale1",
+                                ML: "scale1",
+                                MT: "scale1",
+                                MR: "scale1",
+                                MU: "scale1",
+                                MX: "scale7",
+                                MD: "scale1",
+                                MN: "scale1",
+                                ME: "scale1",
+                                MA: "scale3",
+                                MZ: "scale2",
+                                MM: "scale2",
+                                NA: "scale2",
+                                NP: "scale2",
+                                NL: "scale6",
+                                NZ: "scale4",
+                                NI: "scale1",
+                                NE: "scale1",
+                                NG: "scale5",
+                                NO: "scale5",
+                                OM: "scale3",
+                                PK: "scale4",
+                                PA: "scale2",
+                                PG: "scale1",
+                                PY: "scale2",
+                                PE: "scale4",
+                                PH: "scale4",
+                                PL: "scale10",
+                                PT: "scale5",
+                                QA: "scale4",
+                                RO: "scale4",
+                                RU: "scale7",
+                                RW: "scale1",
+                                WS: "scale1",
+                                ST: "scale1",
+                                SA: "scale5",
+                                SN: "scale2",
+                                RS: "scale2",
+                                SC: "scale1",
+                                SL: "scale1",
+                                SG: "scale5",
+                                SK: "scale3",
+                                SI: "scale2",
+                                SB: "scale1",
+                                ZA: "scale5",
+                                ES: "scale7",
+                                LK: "scale2",
+                                KN: "scale1",
+                                LC: "scale1",
+                                VC: "scale1",
+                                SD: "scale3",
+                                SR: "scale1",
+                                SZ: "scale1",
+                                SE: "scale5",
+                                CH: "scale6",
+                                SY: "scale3",
+                                TW: "scale5",
+                                TJ: "scale1",
+                                TZ: "scale2",
+                                TH: "scale5",
+                                TL: "scale1",
+                                TG: "scale1",
+                                TO: "scale1",
+                                TT: "scale2",
+                                TN: "scale2",
+                                TR: "scale6",
+                                TM: "scale1",
+                                UG: "scale2",
+                                UA: "scale4",
+                                AE: "scale5",
+                                GB: "scale8",
+                                US: "scale10",
+                                UY: "scale2",
+                                UZ: "scale2",
+                                VU: "scale1",
+                                VE: "scale5",
+                                VN: "scale4",
+                                YE: "scale2",
+                                ZM: "scale2",
+                                ZW: "scale1",
+                            },
+                        },
+                    ],
+                },
+            });
+            window.addEventListener("resize", () => {
+                map.updateSize();
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("sparkline-activity"), {
+                chart: {
+                    type: "radialBar",
+                    fontFamily: "inherit",
+                    height: 40,
+                    width: 40,
+                    animations: {
+                        enabled: false,
+                    },
+                    sparkline: {
+                        enabled: true,
+                    },
+                },
+                tooltip: {
+                    enabled: false,
+                },
+                plotOptions: {
+                    radialBar: {
+                        hollow: {
+                            margin: 0,
+                            size: "75%",
+                        },
+                        track: {
+                            margin: 0,
+                        },
+                        dataLabels: {
+                            show: false,
+                        },
+                    },
+                },
+                colors: ["var(--tblr-primary)"],
+                series: [35],
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("chart-development-activity"), {
+                chart: {
+                    type: "area",
+                    fontFamily: "inherit",
+                    height: 192,
+                    sparkline: {
+                        enabled: true,
+                    },
+                    animations: {
+                        enabled: false,
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                fill: {
+                    colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 16%)", "color-mix(in srgb, transparent, var(--tblr-primary) 16%)"],
+                    type: "solid",
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                    curve: "smooth",
+                },
+                series: [
+                    {
+                        name: "Purchases",
+                        data: [3, 5, 4, 6, 7, 5, 6, 8, 24, 7, 12, 5, 6, 3, 8, 4, 14, 30, 17, 19, 15, 14, 25, 32, 40, 55, 60, 48, 52, 70],
+                    },
+                ],
+                tooltip: {
+                    theme: "dark",
+                },
+                grid: {
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    type: "datetime",
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4,
+                    },
+                },
+                labels: [
+                    "2020-06-21",
+                    "2020-06-22",
+                    "2020-06-23",
+                    "2020-06-24",
+                    "2020-06-25",
+                    "2020-06-26",
+                    "2020-06-27",
+                    "2020-06-28",
+                    "2020-06-29",
+                    "2020-06-30",
+                    "2020-07-01",
+                    "2020-07-02",
+                    "2020-07-03",
+                    "2020-07-04",
+                    "2020-07-05",
+                    "2020-07-06",
+                    "2020-07-07",
+                    "2020-07-08",
+                    "2020-07-09",
+                    "2020-07-10",
+                    "2020-07-11",
+                    "2020-07-12",
+                    "2020-07-13",
+                    "2020-07-14",
+                    "2020-07-15",
+                    "2020-07-16",
+                    "2020-07-17",
+                    "2020-07-18",
+                    "2020-07-19",
+                    "2020-07-20",
+                ],
+                colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 100%)"],
+                legend: {
+                    show: false,
+                },
+                point: {
+                    show: false,
+                },
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("sparkline-bounce-rate-1"), {
+                chart: {
+                    type: "line",
+                    fontFamily: "inherit",
+                    height: 24,
+                    animations: {
+                        enabled: false,
+                    },
+                    sparkline: {
+                        enabled: true,
+                    },
+                },
+                tooltip: {
+                    enabled: false,
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                },
+                series: [
+                    {
+                        color: "var(--tblr-primary)",
+                        data: [17, 24, 20, 10, 5, 1, 4, 18, 13],
+                    },
+                ],
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("sparkline-bounce-rate-2"), {
+                chart: {
+                    type: "line",
+                    fontFamily: "inherit",
+                    height: 24,
+                    animations: {
+                        enabled: false,
+                    },
+                    sparkline: {
+                        enabled: true,
+                    },
+                },
+                tooltip: {
+                    enabled: false,
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                },
+                series: [
+                    {
+                        color: "var(--tblr-primary)",
+                        data: [13, 11, 19, 22, 12, 7, 14, 3, 21],
+                    },
+                ],
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("sparkline-bounce-rate-3"), {
+                chart: {
+                    type: "line",
+                    fontFamily: "inherit",
+                    height: 24,
+                    animations: {
+                        enabled: false,
+                    },
+                    sparkline: {
+                        enabled: true,
+                    },
+                },
+                tooltip: {
+                    enabled: false,
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                },
+                series: [
+                    {
+                        color: "var(--tblr-primary)",
+                        data: [10, 13, 10, 4, 17, 3, 23, 22, 19],
+                    },
+                ],
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("sparkline-bounce-rate-4"), {
+                chart: {
+                    type: "line",
+                    fontFamily: "inherit",
+                    height: 24,
+                    animations: {
+                        enabled: false,
+                    },
+                    sparkline: {
+                        enabled: true,
+                    },
+                },
+                tooltip: {
+                    enabled: false,
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                },
+                series: [
+                    {
+                        color: "var(--tblr-primary)",
+                        data: [6, 15, 13, 13, 5, 7, 17, 20, 19],
+                    },
+                ],
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("sparkline-bounce-rate-5"), {
+                chart: {
+                    type: "line",
+                    fontFamily: "inherit",
+                    height: 24,
+                    animations: {
+                        enabled: false,
+                    },
+                    sparkline: {
+                        enabled: true,
+                    },
+                },
+                tooltip: {
+                    enabled: false,
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                },
+                series: [
+                    {
+                        color: "var(--tblr-primary)",
+                        data: [2, 11, 15, 14, 21, 20, 8, 23, 18, 14],
+                    },
+                ],
+            }).render();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts &&
+            new ApexCharts(document.getElementById("sparkline-bounce-rate-6"), {
+                chart: {
+                    type: "line",
+                    fontFamily: "inherit",
+                    height: 24,
+                    animations: {
+                        enabled: false,
+                    },
+                    sparkline: {
+                        enabled: true,
+                    },
+                },
+                tooltip: {
+                    enabled: false,
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                },
+                series: [
+                    {
+                        color: "var(--tblr-primary)",
+                        data: [22, 12, 7, 14, 3, 21, 8, 23, 18, 14],
+                    },
+                ],
+            }).render();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,658 @@
+[
+  {
+    "sha": "eec04eb6241ee576b8e5bcb8e4fe42c4cf1f51d2",
+    "node_id": "C_kwDOGPFraNoAKGVlYzA0ZWI2MjQxZWU1NzZiOGU1YmNiOGU0ZmU0MmM0Y2YxZjUxZDI",
+    "commit": {
+      "author": {
+        "name": "Florian CAVASIN",
+        "email": "cavasinf.info@gmail.com",
+        "date": "2025-12-09T08:40:10Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-09T08:40:10Z"
+      },
+      "message": "Add new `href` option to later replace the current `url` option (#236)\n\nCo-authored-by: CAVASIN Florian <florian@allsoftware.fr>\nCo-authored-by: Kevin Papst <kevinpapst@users.noreply.github.com>",
+      "tree": {
+        "sha": "ab2c9a8c251a5e4654cb8b6dfe8fff6621bb74c8",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/trees/ab2c9a8c251a5e4654cb8b6dfe8fff6621bb74c8"
+      },
+      "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/commits/eec04eb6241ee576b8e5bcb8e4fe42c4cf1f51d2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpN+BqCRC1aQ7uu5UhlAAAwc0QAHzYpxzC9xp1JpzkevsptmQO\nsL7yjn8j7Y0WMd/SdvpuOqjBA2vYZawyWo6jO0BDi4h1Eg+jEdgWUyqC+jT5iF03\n8s68pQXoBV9sZm9WXAQE5yOEJYvlp86yL76IhuvSzhKF7Rx8GgXKUdtR3M6jZF3T\n/yN1d50je0955l/zXcEtwrD6FWzUhxdBCzxeDG2Tf2ozjoqttYoLV0gRbr873Ief\nuB3a6pztLLn2hWDrSUbJ4hiIx/dFxMYCk7C3IWXFgx4D+fpir9ASPChpfKtqAT+0\n6lmuc+9pN49yvuEBcsGUC6Zwl81YaRUy4gGhtPusAouWL1FFx5bKc9ELfkLlyNGX\n4rogOWv+4enJupsUK6ssWL0rsn0ytep/b96ODvNdFp5/d9bSXIj0WHJA7rPTScnT\nKWoncIhXbpRNFG6k2zHb9PBhsZPbwQtuayfHl8dmXiOIH9n4DMZlyxmkouFpLm5g\nwm71ISWVBuYVXr5qnXHP2F3AHPxqAWSyqU7jGD4z7KkF8szHiFLkN4IDNom+QG/Q\nOazXQKjl+tKTp0C9emdgr2rqO/S03OmSqlDenbZ/DNbNI1jiIKYxaqX8HRyOug9u\nwIB4+ESlkKm77Kpw7Gmd5Jq0peQOgUBp7+e1we+6X1PyKQRWo9plGiFwNi4bXlAB\nQ3fFW/G+N92eX89WlX5U\n=ZtcV\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ab2c9a8c251a5e4654cb8b6dfe8fff6621bb74c8\nparent 12dbd33feac9d4afc84ec05af0fac875df634594\nauthor Florian CAVASIN <cavasinf.info@gmail.com> 1765269610 +0100\ncommitter GitHub <noreply@github.com> 1765269610 +0100\n\nAdd new `href` option to later replace the current `url` option (#236)\n\nCo-authored-by: CAVASIN Florian <florian@allsoftware.fr>\nCo-authored-by: Kevin Papst <kevinpapst@users.noreply.github.com>",
+        "verified_at": "2025-12-09T08:40:11Z"
+      }
+    },
+    "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/eec04eb6241ee576b8e5bcb8e4fe42c4cf1f51d2",
+    "html_url": "https://github.com/kevinpapst/TablerBundle/commit/eec04eb6241ee576b8e5bcb8e4fe42c4cf1f51d2",
+    "comments_url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/eec04eb6241ee576b8e5bcb8e4fe42c4cf1f51d2/comments",
+    "author": {
+      "login": "cavasinf",
+      "id": 25293190,
+      "node_id": "MDQ6VXNlcjI1MjkzMTkw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25293190?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cavasinf",
+      "html_url": "https://github.com/cavasinf",
+      "followers_url": "https://api.github.com/users/cavasinf/followers",
+      "following_url": "https://api.github.com/users/cavasinf/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cavasinf/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cavasinf/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cavasinf/subscriptions",
+      "organizations_url": "https://api.github.com/users/cavasinf/orgs",
+      "repos_url": "https://api.github.com/users/cavasinf/repos",
+      "events_url": "https://api.github.com/users/cavasinf/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cavasinf/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "12dbd33feac9d4afc84ec05af0fac875df634594",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/12dbd33feac9d4afc84ec05af0fac875df634594",
+        "html_url": "https://github.com/kevinpapst/TablerBundle/commit/12dbd33feac9d4afc84ec05af0fac875df634594"
+      }
+    ]
+  },
+  {
+    "sha": "12dbd33feac9d4afc84ec05af0fac875df634594",
+    "node_id": "C_kwDOGPFraNoAKDEyZGJkMzNmZWFjOWQ0YWZjODRlYzA1YWYwZmFjODc1ZGY2MzQ1OTQ",
+    "commit": {
+      "author": {
+        "name": "Kevin Papst",
+        "email": "kevinpapst@users.noreply.github.com",
+        "date": "2025-12-07T11:04:36Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-07T11:04:36Z"
+      },
+      "message": "Tabler 1.4 (#230)\n\n* bump tabler to 1.4\n* include marketing and themes css\n* new theme options on HTML tag\n* let asset-manager handle cache-busting\n* context-helper functions for new theme configurations\n* [badge] 2.0 (#231)\n* added config for: theme (dark/light) auto-detection\n* removed tabler_asset_version\n* fix page-header/container HTML order\n---------\nCo-authored-by: Florian CAVASIN <cavasinf.info@gmail.com>\nCo-authored-by: Cavasin F <florian@allsoftware.fr>",
+      "tree": {
+        "sha": "ae6d43348234ae6a5078c72ad8e0469675a9c89d",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/trees/ae6d43348234ae6a5078c72ad8e0469675a9c89d"
+      },
+      "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/commits/12dbd33feac9d4afc84ec05af0fac875df634594",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpNV9ECRC1aQ7uu5UhlAAA+IAQAH6kkeC25N++uCW2+xlenuMg\nUOly8InkacrqznEH3lTSqcDjwog5MZU9UyilO78iRkDIe6juJ7v22tO6wnK9Vvmz\nUe5v29RVx0AIxvMYHzB8v9mCdTe622beXbQdkggAj/PF3h7dXme6YquZITAxMmSj\nqYpAh0ih4DhhKFpms/ZVBFtko+JNyNj9BOy7aS57b+cwFx2iCFSvJFOzMuz+jOcm\n+TqjuShG6MxVJpx4FAWQXXqcYCL8DvlztZ5bJyM3d66pucrgFEu6H6Tpb8SLOMgI\nsVQtdzvdK8O29DOFk4YzTgd54h2qSF5lcmi0jRs5PUyu6XxmPLQIFCVMEvoj0DW2\nSFgVkYcg7aYg5EDuSc+C5C18cYKijnuE55X4oEgwighsbnEKkGplilxP7+slfM91\nQ29JQXkansHXlk5DxtpK9AlzQ/jpfVKB7xfMC8qN8v4izK7Owk/iEF3Ep/LQbyek\ntD4QEkzKLOC53givjxz94PkW85J0MqVlH2TjEgEPNqDSwu66wCaD8Y2hHJbA9Mne\nkzsii+re/OIfaFeKvCQGxpp2YG+qObPIay/BAE0yHmslhWm6XoNc08ZiQspbX0Zr\nVoQIIBVE0DagRyPB8PQ6GUt1OJH3VERXeO4bfYE2KGh3xz6KZ88J1ZXMx/1GujeP\nXRU/3v5zMHvCzJUT9pi7\n=XSVS\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ae6d43348234ae6a5078c72ad8e0469675a9c89d\nparent 19c67b1a85511c9619ce99590aa9f03d6236590b\nauthor Kevin Papst <kevinpapst@users.noreply.github.com> 1765105476 +0100\ncommitter GitHub <noreply@github.com> 1765105476 +0100\n\nTabler 1.4 (#230)\n\n* bump tabler to 1.4\n* include marketing and themes css\n* new theme options on HTML tag\n* let asset-manager handle cache-busting\n* context-helper functions for new theme configurations\n* [badge] 2.0 (#231)\n* added config for: theme (dark/light) auto-detection\n* removed tabler_asset_version\n* fix page-header/container HTML order\n---------\nCo-authored-by: Florian CAVASIN <cavasinf.info@gmail.com>\nCo-authored-by: Cavasin F <florian@allsoftware.fr>",
+        "verified_at": "2025-12-07T11:04:36Z"
+      }
+    },
+    "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/12dbd33feac9d4afc84ec05af0fac875df634594",
+    "html_url": "https://github.com/kevinpapst/TablerBundle/commit/12dbd33feac9d4afc84ec05af0fac875df634594",
+    "comments_url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/12dbd33feac9d4afc84ec05af0fac875df634594/comments",
+    "author": {
+      "login": "kevinpapst",
+      "id": 533162,
+      "node_id": "MDQ6VXNlcjUzMzE2Mg==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/533162?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kevinpapst",
+      "html_url": "https://github.com/kevinpapst",
+      "followers_url": "https://api.github.com/users/kevinpapst/followers",
+      "following_url": "https://api.github.com/users/kevinpapst/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kevinpapst/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kevinpapst/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kevinpapst/subscriptions",
+      "organizations_url": "https://api.github.com/users/kevinpapst/orgs",
+      "repos_url": "https://api.github.com/users/kevinpapst/repos",
+      "events_url": "https://api.github.com/users/kevinpapst/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kevinpapst/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "19c67b1a85511c9619ce99590aa9f03d6236590b",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/19c67b1a85511c9619ce99590aa9f03d6236590b",
+        "html_url": "https://github.com/kevinpapst/TablerBundle/commit/19c67b1a85511c9619ce99590aa9f03d6236590b"
+      }
+    ]
+  },
+  {
+    "sha": "19c67b1a85511c9619ce99590aa9f03d6236590b",
+    "node_id": "C_kwDOGPFraNoAKDE5YzY3YjFhODU1MTFjOTYxOWNlOTk1OTBhYTlmMDNkNjIzNjU5MGI",
+    "commit": {
+      "author": {
+        "name": "Florian CAVASIN",
+        "email": "cavasinf.info@gmail.com",
+        "date": "2025-12-06T16:08:55Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-06T16:08:55Z"
+      },
+      "message": "Remove `.row` and `.row-cards` classes from container + remove `section` element (#214)",
+      "tree": {
+        "sha": "eafa7ca0be6fed2d0ea5b6026e1f881baca6e0c8",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/trees/eafa7ca0be6fed2d0ea5b6026e1f881baca6e0c8"
+      },
+      "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/commits/19c67b1a85511c9619ce99590aa9f03d6236590b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpNFUXCRC1aQ7uu5UhlAAAqncQAIGGxIH/xHLD2Ba9LaQC5//F\nJql3Dp4BZLaGPLLkjEqrp3vyGyFK0NEZyp+swyTx37zzK2Jq+FqEoTPILCjLMhzS\nGZV2gx4QHK/2qo7z5EPg1ub3Y9cCbxBpBiFw4EaPmKmaSQ7kAgEl3Ta4TNtsTmsI\nY7i+pHxESh0XMbaeCPvPZHprq6ecur/DYrGGmn0ajCTcTcY7EZbuR8DjLQzuVkWf\nYOIFNanylzmqjSKZptMilVwiN0zTQECHLWDtmbu1Nno0FhLHZBDLbFGWwiPEHMHY\neibDrjTOCpH4z9KvNeTI4KVkOO931AUNwgC/+PpF+SItpdVhnNBOTFJlrbaJ/ehw\nT+NOYfwaQODkGoatuvY/0KF+puBT4DWl0MFmNZepq5DQxwTP5hwLEpWHo3aRsMJG\ndgVhSb3Bb7i7INq1TTun5PAS8owl6x5Ga92N2vXa/1oLOmmBnNn6jhxufgtQ1mue\nquyV8qF7hnq67DdQGyKKGXCoQblqdg+LDiMia+ch9fWWXUnSOzCMvRprHj3l02uG\noH7f3SaSSeqtqioExsuPl8qBVgmwEwoWRG3Ua26QhOXepd1wGbbJZYIP6akGnl9m\n6FNzJ9eLZdENlEQCBs9/XV3xSpd8RZqntssIKKWtpaRuHi18SIeGLe83XuVBD362\nBJdf7dHumhBS76suJnX7\n=PFoZ\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree eafa7ca0be6fed2d0ea5b6026e1f881baca6e0c8\nparent 142149ebcc67e4b3d5b32212641620a4b28e128c\nauthor Florian CAVASIN <cavasinf.info@gmail.com> 1765037335 +0100\ncommitter GitHub <noreply@github.com> 1765037335 +0100\n\nRemove `.row` and `.row-cards` classes from container + remove `section` element (#214)\n\n",
+        "verified_at": "2025-12-06T16:08:55Z"
+      }
+    },
+    "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/19c67b1a85511c9619ce99590aa9f03d6236590b",
+    "html_url": "https://github.com/kevinpapst/TablerBundle/commit/19c67b1a85511c9619ce99590aa9f03d6236590b",
+    "comments_url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/19c67b1a85511c9619ce99590aa9f03d6236590b/comments",
+    "author": {
+      "login": "cavasinf",
+      "id": 25293190,
+      "node_id": "MDQ6VXNlcjI1MjkzMTkw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25293190?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cavasinf",
+      "html_url": "https://github.com/cavasinf",
+      "followers_url": "https://api.github.com/users/cavasinf/followers",
+      "following_url": "https://api.github.com/users/cavasinf/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cavasinf/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cavasinf/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cavasinf/subscriptions",
+      "organizations_url": "https://api.github.com/users/cavasinf/orgs",
+      "repos_url": "https://api.github.com/users/cavasinf/repos",
+      "events_url": "https://api.github.com/users/cavasinf/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cavasinf/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "142149ebcc67e4b3d5b32212641620a4b28e128c",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/142149ebcc67e4b3d5b32212641620a4b28e128c",
+        "html_url": "https://github.com/kevinpapst/TablerBundle/commit/142149ebcc67e4b3d5b32212641620a4b28e128c"
+      }
+    ]
+  },
+  {
+    "sha": "142149ebcc67e4b3d5b32212641620a4b28e128c",
+    "node_id": "C_kwDOGPFraNoAKDE0MjE0OWViY2M2N2U0YjNkNWIzMjIxMjY0MTYyMGE0YjI4ZTEyOGM",
+    "commit": {
+      "author": {
+        "name": "Weblate (bot)",
+        "email": "hosted@weblate.org",
+        "date": "2025-12-06T10:58:56Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-06T10:58:56Z"
+      },
+      "message": "Update translation files (#232)\n\nCo-authored-by: Christopher Picón <ntrpc.tech@users.noreply.hosted.weblate.org>\nCo-authored-by: Mohammed “Medait” AIT ALI <medait.31@gmail.com>",
+      "tree": {
+        "sha": "bd7178c5c4574fc3ebc2a4e2b3fdc94206ef36bc",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/trees/bd7178c5c4574fc3ebc2a4e2b3fdc94206ef36bc"
+      },
+      "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/commits/142149ebcc67e4b3d5b32212641620a4b28e128c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpNAxwCRC1aQ7uu5UhlAAAefMQAGiMwtPr+CGC+xidGITXu7ie\nfttZAy4bFvq5XGYMoHtUI5W+na016HcZmm8M+/x2RlEcxpPB7T+l6T0yuql7MhLa\nVwrYreEssyvZZNUFOIVJ9VwurOoc6FvqwvFPxh/R8XwlDNRk6Hv4KAE0dsxl/btf\nbJOTBZhnL9HrjfpG5DKb9hzbwbTXlpsaU4AYJVHU483vWuWvXCfq/1Kv2HlWbzpt\n3J0XE6HThKxw0QiXaj1dSo9gYs5BxVmn4WsMjisdoZ1zo5dJkvlKKTINnE61H+ui\nrlZ3f67t62lqfcyg+sMhkoKi94f6hiyAQgdUZtuOBxxA4Tn/CTRHwA9aE7Z9/1+5\nw8Sgybe17RuIznBW+zPN4jqTZ30XKDKkjwSb2347sFsZTYu0C2M6ZeY6UFTqTOjo\nJMoGayaW+OR+Mh8yromufwyujCHBgdhdBRQSLTpkOFcrjYwuUhMKn5T7yXG4npCK\nsFMrC9/oH105dOCfAdF2btXG8NnlS/ii0Ei/lZkoblvHCIumWXNEJmpvk9s8X9Zb\nUSVTZQEfABOOr72rSfj7L6TmcMMEWL9268w4ZvodqcdHWHhxhtakneWD/+jRUDnC\nAfiwU1C4j1OtPzL+hFQ6Opi9h4Cc5ldOIHvy6Ma0xvoih3E6sueAkmMLgIq3Qjnf\nhk9AF9zlRe6tDWW2s4tw\n=bcuO\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree bd7178c5c4574fc3ebc2a4e2b3fdc94206ef36bc\nparent b88c3eba04e6e0a4881632be94d8bac83c10dbce\nauthor Weblate (bot) <hosted@weblate.org> 1765018736 +0100\ncommitter GitHub <noreply@github.com> 1765018736 +0100\n\nUpdate translation files (#232)\n\nCo-authored-by: Christopher Picón <ntrpc.tech@users.noreply.hosted.weblate.org>\nCo-authored-by: Mohammed “Medait” AIT ALI <medait.31@gmail.com>",
+        "verified_at": "2025-12-06T10:58:57Z"
+      }
+    },
+    "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/142149ebcc67e4b3d5b32212641620a4b28e128c",
+    "html_url": "https://github.com/kevinpapst/TablerBundle/commit/142149ebcc67e4b3d5b32212641620a4b28e128c",
+    "comments_url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/142149ebcc67e4b3d5b32212641620a4b28e128c/comments",
+    "author": {
+      "login": "weblate",
+      "id": 1607653,
+      "node_id": "MDQ6VXNlcjE2MDc2NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1607653?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/weblate",
+      "html_url": "https://github.com/weblate",
+      "followers_url": "https://api.github.com/users/weblate/followers",
+      "following_url": "https://api.github.com/users/weblate/following{/other_user}",
+      "gists_url": "https://api.github.com/users/weblate/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/weblate/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/weblate/subscriptions",
+      "organizations_url": "https://api.github.com/users/weblate/orgs",
+      "repos_url": "https://api.github.com/users/weblate/repos",
+      "events_url": "https://api.github.com/users/weblate/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/weblate/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b88c3eba04e6e0a4881632be94d8bac83c10dbce",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/b88c3eba04e6e0a4881632be94d8bac83c10dbce",
+        "html_url": "https://github.com/kevinpapst/TablerBundle/commit/b88c3eba04e6e0a4881632be94d8bac83c10dbce"
+      }
+    ]
+  },
+  {
+    "sha": "b88c3eba04e6e0a4881632be94d8bac83c10dbce",
+    "node_id": "C_kwDOGPFraNoAKGI4OGMzZWJhMDRlNmUwYTQ4ODE2MzJiZTk0ZDhiYWM4M2MxMGRiY2U",
+    "commit": {
+      "author": {
+        "name": "Florian CAVASIN",
+        "email": "cavasinf.info@gmail.com",
+        "date": "2025-12-06T10:57:26Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-06T10:57:26Z"
+      },
+      "message": "Remove href from disabled link-buttons (#216)",
+      "tree": {
+        "sha": "463c63a81f7c8221804fb6217b3045b439466517",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/trees/463c63a81f7c8221804fb6217b3045b439466517"
+      },
+      "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/commits/b88c3eba04e6e0a4881632be94d8bac83c10dbce",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpNAwWCRC1aQ7uu5UhlAAAiTUQAEYZvRZkm4nFp7KbAd2qiNKE\n5Qcy2AdYRV53ngm1RU0nz6w/wWZah5xEIbFhNqvwdZT1BKDorUEUm4bAvw/+F529\nOMGsKvPlIH1ZCFve9QCzoRTLddY4ijXBQifKHySqPo/SMNVJO3RdEy2D3WUa2XqM\nHf7JetMBEVmnaPMvfjtw1vd9nhvM8C97FVFeyeCLNlg6QpGuhJuBf5dEiYLLimn/\nnhpSqYvA8cuKfNrwIeVau/nW3hrm2Won1cjbIqTL39M+5k0hKKnbgsfXMNvgtebj\nn1xnF/zYneI9tkHAssPf6pel7jKqTw5BGglcUPOysAEW59i/DI861m9GBPDds2f2\nnPy871v85cxjXvwqD+pMwxJ+KHdBnDECb0YyFOzc+TDdfMITil8jREivrC0LbNLj\nHnxgMC2zXGXVvlDQX1VU/AbAbDprhI+T+q9+24BOL2VY8B169ijUkGbTyrdH9Jdk\ne9gF3yQ3Zg/rGo6gHyk0ZIXopJ861EvmHWA+qApycej4tKAc6p1tnxHefdFYzRjx\nni+NZ92zMeZHaPqcbC4lup2YfbG1ukeYG68YiAI9m02UlDPQ6GlSRExZFe1d0tY7\nXFNsGdmJtmZSRccaP/eGds+o7uEmNBLd/j6Fqb364wBRGHpTDT8Ebaq4CMiqkWaP\nCbID2dYFjW6d8zcCzeJn\n=4xrh\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 463c63a81f7c8221804fb6217b3045b439466517\nparent 94a4b5bfc5ed673a10194a010be12a1ab9de6fdf\nauthor Florian CAVASIN <cavasinf.info@gmail.com> 1765018646 +0100\ncommitter GitHub <noreply@github.com> 1765018646 +0100\n\nRemove href from disabled link-buttons (#216)\n\n",
+        "verified_at": "2025-12-06T10:57:26Z"
+      }
+    },
+    "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/b88c3eba04e6e0a4881632be94d8bac83c10dbce",
+    "html_url": "https://github.com/kevinpapst/TablerBundle/commit/b88c3eba04e6e0a4881632be94d8bac83c10dbce",
+    "comments_url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/b88c3eba04e6e0a4881632be94d8bac83c10dbce/comments",
+    "author": {
+      "login": "cavasinf",
+      "id": 25293190,
+      "node_id": "MDQ6VXNlcjI1MjkzMTkw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25293190?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cavasinf",
+      "html_url": "https://github.com/cavasinf",
+      "followers_url": "https://api.github.com/users/cavasinf/followers",
+      "following_url": "https://api.github.com/users/cavasinf/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cavasinf/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cavasinf/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cavasinf/subscriptions",
+      "organizations_url": "https://api.github.com/users/cavasinf/orgs",
+      "repos_url": "https://api.github.com/users/cavasinf/repos",
+      "events_url": "https://api.github.com/users/cavasinf/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cavasinf/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "94a4b5bfc5ed673a10194a010be12a1ab9de6fdf",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/94a4b5bfc5ed673a10194a010be12a1ab9de6fdf",
+        "html_url": "https://github.com/kevinpapst/TablerBundle/commit/94a4b5bfc5ed673a10194a010be12a1ab9de6fdf"
+      }
+    ]
+  },
+  {
+    "sha": "94a4b5bfc5ed673a10194a010be12a1ab9de6fdf",
+    "node_id": "C_kwDOGPFraNoAKDk0YTRiNWJmYzVlZDY3M2ExMDE5NGEwMTBiZTEyYTFhYjlkZTZmZGY",
+    "commit": {
+      "author": {
+        "name": "Florian CAVASIN",
+        "email": "cavasinf.info@gmail.com",
+        "date": "2025-12-06T10:46:57Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-06T10:46:57Z"
+      },
+      "message": "Add menu \"disabled\" option (#217)",
+      "tree": {
+        "sha": "7a6043a3a28edb39feb2fc4b19d922ea7b6f0ded",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/trees/7a6043a3a28edb39feb2fc4b19d922ea7b6f0ded"
+      },
+      "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/commits/94a4b5bfc5ed673a10194a010be12a1ab9de6fdf",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpNAmhCRC1aQ7uu5UhlAAA/2EQADMhRYGKVUsLBpRJiJDNQXo/\n9dvqAEgqw0WPDa/NI20SLts7a2TLQC3b03VRKjuNFKtBED0jG8IphKqcDzalMtAB\nR9/CR79MUY/7Gt8VpQx1vp111S5h1O1UetKlW3953BwmiqmJFTLkVx1lsITacRpO\njN1EOjFzENc4NXJ/dqfDs46+Tjkc1pX+zHpOLLrg3tn2okbKtDBLHCBovGBZyBDJ\nSDM8g2CI8raBsGPJ9NHUTm/smYS4Aq23fdBbGGmU0/h/ho4ByGQBZR01Z3/68GxY\nIKoth4VRxHhGfFrsvfKVzngYD2LT5d7LcVeM5gaqEh5PVdSN+vCKypfngYVx634e\nc2hy5HbmR41Kxv3T3TUe0n/Nv4qn5D/H+4ASIQMBmaiyrIThrgOaPRy//p/7l/ac\nyQ0bB/p17G+T49FKrjssM+ie/BOSMJrBWdD3naPgSH6O8AWMzRLJDRnwU2zJHC7y\nB56ocBZnrXl3wsDgfoZbZckznwDg+1t76seWi5aTlUFac8CRS0jS2GYSUiCz+eDU\njCtQuLGxlmDRyymYGLn6oSBIjT/8gE3Nxe5N1ppSgQcSOH26B4TmaFyJtyHCHTPE\nkzGiMQu8W7+GhV6aIn5k66qp1hb5o/vn7W+eWjKkTmuBnGVTFwVUbgIZruVyb6F1\nH5nfEKqx0ZwRWBWJdB/3\n=3NjG\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 7a6043a3a28edb39feb2fc4b19d922ea7b6f0ded\nparent dca106703cb69bc0b141fc2e540636f99a64794a\nauthor Florian CAVASIN <cavasinf.info@gmail.com> 1765018017 +0100\ncommitter GitHub <noreply@github.com> 1765018017 +0100\n\nAdd menu \"disabled\" option (#217)\n\n",
+        "verified_at": "2025-12-06T10:46:57Z"
+      }
+    },
+    "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/94a4b5bfc5ed673a10194a010be12a1ab9de6fdf",
+    "html_url": "https://github.com/kevinpapst/TablerBundle/commit/94a4b5bfc5ed673a10194a010be12a1ab9de6fdf",
+    "comments_url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/94a4b5bfc5ed673a10194a010be12a1ab9de6fdf/comments",
+    "author": {
+      "login": "cavasinf",
+      "id": 25293190,
+      "node_id": "MDQ6VXNlcjI1MjkzMTkw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25293190?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cavasinf",
+      "html_url": "https://github.com/cavasinf",
+      "followers_url": "https://api.github.com/users/cavasinf/followers",
+      "following_url": "https://api.github.com/users/cavasinf/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cavasinf/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cavasinf/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cavasinf/subscriptions",
+      "organizations_url": "https://api.github.com/users/cavasinf/orgs",
+      "repos_url": "https://api.github.com/users/cavasinf/repos",
+      "events_url": "https://api.github.com/users/cavasinf/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cavasinf/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "dca106703cb69bc0b141fc2e540636f99a64794a",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/dca106703cb69bc0b141fc2e540636f99a64794a",
+        "html_url": "https://github.com/kevinpapst/TablerBundle/commit/dca106703cb69bc0b141fc2e540636f99a64794a"
+      }
+    ]
+  },
+  {
+    "sha": "dca106703cb69bc0b141fc2e540636f99a64794a",
+    "node_id": "C_kwDOGPFraNoAKGRjYTEwNjcwM2NiNjliYzBiMTQxZmMyZTU0MDYzNmY5OWE2NDc5NGE",
+    "commit": {
+      "author": {
+        "name": "Kevin Papst",
+        "email": "kevinpapst@users.noreply.github.com",
+        "date": "2025-12-03T15:39:28Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-12-03T15:39:28Z"
+      },
+      "message": "Support Symfony 8 (#234)\n\n- Run CI also on PHP 8.5\n- Ignore errors on lower PHP  versions",
+      "tree": {
+        "sha": "3cae0739a6852fb8f5f071bee5cb2473ed5e329c",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/trees/3cae0739a6852fb8f5f071bee5cb2473ed5e329c"
+      },
+      "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/commits/dca106703cb69bc0b141fc2e540636f99a64794a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpMFmwCRC1aQ7uu5UhlAAA9TwQAIF0LJTtL1P0IBxZhVlPYiQT\nnlBwOaRbL1K1tl79CXHBnK307Y9EwI0dvNUlKUDohQ6kc2We1xJDFaB8KXgiuX7+\nLbip52aJaJdFadCYw0LBzEUsv1s1v1BqfZDFIud9rbsRL7s7BRdsJV+p/RW6do0f\nNvaTquDCloEUhUvlN0NZYY97G/FbS4YprVENkvsVO+xVRF1R52MECVeroe+LjaUs\nd2GSNdbvzLbVic+YW9m/u/dYMyCJooOs9Pz9PXna2icEttvQjpRfOqOhDs8GnnJS\no/zju9MV8Q+I8/bD6juqdt0YAWXvwWpFSv6nbkrF6tn8mJpLBsajlW+M1my9hAhK\nCiYIPhayGny4MjUc0JmaAARim3PBkpO6HfbbQNgqSUJL1ndGAwejE2l8CBK2N7IT\n44gDmiEydh+m+/sL94/ozPcnnd98fPE3ZX51j32cBM/1kSk1l0W0PVAdO4/J0uJw\nwzucgWAJ3loEyQdvmN4aeAZQcSHtIJZWe+ls6Y8ciU3QRBFUX6P6N3XmfcOE0Q8t\njr/SYfK3HGVbqV0p8n/0nTQDfwq+OnREWgeUwxuG7lJJMFhChD1kO8zFzNNynaPM\nvhgapmtj8/R/yzshJOFb5O78UkuLiRxQf9O7+n/R2rMrgQP1c1Sshj293WBx35bk\nhFyWjFwbQXQrLaRvwd94\n=QSSG\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 3cae0739a6852fb8f5f071bee5cb2473ed5e329c\nparent 69bd6bc20429fc24225c5304a982018b30cee652\nauthor Kevin Papst <kevinpapst@users.noreply.github.com> 1764776368 +0100\ncommitter GitHub <noreply@github.com> 1764776368 +0100\n\nSupport Symfony 8 (#234)\n\n- Run CI also on PHP 8.5\n- Ignore errors on lower PHP  versions\n",
+        "verified_at": "2025-12-03T15:39:29Z"
+      }
+    },
+    "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/dca106703cb69bc0b141fc2e540636f99a64794a",
+    "html_url": "https://github.com/kevinpapst/TablerBundle/commit/dca106703cb69bc0b141fc2e540636f99a64794a",
+    "comments_url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/dca106703cb69bc0b141fc2e540636f99a64794a/comments",
+    "author": {
+      "login": "kevinpapst",
+      "id": 533162,
+      "node_id": "MDQ6VXNlcjUzMzE2Mg==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/533162?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kevinpapst",
+      "html_url": "https://github.com/kevinpapst",
+      "followers_url": "https://api.github.com/users/kevinpapst/followers",
+      "following_url": "https://api.github.com/users/kevinpapst/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kevinpapst/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kevinpapst/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kevinpapst/subscriptions",
+      "organizations_url": "https://api.github.com/users/kevinpapst/orgs",
+      "repos_url": "https://api.github.com/users/kevinpapst/repos",
+      "events_url": "https://api.github.com/users/kevinpapst/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kevinpapst/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "69bd6bc20429fc24225c5304a982018b30cee652",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/69bd6bc20429fc24225c5304a982018b30cee652",
+        "html_url": "https://github.com/kevinpapst/TablerBundle/commit/69bd6bc20429fc24225c5304a982018b30cee652"
+      }
+    ]
+  },
+  {
+    "sha": "69bd6bc20429fc24225c5304a982018b30cee652",
+    "node_id": "C_kwDOGPFraNoAKDY5YmQ2YmMyMDQyOWZjMjQyMjVjNTMwNGE5ODIwMThiMzBjZWU2NTI",
+    "commit": {
+      "author": {
+        "name": "Weblate (bot)",
+        "email": "hosted@weblate.org",
+        "date": "2025-11-17T20:47:32Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-11-17T20:47:32Z"
+      },
+      "message": "Translated using Weblate (#227)\n\nCo-authored-by: GD <guillaume.debat65@gmail.com>\nCo-authored-by: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\nCo-authored-by: Levente Déri <derilevi@gmail.com>\nCo-authored-by: Martin Maslyankov <m.maslyankov@me.com>\nCo-authored-by: Milo Ivir <mail@milotype.de>\nCo-authored-by: Parms <shoppingpar+weblate@simplelogin.com>\nCo-authored-by: Ryohei Morimoto <caulked.thorax_3l@icloud.com>\nCo-authored-by: mostafa <m2-vision@users.noreply.hosted.weblate.org>",
+      "tree": {
+        "sha": "3bfad42eab578055740fa9b4795ca74f3bf7ba2c",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/trees/3bfad42eab578055740fa9b4795ca74f3bf7ba2c"
+      },
+      "url": "https://api.github.com/repos/kevinpapst/TablerBundle/git/commits/69bd6bc20429fc24225c5304a982018b30cee652",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpG4nkCRC1aQ7uu5UhlAAAEg0QADJeng7ZpnYK+yZlM4qXoxLm\nosixCcAZxPJG6f7q3+6uLKGSb0Zr8/MUvSut+uYS9CEX7IDP5yaXIIe+xKm/PPIz\nrH5Dv3Yb3MItjkJiAYMYnKbw69T30k7cF9vB1eoLh+ToVxLKzZcbehU3Gmi/xb7W\nXA3pgJ03oykqyHMmlZvP+eHVdR+peEPejnfFgoFBXw2/c/uSbWyGOrY5vsuPbFP2\nNjMFTAaG7J+5fGhoYLC9IUpJCTfT/iQjzvw3xU7vELLbjJTjIYjAFOIUaiF+BSEU\nDOFoI8zfKHwkactBuTKthW6OooWpQnhDtx6uZEwwl/l1rjWj2/nlYMpjwLjqtfSG\nXCot5F6kdiIls2/v7zhNkyItfiGXLVrk1DVGMQ9r0HRnd/YqNKxVwm6VZ0ngMUvX\ngEPMk/dA/s+Aif95dgfmkV8IPOTZNy99w9WJD2w7W1YbL8M6OYV7lFkGMUh6Jbul\nspsAj4/hjBIeQy5g6kBX5ung0dkTdcq6tRB7qvB9ExBnMMl0CYDLbHm6E8yijfID\nKTkRbYTHSbMXO6lhIbMOJPlicGqZ/iyHblGO7qMuONoSDP9mIXQGJVla1fO6bSfn\n12IBRTvPMm6HT0wVS1jQ6EHBguJmGSp+brf1gkx0J6AHqzHzx57bYrz8QIYDjc8y\nDnLjF/G1rpORSglKkD86\n=4gJc\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 3bfad42eab578055740fa9b4795ca74f3bf7ba2c\nparent 9da192b802bdf87d1200a9c47a6c68fe99a4fce9\nauthor Weblate (bot) <hosted@weblate.org> 1763412452 +0100\ncommitter GitHub <noreply@github.com> 1763412452 +0100\n\nTranslated using Weblate (#227)\n\nCo-authored-by: GD <guillaume.debat65@gmail.com>\nCo-authored-by: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\nCo-authored-by: Levente Déri <derilevi@gmail.com>\nCo-authored-by: Martin Maslyankov <m.maslyankov@me.com>\nCo-authored-by: Milo Ivir <mail@milotype.de>\nCo-authored-by: Parms <shoppingpar+weblate@simplelogin.com>\nCo-authored-by: Ryohei Morimoto <caulked.thorax_3l@icloud.com>\nCo-authored-by: mostafa <m2-vision@users.noreply.hosted.weblate.org>",
+        "verified_at": "2025-11-17T20:47:33Z"
+      }
+    },
+    "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/69bd6bc20429fc24225c5304a982018b30cee652",
+    "html_url": "https://github.com/kevinpapst/TablerBundle/commit/69bd6bc20429fc24225c5304a982018b30cee652",
+    "comments_url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/69bd6bc20429fc24225c5304a982018b30cee652/comments",
+    "author": {
+      "login": "weblate",
+      "id": 1607653,
+      "node_id": "MDQ6VXNlcjE2MDc2NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1607653?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/weblate",
+      "html_url": "https://github.com/weblate",
+      "followers_url": "https://api.github.com/users/weblate/followers",
+      "following_url": "https://api.github.com/users/weblate/following{/other_user}",
+      "gists_url": "https://api.github.com/users/weblate/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/weblate/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/weblate/subscriptions",
+      "organizations_url": "https://api.github.com/users/weblate/orgs",
+      "repos_url": "https://api.github.com/users/weblate/repos",
+      "events_url": "https://api.github.com/users/weblate/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/weblate/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9da192b802bdf87d1200a9c47a6c68fe99a4fce9",
+        "url": "https://api.github.com/repos/kevinpapst/TablerBundle/commits/9da192b802bdf87d1200a9c47a6c68fe99a4fce9",
+        "html_url": "https://github.com/kevinpapst/TablerBundle/commit/9da192b802bdf87d1200a9c47a6c68fe99a4fce9"
+      }
+    ]
+  }
+]
