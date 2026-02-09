@@ -32,7 +32,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
     public function onSetupNavbar(MenuEvent $event): void
     {
         $event->addItem(
-            new MenuItemModel('homepage', 'homepage', 'homepage', [], 'fas fa-tachometer-alt')
+            new MenuItemModel('homepage', 'homepage', 'homepage', [], 'tabler:home')
         );
 
         $forms = new MenuItemModel('forms', 'Forms', null, [], 'fab fa-wpforms');
@@ -106,6 +106,12 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
         $docu = new MenuItemModel('documentation', 'Documentation', 'documentation', [], 'far fa-file-alt');
         $docu->setBadgeColor('blue');
         $event->addItem($docu);
+
+        $addons = new MenuItemModel('addons', 'Addons');
+        $addons->addChild(
+            new MenuItemModel('icons', 'Icons', 'icons')
+        );
+        $event->addItem($addons);
 
         if (!$this->security->isGranted('IS_AUTHENTICATED')) {
             $event->addItem(

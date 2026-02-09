@@ -21,6 +21,7 @@
         "symfony/stopwatch": "^6.4",
         "symfony/translation": "^6.4",
         "symfony/twig-bundle": "^6.4",
+        "symfony/ux-icons": "^2.32",
         "symfony/validator": "^6.4",
         "symfony/webpack-encore-bundle": "^2.0",
         "symfony/yaml": "^6.4"
