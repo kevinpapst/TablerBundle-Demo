@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25e43ffe5281a1b623d5bd8db124295c",
+    "content-hash": "b14cf579d22521e61aba6ca074d8b506",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -58,16 +58,16 @@
         },
         {
             "name": "kevinpapst/tabler-bundle",
-            "version": "dev-main",
+            "version": "dev-feat-188-image-check",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kevinpapst/TablerBundle.git",
-                "reference": "6a3942ea16c97e8163bf20b9a24f4263ce6d8bd7"
+                "url": "https://github.com/Amoifr/TablerBundle.git",
+                "reference": "f3fe556e6fee696dc045420e27fc149851107732"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/6a3942ea16c97e8163bf20b9a24f4263ce6d8bd7",
-                "reference": "6a3942ea16c97e8163bf20b9a24f4263ce6d8bd7",
+                "url": "https://api.github.com/repos/Amoifr/TablerBundle/zipball/f3fe556e6fee696dc045420e27fc149851107732",
+                "reference": "f3fe556e6fee696dc045420e27fc149851107732",
                 "shasum": ""
             },
             "require": {
@@ -93,19 +93,38 @@
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "phpstan/phpstan-symfony": "^2.0",
                 "phpunit/phpunit": "^9.0",
+                "symfony/form": "^6.0 || ^7.0 || ^8.0",
                 "symfony/framework-bundle": "^6.0 || ^7.0 || ^8.0"
             },
             "suggest": {
                 "knplabs/knp-menu-bundle": "Allows easy menu integration"
             },
-            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
                     "KevinPapst\\TablerBundle\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "KevinPapst\\TablerBundle\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "tests": [
+                    "vendor/bin/phpunit tests/"
+                ],
+                "phpstan": [
+                    "vendor/bin/phpstan analyse -c phpstan.neon src/",
+                    "vendor/bin/phpstan analyse -c tests/phpstan.neon tests/"
+                ],
+                "codestyle": [
+                    "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none"
+                ],
+                "codestyle-fix": [
+                    "vendor/bin/php-cs-fixer fix"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -117,20 +136,19 @@
             ],
             "description": "Admin/Backend theme bundle for Symfony based on Tabler.io",
             "support": {
-                "issues": "https://github.com/kevinpapst/TablerBundle/issues",
-                "source": "https://github.com/kevinpapst/TablerBundle/tree/main"
+                "source": "https://github.com/Amoifr/TablerBundle/tree/feat-188-image-check"
             },
             "funding": [
                 {
-                    "url": "https://paypal.me/kevinpapst",
-                    "type": "custom"
+                    "type": "github",
+                    "url": "https://github.com/kevinpapst"
                 },
                 {
-                    "url": "https://github.com/kevinpapst",
-                    "type": "github"
+                    "type": "custom",
+                    "url": "https://paypal.me/kevinpapst"
                 }
             ],
-            "time": "2025-12-19T17:20:55+00:00"
+            "time": "2026-10-27T14:56:14+00:00"
         },
         {
             "name": "knplabs/knp-menu",
@@ -6299,7 +6317,14 @@
             "time": "2025-10-05T13:55:43+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "kevinpapst/tabler-bundle",
+            "version": "dev-feat-188-image-check",
+            "alias": "dev-main",
+            "alias_normalized": "dev-main"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "kevinpapst/tabler-bundle": 20
@@ -6311,5 +6336,5 @@
     "platform-overrides": {
         "php": "8.1"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
