@@ -58,6 +58,12 @@ class FormDemoModelType extends AbstractType
             'Hot dog with mustard' => 'choice9',
         ];
 
+        $images = [
+            'Good info' => 'good-info.svg',
+            'Become a sponsor' => 'become-sponsor.svg',
+            'Appreciation' => 'undraw_appreciation.png',
+        ];
+
         $builder
             ->add('name', TextType::class, [
                 'help' => 'This needs to be at least 3 character',
@@ -90,6 +96,23 @@ class FormDemoModelType extends AbstractType
                 'multiple' => true,
                 'required' => true,
                 'help' => 'Choose whatever you like',
+            ])
+            ->add('imageCheck', ChoiceType::class, [
+                'choices' => $images,
+                'expanded' => true,
+                'required' => false,
+                'block_prefix' => 'tabler_imagecheck',
+                'choice_attr' => fn (string $image) => ['data-image' => '/images/' . $image],
+                'help' => 'Radios rendered as image checks',
+            ])
+            ->add('imageCheckMultiple', ChoiceType::class, [
+                'choices' => $images + ['No image' => 'none'],
+                'expanded' => true,
+                'multiple' => true,
+                'required' => false,
+                'block_prefix' => 'tabler_imagecheck',
+                'choice_attr' => fn (string $image) => 'none' === $image ? [] : ['data-image' => '/images/' . $image],
+                'help' => 'Checkboxes rendered as image checks, the last choice has no image and shows its label',
             ])
             ->add('username', TextType::class, [
                 'required' => false,
